@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --login-card-bg-color: rgba(224, 224, 224, 255);
+}
+
+
+.login-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  height: 400px;
+  background-color: var(--login-card-bg-color);
+  border-radius: 8px;
+  box-shadow: 6px 6px 7px rgba(120, 120, 120, 0.9);
+}
+
+.social-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.login-social-buttons{
+  border: solid 1px red;
+
+}
+
+.login-card-title {
+  font-weight: bold;
+  font-size: 45px;
+}
+
