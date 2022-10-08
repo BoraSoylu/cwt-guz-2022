@@ -34,17 +34,43 @@ body {
   border-radius: 100%;
 }
 
+.login-social-buttons {
+  width: 135px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#google:hover {
+  color: white;
+  background-color: red;
+}
+
+#fb:hover,
+#linkedin:hover {
+  color: white;
+  background-color: darkgreen;
+  border: solid 2px white;
+}
+
+.form-input-field:focus{
+  outline: none;
+}
+
+.submit-button:hover {
+  background-color: darkgreen;
+  color: white;
+}
+
 #google {
   border: solid 2px red;
   color: red;
 }
 
-#linkedin, #fb {
+#linkedin,
+#fb {
   border: solid 2px blue;
   color: blue;
 }
-
-.login-social-buttons {}
 
 .login-card-title {
   font-weight: bold;
