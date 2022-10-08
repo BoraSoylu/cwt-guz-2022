@@ -34,13 +34,46 @@ body {
   border-radius: 100%;
 }
 
-.login-social-buttons{
-  border: solid 1px red;
-
+#google {
+  border: solid 2px red;
+  color: red;
 }
+
+#linkedin, #fb {
+  border: solid 2px blue;
+  color: blue;
+}
+
+.login-social-buttons {}
 
 .login-card-title {
   font-weight: bold;
   font-size: 45px;
 }
 
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.form-input-field {
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 3px;
+}
+
+.submit-button {
+  width: 350px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  padding-left: 3px;
+  border: solid 1px;
+  background-color: greenyellow;
+  border: solid 2px black;
+}
