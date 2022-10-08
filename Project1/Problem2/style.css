@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+.title {
+  width: fit-content;
+}
+
+.site-container {
+  width: 75vw;
+  height: 100vh;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15vh;
+}
+
+
+.recipe-card-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.recipe-card {
+  height: 290px;
+  width: 45%;
+  border: solid 1px red;
+}
+
+.card-image {
+  height: 290px;
+}
+
+#curry-img{
+  background-image: url(../Project1-Images/curry.jpg);
+}
+
+#stew-img{
+  background-image: url(../Project1-Images/stew.jpg);
+}
+
+#curry-img, #stew-img{
+  background-size: cover;
+  height: 230px;
+  width: 100%;
+}
