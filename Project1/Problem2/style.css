@@ -69,6 +69,7 @@ body {
 
 .card-image {
   height: var(--card-img-height);
+  border-radius: 8px 8px 0px 0px;
 }
 
 #curry-img {
