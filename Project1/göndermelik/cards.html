@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <!-- .site-container>p.title+.recipe-card-container>(.recipe-card>.card-image>.time^.card-info-container>.recipe-title-author-container>p.recipe-title+p.recipe-author^btn.details-button)*2 -->
+  <div class="site-container">
+    <p class="title">Recipes</p>
+    <div class="recipe-card-container">
+      <div class="recipe-card">
+        <div class="image-container">
+          <img src="../Project1-Images/stew.jpg" alt="image of a bowl of chili stew with a spoon in it"
+            class="card-image" id="stew-img"></img>
+          <div class="time"><i class="material-icons">access_time</i> 25 MINS</div>
+        </div>
+        <div class="card-info-container">
+          <div class="recipe-title-author-container">
+            <p class="recipe-title">5 Bean Chili Stew</p>
+            <p class="recipe-author">Recipe by Bora</p>
+          </div>
+          <button class="details-button">Details</button>
+        </div>
+      </div>
+      <div class="recipe-card">
+        <div class="image-container">
+          <img src="../Project1-Images/curry.jpg" alt="image of a tofu curry in a bowl" class="card-image"
+            id="curry-img"></img>
+          <div class="time"><i class="material-icons">access_time</i> 40 MINS</div>
+        </div>
+        <div class="card-info-container">
+          <div class="recipe-title-author-container">
+            <p class="recipe-title">Tofu Curry</p>
+            <p class="recipe-author">Recipe by Ozan</p>
+          </div>
+          <button class="details-button">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<style>
+  body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  :root {
+    --card-height: 290px;
+    --card-img-height: 230px;
+  }
+
+  .material-icons {
+    margin-right: 3px;
+  }
+
+  .title {
+    width: fit-content;
+  }
+
+  .site-container {
+    width: 75vw;
+    height: 100vh;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 11vh;
+  }
+
+  .title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .recipe-card-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+
+
+  .recipe-card {
+    height: var(--card-height);
+    width: 45%;
+    box-shadow: 6px 6px 7px rgba(120, 120, 120, 0.9);
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  .image-container {
+    position: relative;
+  }
+
+  .time {
+    color: rgb(73, 73, 73);
+    background-color: rgba(225, 225, 209, 0.95);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 4px 2px 4px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+
+  .card-image {
+    height: var(--card-img-height);
+    border-radius: 8px 8px 0px 0px;
+  }
+
+
+  #curry-img,
+  #stew-img {
+    height: 230px;
+    width: 100%;
+  }
+
+  .card-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(var(--card-height) - var(--card-img-height));
+  }
+
+  .recipe-title-author-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+  }
+
+  .details-button {
+    margin-right: 3%;
+  }
+
+  .recipe-title {
+    font-weight: bold;
+  }
+
+  .recipe-author {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .details-button {
+    background-color: rgba(0, 0, 255, 0.1);
+    padding: 4px;
+    border: 1px solid rgba(0, 0, 255, 0.65);
+    color: rgba(0, 0, 255, 0.65);
+    ;
+    border-radius: 5px;
+  }
+
+  .details-button:hover {
+    color: white;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+
+</html>

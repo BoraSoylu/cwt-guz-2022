@@ -44,12 +44,17 @@ body {
   width: 100%;
 }
 
+
+
 .recipe-card {
   height: var(--card-height);
   width: 45%;
   box-shadow: 6px 6px 7px rgba(120, 120, 120, 0.9);
   border-radius: 8px;
   background-color: white;
+}
+.image-container{
+  position: relative;
 }
 
 .time {
@@ -62,10 +67,9 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2px 4px 2px 4px;
-  position:relative;
+  position:absolute;
   top: 15px;
   left: 15px;
-  
 }
 
 .card-image {
@@ -73,17 +77,9 @@ body {
   border-radius: 8px 8px 0px 0px;
 }
 
-#curry-img {
-  background-image: url(../Project1-Images/curry.jpg);
-}
-
-#stew-img {
-  background-image: url(../Project1-Images/stew.jpg);
-}
 
 #curry-img,
 #stew-img {
-  background-size: cover;
   height: 230px;
   width: 100%;
 }
