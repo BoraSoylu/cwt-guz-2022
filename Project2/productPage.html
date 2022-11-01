@@ -8,26 +8,252 @@
   <title>productPage</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
+  :root {
+    --product-details-fs: calc(8px + 0.5vw);
+    --title-brand-fs: calc(15px + 0.1vw);
+    --price-fs: calc(20px + 2vw);
+    --currency-fs: calc(15px + 1.2vw);
+    --rating-fs: calc(15px + 0.1vw);
+    --stars-fs: calc(15px + 0.1vw);
+    --reviews-fs: calc(15px + 0.1vw);
+    --installment-fs: calc(15px + 0.1vw);
+    --seller-fs: calc(15px + 0.1vw);
+    --discount-promotion-fs: calc(15px + 0.1vw);
+    --amount-fs: calc(15px + 0.1vw);
+    --add-to-cart-fs: calc(15px + 0.1vw);
+    --switch-old-new-fs: calc(15px + 0.1vw);
+    --delivery-options-fs: calc(15px + 0.1vw);
+    --delivery-optiov-fs: calc(15px + 0.1vw);
+    --delivery-time-fs: calc(15px + 0.1vw);
+    --other-sellers-fs: calc(15px + 0.1vw);
+    --other-seller-name-fs: calc(15px + 0.1vw);
+    --other-seller-delivery-time-fs: calc(15px + 0.1vw);
+    --other-seller-price-fs: calc(15px + 0.1vw);
+
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   body {
-    height: 100vh;
+    display: flex;
+
   }
 
-  .class1 {
-    background: linear-gradient(rgb(40, 42, 53, 0.90), rgb(40, 42, 53,
-          0.90)), url('./Project2-Images/P1-img/bg-img.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    color: white;
+  h1,
+  a {
+    font-size: var(--title-brand-fs);
+    margin: 0;
   }
 
 
+
+  p {
+    font-size: var(--product-details-fs);
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+    /* no underline */
+    font-weight: 600;
+  }
+
+  main>.row {}
+
+  main>.row>.left {}
+
+  main>.row>.right {
+    background-color: #f5f5f5;
+    padding: 2%;
+  }
+
+  .product-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .product-details>div {
+    border-top: 1px solid rgb(237, 231, 231);
+    width: 45%;
+    padding-top: 5%;
+  }
+
+  .product-details-left {
+    margin-left: 2%;
+  }
+
+  .product-details-right {}
+
+  .detail {
+    display: grid;
+    grid-template-columns: 60% 20%;
+  }
+
+  .feature-name {
+    font-weight: 500;
+  }
+
+  .product-price-rating {
+    width: 100%;
+  }
+
+  .product-name {}
+
+  .full {
+    color: orange;
+  }
+
+  .empty {
+    color: #bebebe;
+  }
+
+  .half {
+    color: orange;
+  }
+
+  .half-star-wrapper {
+    position: relative;
+  }
+
+  .half-star-wrapper>.empty {
+    position: absolute;
+    z-index: 0;
+
+  }
+
+  .half-star-wrapper>.half {
+    position: absolute;
+    z-index: 1;
+
+  }
+
+  .stars {
+    display: flex;
+  }
+
+  .rating-stars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rating-stars>p {
+    font-size: var(--rating-fs);
+    margin: 0px;
+    margin-right: 1vw;
+  }
+
+  .price {
+    font-weight: bold;
+    font-size: var(--price-fs);
+  }
+
+  .currency {
+    font-weight: bold;
+    font-size: var(--currency-fs);
+  }
+
+  .rating {
+    font-size: var(--rating-fs);
+  }
+
+  .start {
+    size: var(--stars-fs);
+  }
+
+  .reviews {
+    font-size: var(--reviews-fs);
+  }
+
+  .installment {
+    font-size: var(--installment-fs);
+  }
+
+
+
+  product-detail @media (min-width: 992px) {}
 </style>
 
 <body>
-  
+  <main class="container">
+    <div class="row">
+      <div class="col col-12 col-lg-6 left">
+        <div class="product-img text-center"><img class="img-fluid" src="./Project2-Images/P2-img/kulaklik.jfif"></div>
+        <div class="product-details">
+          <div class="product-details-left">
+            <div class="detail">
+              <p class="feature-name">Çift Telefon Desteği</p>
+              <p class="feature-support">Yok</p>
+            </div>
+            <div class="detail">
+              <p class="feature-name">Suya & Tere Dayanıklı</p>
+              <p class="feature-support">Hayır</p>
+            </div>
+            <div class="detail">
+              <p class="feature-name">Kullanım Tipi</p>
+              <p class="feature-support">Kulakiçi</p>
+            </div>
+          </div>
+          <div class="product-details-right">
+            <div class="detail">
+              <p class="feature-name">Bluetooth Versiyon</p>
+              <p class="feature-support">5.0</p>
+            </div>
+            <div class="detail">
+              <p class="feature-name">Aktif Gürültü Öneleme <br> (ANC)</p>
+              <p class="feature-support">Yok</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col col-12 col-lg-6 right">
+        <h1 class="product-name d-none d-lg-block">
+          TWS i12 Bluetooth 5.0 Kulaklık - Şarj Üniteli
+        </h1>
+        <a class="d-none d-lg-block" href="">TWS</a>
+        <div class="product-top-info-wrapper">
+          <div class="product-price-rating d-flex justify-content-between">
+            <div class="product-price d-flex align-items-baseline">
+              <p class="price me-2">115,00</p>
+              <p class="currency">TL</p>
+            </div>
+            <div class="product-rating">
+              <div class="rating-stars">
+                <p class="rating">3,5</p>
+                <div class="stars">
+                  <i class="fa fa-solid fa-star full"></i>
+                  <i class="fa fa-solid fa-star full"></i>
+                  <i class="fa fa-solid fa-star full"></i>
+                  <div class="half-star-wrapper">
+                    <i class="fa fa-solid fa-star empty"></i>
+                    <i class="fa fa-solid fa-star-half half"></i>
+                  </div>
+                  <i class="fa fa-solid fa-star empty"></i>
+                  <i class="fa fa-solid fa-star empty"></i>
+                </div>
+              </div>
+              <p class="reviews">7460 Değerlendirme</p>
+            </div>
+          </div>
+          <p class="installment">19 TL x 6 aya varan <b>Taksitle</b> </p>
+          <div class="seller-info-wrapper">
+            <div class="seller-name-wrapper d-flex">
+              <p class="seller">Satıcı:</p>
+              <a class="seller-name" href="">SFIT TEKNOLOJI ...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
