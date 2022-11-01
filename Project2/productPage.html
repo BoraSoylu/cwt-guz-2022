@@ -369,6 +369,55 @@
     font-size: var(--like-add-compare);
   }
 
+  .delivery-options-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* grid has two columns; content defines width */
+    justify-content: space-between;
+    /* horizontal alignment of grid tracks */
+    align-content: space-between;
+    /* vertical alignment of grid tracks */
+    height: 116px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .delivery-options-wrapper {
+    padding: 10px;
+  }
+
+  .option-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .delivery-options-text {
+    font-weight: bold;
+    font-size: var(--delivery-options-fs);
+  }
+
+  .option-title {
+    font-size: var(--delivery-options-fs);
+  }
+
+  .option-delivery-date {
+    font-size: var(--delivery-time-fs);
+    color: #484848;
+    font-weight: 350;
+  }
+
+  .loc-btn {
+    border: none;
+    background-color: #ffefe5;
+    color: #ff6000;
+    font: 600;
+    width: 86px;
+    height: 27px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
 
 
   product-detail @media (min-width: 992px) {}
@@ -452,38 +501,52 @@
             </div>
           </div>
           <p class="py-3 buy-one-get-discount">Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10 İndirimli!</p>
-          <div class="add-to-cart-wrapper">
-            <div class="add-to-cart-amount-wrapper d-flex">
-              <button class="minus">-</button>
-              <div class="amount-display">1 <br>Adet</div>
-              <button class="plus">+</button>
-            </div>
-            <button class="add-to-card-big-btn">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              <p class="add-to-cart-btn-text">Sepete Ekle</p>
-            </button>
+        </div>
+        <div class="add-to-cart-wrapper">
+          <div class="add-to-cart-amount-wrapper d-flex">
+            <button class="minus">-</button>
+            <div class="amount-display">1 <br>Adet</div>
+            <button class="plus">+</button>
           </div>
-          <div class="swap-wrapper justify-content-between">
-            <div class="swap-text">Eski ürünü yenisi ile değiştirmek ister misin?</div>
-            <div class="swap-btn-wrapper d-flex">
-              <div class="question-mark">?</div>
-              <div class="faydalan-btn">Faydalan</div>
-            </div>
+          <button class="add-to-card-big-btn">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <p class="add-to-cart-btn-text">Sepete Ekle</p>
+          </button>
+        </div>
+        <div class="swap-wrapper justify-content-between">
+          <div class="swap-text">Eski ürünü yenisi ile değiştirmek ister misin?</div>
+          <div class="swap-btn-wrapper d-flex">
+            <div class="question-mark">?</div>
+            <div class="faydalan-btn">Faydalan</div>
           </div>
-          <div class="like-add-compare-wrapper">
-            <div class="like-wrapper">
-              <i class="fa fa-regular fa-heart"></i>
-              <p class="m-0 p-3">Beğen</p>
-            </div>
-            <div class="add-wrapper">
-              <i class="fa fa-regular fa-bookmark"></i>
-              <p class="m-0 p-3">Listeme Ekle</p>
-            </div>
-            <div class="compare-wrapper">
-              <i class="fa fa-regular fa-bookmark"></i>
-              <p class="m-0 p-3">Karşılaştır</p>
-            </div>
+        </div>
+        <div class="like-add-compare-wrapper">
+          <div class="like-wrapper">
+            <i class="fa fa-regular fa-heart"></i>
+            <p class="m-0 p-3">Beğen</p>
           </div>
+          <div class="add-wrapper">
+            <i class="fa fa-regular fa-bookmark"></i>
+            <p class="m-0 p-3">Listeme Ekle</p>
+          </div>
+          <div class="compare-wrapper">
+            <i class="fa fa-regular fa-bookmark"></i>
+            <p class="m-0 p-3">Karşılaştır</p>
+          </div>
+        </div>
+        <div class="delivery-options-wrapper">
+          <!-- <div class="upper-wrapper"> -->
+          <p class="delivery-options-text">Teslimat seçenekleri</p>
+          <button class="loc-btn"><i class="fa fa-map-marker" aria-hidden="true"></i>
+            Konum seç</button>
+          <!-- </div> -->
+          <!-- <div class="delıvery-option1"> -->
+          <div class="option-text-wrapper">
+            <p class="option-title m-0 fw-semibold">Standart teslimat</p>
+            <p class="option-delivery-date m-0">En geç <b class="fw-semibold">14 Ekim Cuma</b> günü kargoda</p>
+          </div>
+          <div class="option-logo">HEPSIJET LOGO</div>
+          <!-- </div> -->
         </div>
       </div>
 
