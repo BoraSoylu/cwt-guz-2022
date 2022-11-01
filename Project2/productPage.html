@@ -20,7 +20,7 @@
     --stars-fs: calc(15px + 0.1vw);
     --reviews-fs: calc(15px + 0.1vw);
     --installment-fs: calc(15px + 0.1vw);
-    --seller-fs: calc(15px + 0.1vw);
+    --seller-fs: calc(8px + 0.4vw);
     --discount-promotion-fs: calc(15px + 0.1vw);
     --amount-fs: calc(15px + 0.1vw);
     --add-to-cart-fs: calc(15px + 0.1vw);
@@ -175,6 +175,42 @@
     font-size: var(--installment-fs);
   }
 
+  .seller-info-wrapper {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 5px;
+    width: fit-content;
+
+  }
+
+  .seller-info-wrapper>div>* {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .seller-info-wrapper>div {
+    border-right: solid 1px #bebebe;
+  }
+
+  .seller-info-wrapper>div>* {
+    font-size: var(--seller-fs);
+  }
+  .seller-info-wrapper>div>p {
+    font-size: var(--seller-fs);
+    color: #919191;
+  }
+
+  .puan-box {
+    background-color: #40ad40;
+    border-radius: 5px;
+  }
+
+
 
 
   product-detail @media (min-width: 992px) {}
@@ -245,8 +281,16 @@
           <p class="installment">19 TL x 6 aya varan <b>Taksitle</b> </p>
           <div class="seller-info-wrapper">
             <div class="seller-name-wrapper d-flex">
-              <p class="seller">Satıcı:</p>
-              <a class="seller-name" href="">SFIT TEKNOLOJI ...</a>
+              <p class="seller me-1">Satıcı:</p>
+              <a class="seller-name me-2" href="">SFIT TEKNOLOJI ...</a>
+            </div>
+            <div class="seller-points-wrapper d-flex">
+              <p class="mx-1">Puan</p>
+              <div class="puan-box px-3 mx-2">9,4</div>
+            </div>
+            <div class="seller-promotions-wrapper d-flex border-0">
+              <p>Kampanyaları Gör</p>
+              <div class="promotios-icon">3</div>
             </div>
           </div>
         </div>
