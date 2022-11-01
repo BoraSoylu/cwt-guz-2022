@@ -25,8 +25,9 @@
     --amount-fs: calc(15px + 0.1vw);
     --add-to-cart-fs: 24px;
     --switch-old-new-fs: calc(15px + 0.1vw);
+    --like-add-compare: calc(24px);
     --delivery-options-fs: calc(15px + 0.1vw);
-    --delivery-optiov-fs: calc(15px + 0.1vw);
+    --delivery-option-fs: calc(15px + 0.1vw);
     --delivery-time-fs: calc(15px + 0.1vw);
     --other-sellers-fs: calc(15px + 0.1vw);
     --other-seller-name-fs: calc(15px + 0.1vw);
@@ -311,7 +312,8 @@
     padding: 18px 16px 18px 16px;
     margin-top: 10px;
   }
-  .question-mark{
+
+  .question-mark {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -324,7 +326,8 @@
     border-radius: 50%;
     background: #fff;
   }
-  .faydalan-btn{
+
+  .faydalan-btn {
     background: #fff;
     border: 1px solid #dadada;
     box-sizing: border-box;
@@ -336,9 +339,34 @@
     padding: 6px 7px;
     margin-left: 13px;
   }
-  .swap-btn-wrapper{
+
+  .swap-btn-wrapper {
     justify-content: center;
     align-items: center;
+  }
+
+  .like-add-compare-wrapper {
+    display: flex;
+    text-align: center;
+    border-bottom: 1px solid #bebebe;
+  }
+
+  .like-add-compare-wrapper>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+
+  .like-add-compare-wrapper>div>.fa {
+    font-weight: none;
+    font-size: var(--like-add-compare);
+
+  }
+
+  .like-add-compare-wrapper>div>* {
+    font-size: var(--like-add-compare);
   }
 
 
@@ -445,15 +473,15 @@
           <div class="like-add-compare-wrapper">
             <div class="like-wrapper">
               <i class="fa fa-regular fa-heart"></i>
-              <p>Beğen</p>
+              <p class="m-0 p-3">Beğen</p>
             </div>
             <div class="add-wrapper">
               <i class="fa fa-regular fa-bookmark"></i>
-              <p>Listeme Ekle</p>
+              <p class="m-0 p-3">Listeme Ekle</p>
             </div>
             <div class="compare-wrapper">
-              <i class="fas fa-solid fa-arrow-right-arrow-left" style="color: white"></i>
-              <p>Karşılaştır</p>
+              <i class="fa fa-regular fa-bookmark"></i>
+              <p class="m-0 p-3">Karşılaştır</p>
             </div>
           </div>
         </div>
