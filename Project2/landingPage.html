@@ -72,19 +72,70 @@
 
     .c-title {
       color: #5b9e7e;
-      font-size: 20px;
-
+      font-size: calc(20px + 1vw);
       font-weight: 600;
       margin-bottom: 10px;
     }
 
-
     .c-content {
-      font-size: calc(8px+0.5vw);
+      font-size: calc(14px + 0.2vw);
     }
 
     .items {
       --bs-gap: 1.5rem
+    }
+
+    .how-it-works {
+      background-color: #282a36;
+      color: white;
+      height: 50vh;
+      width: auto;
+    }
+
+    .sec-3-big {
+      width: 100%;
+    }
+
+    .sec-3 {
+      max-width: calc(20px + 5%);
+      height: auto;
+      padding: 0px;
+    }
+
+    .sec-3-line {
+      max-width: calc(20px + 10%);
+      height: auto;
+      padding: 10px;
+
+    }
+
+    .how-it-works>p {
+      font-size: calc(40px + 2vw);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px;
+    }
+
+    .sec-3-text {
+      font-size: calc(16px + 0.6vw);
+      max-width: 20%;
+      margin: 2%;
+      margin-top: 0px;
+    }
+
+    .hiw-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hiw-small-img {
+      max-width: calc(30px + 10%);
+      height: auto;
+
     }
   </style>
 </head>
@@ -127,41 +178,52 @@
       </div>
     </div>
     <div class="row text-center how-it-works">
-      <p class="fs-2">How it works</p>
-      <div class="sec-3-big d-none d-lg-block">
-        <div class="img-row-big">
-          <img src="./Project2-Images/P1-img/img1.svg" class="sec-3">
-          <img src="./Project2-Images/P1-img/img2.svg" class="sec-3-line">
-          <img src="./Project2-Images/P1-img/img3.svg" class="sec-3">
-          <img src="./Project2-Images/P1-img/img4.svg" class="sec-3-line">
-          <img src="./Project2-Images/P1-img/img5.svg" class="sec-3">
-          <img src="./Project2-Images/P1-img/img2.svg" class="sec-3-line">
-          <img src="./Project2-Images/P1-img/img6.svg" class="sec-3">
-        </div>
+      <p class="fw-bold">How it works</p>
+      <div class="d-none sec-3-big row d-lg-flex justify-content-center ">
+        <img src="./Project2-Images/P1-img/img1.svg" class="sec-3">
+        <img src="./Project2-Images/P1-img/img2.svg" class="sec-3-line">
+        <img src="./Project2-Images/P1-img/img3.svg" class="sec-3">
+        <img src="./Project2-Images/P1-img/img4.svg" class="sec-3-line">
+        <img src="./Project2-Images/P1-img/img5.svg" class="sec-3">
+        <img src="./Project2-Images/P1-img/img2.svg" class="sec-3-line">
+        <img src="./Project2-Images/P1-img/img6.svg" class="sec-3">
         <div class="text-row-big d-flex justify-content-center">
-          <p class="sec-3-text mx-0">1. Join and create a space</p>
-          <p class="sec-3-text mx-0">2. Chose a template - or start from scratch</p>
-          <p class="sec-3-text mx-0">3. Edit code directly in your browser</p>
-          <p class="sec-3-text mx-0">4. Share your website with the world</p>
+          <p class="sec-3-text mx-2">1. Join and create a space</p>
+          <p class="sec-3-text mx-2">2. Chose a template - or start from scratch</p>
+          <p class="sec-3-text mx-2">3. Edit code directly in your browser</p>
+          <p class="sec-3-text mx-2">4. Share your website with the world</p>
         </div>
       </div>
-      <div class="sec-3-small row text-center d-lg-none gy-5">
-        <div class="hiw-card col-md-6">
-          <img src="./Project2-Images/P1-img/img1.svg" class="hiw-small-img">
-          <hiw-small-text>1. Join and create a space</hiw-small-text>
+      <!-- <div class="row items g-3 my-3"> -->
+      <!-- aa -->
+      <div class="row row-cols-1  text-center d-lg-none p-3">
+        <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+          <div class="hiw-card">
+            <img src="./Project2-Images/P1-img/img1.svg" class="hiw-small-img">
+            <hiw-small-text>1. Join and create a space</hiw-small-text>
+          </div>
         </div>
-        <div class="hiw-card col-md-6">
-          <img src="./Project2-Images/P1-img/img3.svg" class="hiw-small-img">
-          <hiw-small-text>2. Chose a template - or start from scratch</hiw-small-text>
+        <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+          <div class="hiw-card">
+            <img src="./Project2-Images/P1-img/img3.svg" class="hiw-small-img">
+            <hiw-small-text>2. Chose a template - or start from scratch</hiw-small-text>
+          </div>
         </div>
-        <div class="hiw-card col-md-6">
-          <img src="./Project2-Images/P1-img/img5.svg" class="hiw-small-img">
-          <hiw-small-text>3. Edit code directly in your browser</hiw-small-text>
+
+        <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+          <div class="hiw-card">
+            <img src="./Project2-Images/P1-img/img5.svg" class="hiw-small-img">
+            <hiw-small-text>3. Edit code directly in your browser</hiw-small-text>
+          </div>
         </div>
-        <div class="hiw-card col-md-6">
-          <img src="./Project2-Images/P1-img/img6.svg" class="hiw-small-img">
-          <hiw-small-text>4. Share your website with the world</hiw-small-text>
+
+        <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+          <div class="hiw-card">
+            <img src="./Project2-Images/P1-img/img6.svg" class="hiw-small-img">
+            <hiw-small-text>4. Share your website with the world</hiw-small-text>
+          </div>
         </div>
+
       </div>
     </div>
 
