@@ -268,18 +268,19 @@
     height: 56px;
     margin: 2px 0px 2px 0px;
   }
-  .add-to-cart-wrapper{
+
+  .add-to-cart-wrapper {
     display: flex;
     width: fit-content;
     gap: 10px;
   }
 
-  
-  .fa-cart-shopping{
+
+  .fa-cart-shopping {
     color: white;
   }
 
-  .add-to-card-big-btn{
+  .add-to-card-big-btn {
     width: 210px;
     height: 62px;
     background-color: #ff6000;
@@ -295,11 +296,50 @@
     border-radius: 5px;
     gap: 10px;
   }
-  .add-to-cart-btn-text{
+
+  .add-to-cart-btn-text {
     font-size: var(--add-to-cart-fs);
     margin: 0px;
   }
 
+  .swap-wrapper {
+    background: #f0eaff;
+    border: 1px solid #cebaff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 18px 16px 18px 16px;
+    margin-top: 10px;
+  }
+  .question-mark{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 700;
+    color: #666;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  .faydalan-btn{
+    background: #fff;
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: .4px;
+    color: #000;
+    padding: 6px 7px;
+    margin-left: 13px;
+  }
+  .swap-btn-wrapper{
+    justify-content: center;
+    align-items: center;
+  }
 
 
 
@@ -394,6 +434,27 @@
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <p class="add-to-cart-btn-text">Sepete Ekle</p>
             </button>
+          </div>
+          <div class="swap-wrapper justify-content-between">
+            <div class="swap-text">Eski ürünü yenisi ile değiştirmek ister misin?</div>
+            <div class="swap-btn-wrapper d-flex">
+              <div class="question-mark">?</div>
+              <div class="faydalan-btn">Faydalan</div>
+            </div>
+          </div>
+          <div class="like-add-compare-wrapper">
+            <div class="like-wrapper">
+              <i class="fa fa-regular fa-heart"></i>
+              <p>Beğen</p>
+            </div>
+            <div class="add-wrapper">
+              <i class="fa fa-regular fa-bookmark"></i>
+              <p>Listeme Ekle</p>
+            </div>
+            <div class="compare-wrapper">
+              <i class="fas fa-solid fa-arrow-right-arrow-left" style="color: white"></i>
+              <p>Karşılaştır</p>
+            </div>
           </div>
         </div>
       </div>
