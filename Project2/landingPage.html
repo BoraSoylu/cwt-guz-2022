@@ -18,7 +18,7 @@
 
   <style>
     body {
-      height: 200vh;
+      height: fit-content;
     }
 
     header {
@@ -88,7 +88,8 @@
     .how-it-works {
       background-color: #282a36;
       color: white;
-      height: 50vh;
+      height: fit-content;
+      padding: 5vh 0px 5vh 0px;
       width: auto;
     }
 
@@ -130,6 +131,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
+      margin-top: 2vh;
     }
 
     .hiw-small-img {
@@ -137,12 +139,55 @@
       height: auto;
 
     }
+
+    .bi-check {
+      background-color: #dbede1;
+      border-radius: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px;
+      padding: 0px;
+      margin-right: 5px;
+      width: 20px;
+      height: auto;
+    }
+
+    .card {
+      height: 400px;
+      padding: 0;
+      margin-top: 5px;
+
+    }
+    .feature-text{
+      display: flex;
+      width: fit-content;
+    }
+    .price{
+      font-size: calc(20px + 0.6vw);
+    }
+    .month{
+      font-size: calc(10px + 0.4vw);
+      margin-top: calc(10px + 01vw);
+    }
+    .prices{
+      background-color: #eeeeee;
+      padding: 20px 0px 20px 0px;
+    }
+
+    footer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 10px 0px 40px 0px;
+    }
   </style>
 </head>
 
 
 <body>
-  <main class="container-fluid border">
+  <main class="container-lg">
     <header class="d-flex align-items-center justify-content-center">
       <div class="jumbotron text-center">
         <p class="text-nowrap c1">Create a Free Website</p>
@@ -194,8 +239,6 @@
           <p class="sec-3-text mx-2">4. Share your website with the world</p>
         </div>
       </div>
-      <!-- <div class="row items g-3 my-3"> -->
-      <!-- aa -->
       <div class="row row-cols-1  text-center d-lg-none p-3">
         <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
           <div class="hiw-card">
@@ -226,81 +269,85 @@
 
       </div>
     </div>
-
-    <div class="row row-cols-3 mb-3 text-center">
-      <div class="col-12 col-md-6 col-lg-3">
+    <!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+    <div class="row row-cols-3 mb-3 text-center prices">
+      <div class="col-12 col-md-6 col-lg-3 p-1">
         <div class="card text-start">
           <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
           </div>
-          <div class="tier mx-3">Free</div>
-          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="tier fw-bold mx-3">Free</div>
+          <div class="desc fw-semibold mx-3">For new web developers ready to create their first website</div>
           <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
-            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Browser with ads</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Build static sites</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>1 space</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>100 MB storage</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>75 MB data/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>500 requests/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>myhost.com subdomain</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>SSL certificate</div></div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3 p-1">
         <div class="card text-start">
-          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          <div class="price m-3 mb-0 d-flex">$4.99/ <div class="month ">month</div>
           </div>
-          <div class="tier mx-3">Free</div>
-          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="tier fw-bold mx-3">Basic</div>
+          <div class="desc fw-semibold mx-3">For those running one space with more traffic</div>
           <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
-            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Browser without ads</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Build static sites</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>1 space</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>1 GB storage</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>10 GB data/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>10 000 requests/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>myhost.com subdomain</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>SSL certificate</div></div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3 p-1">
         <div class="card text-start">
-          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          <div class="price m-3 mb-0 d-flex">$8.99/ <div class="month ">month</div>
           </div>
-          <div class="tier mx-3">Free</div>
-          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="tier fw-bold mx-3">Pro</div>
+          <div class="desc fw-semibold mx-3">For new web developers ready to create their first website</div>
           <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
-            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Browser without ads</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Build static sites</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>10 space</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>10 GB storage</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>100 GB data/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>100 000 requests/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>myhost.com subdomain</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i>SSL certificate</div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-3">
+      <div class="col-12 col-md-6 col-lg-3 p-1">
         <div class="card text-start">
-          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          <div class="price m-3 mb-0 d-flex">$12.99/ <div class="month ">month</div>
           </div>
-          <div class="tier mx-3">Free</div>
-          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="tier fw-bold mx-3">Premium</div>
+          <div class="desc fw-semibold mx-3">For new web developers ready to create their first website</div>
           <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
-            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
-            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Browser without ads</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>Build static sites</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>50 space</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>50 GB storage</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>500 GB data/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>500 000 requests/month</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>myhost.com subdomain</div></div>
+            <div class="feature-text"><i class="bi bi-check p-0"></i><div class="feature col text-nowrap"></i>SSL certificate</div></div>
           </div>
         </div>
       </div>
     </div>
+    <footer class="text-center text-muted">
+      <div class="rights">2000 - 2002 MyHosting. All rights reserved. Cookie policy, Privacy, Terms</div>
+      <div class="footer-msg">Reporting abusive content helps us keep Spaces safe. Help us by Reporting Abuse if you find any.</div>
+    </footer>
   </main>
 
 
