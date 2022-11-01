@@ -23,7 +23,7 @@
     --seller-fs: calc(8px + 0.4vw);
     --discount-promotion-fs: calc(15px + 0.1vw);
     --amount-fs: calc(15px + 0.1vw);
-    --add-to-cart-fs: calc(15px + 0.1vw);
+    --add-to-cart-fs: 24px;
     --switch-old-new-fs: calc(15px + 0.1vw);
     --delivery-options-fs: calc(15px + 0.1vw);
     --delivery-optiov-fs: calc(15px + 0.1vw);
@@ -200,6 +200,7 @@
   .seller-info-wrapper>div>* {
     font-size: var(--seller-fs);
   }
+
   .seller-info-wrapper>div>p {
     font-size: var(--seller-fs);
     color: #919191;
@@ -208,6 +209,95 @@
   .puan-box {
     background-color: #40ad40;
     border-radius: 5px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .promotions-icon {
+    background-color: #ff6000;
+    padding: 5px;
+    line-height: 100%;
+    color: white;
+    border-radius: 50%;
+    width: var(--seller-fs);
+    height: var(--seller-fs);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .buy-one-get-discount {
+    border-bottom: solid 1px #bebebe;
+    color: #40ad40;
+    font-weight: bold;
+  }
+
+  .add-to-cart-amount-wrapper {
+    width: fit-content;
+    background-color: #bfbfbf;
+    border-radius: 20% 20% 20% 20%;
+    height: 60px;
+  }
+
+  .minus {
+    background-color: #bfbfbf;
+    text-align: center;
+    width: 58px;
+    border: none;
+    height: 60px;
+    border-radius: 20% 0% 0% 20%;
+
+  }
+
+  .plus {
+    background-color: #bfbfbf;
+    text-align: center;
+    width: 58px;
+    border: none;
+    height: 60px;
+    border-radius: 0% 20% 20% 0%;
+
+  }
+
+  .add-to-cart-amount-wrapper>div {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50px;
+    height: 56px;
+    margin: 2px 0px 2px 0px;
+  }
+  .add-to-cart-wrapper{
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+  }
+
+  
+  .fa-cart-shopping{
+    color: white;
+  }
+
+  .add-to-card-big-btn{
+    width: 210px;
+    height: 62px;
+    background-color: #ff6000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 18px 20px 18px 20px;
+    font-size: var(--add-to-cart-fs);
+    margin: 0px;
+    border: none;
+    border-radius: 5px;
+    gap: 10px;
+  }
+  .add-to-cart-btn-text{
+    font-size: var(--add-to-cart-fs);
+    margin: 0px;
   }
 
 
@@ -289,9 +379,21 @@
               <div class="puan-box px-3 mx-2">9,4</div>
             </div>
             <div class="seller-promotions-wrapper d-flex border-0">
-              <p>Kampanyaları Gör</p>
-              <div class="promotios-icon">3</div>
+              <p class="mx-2 fw-bolder text-dark">Kampanyaları Gör</p>
+              <div class="promotions-icon me-2">3</div>
             </div>
+          </div>
+          <p class="py-3 buy-one-get-discount">Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10 İndirimli!</p>
+          <div class="add-to-cart-wrapper">
+            <div class="add-to-cart-amount-wrapper d-flex">
+              <button class="minus">-</button>
+              <div class="amount-display">1 <br>Adet</div>
+              <button class="plus">+</button>
+            </div>
+            <button class="add-to-card-big-btn">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p class="add-to-cart-btn-text">Sepete Ekle</p>
+            </button>
           </div>
         </div>
       </div>
