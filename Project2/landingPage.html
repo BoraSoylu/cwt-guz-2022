@@ -11,95 +11,118 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"
     defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 
+
+
+  <style>
+    body {
+      height: 200vh;
+    }
+
+    header {
+      height: 630px;
+      background: linear-gradient(rgb(40, 42, 53, 0.90), rgb(40, 42, 53,
+            0.90)), url('./Project2-Images/P1-img/bg-img.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      color: white;
+    }
+
+
+    /* @media (max-width: 768px) {
+      .jumbotron {
+        font-size: calc(20px + 2rem);
+      }
+    }
+    @media (max-width: 992px){
+      .jumbotron {
+        font-size: calc(20px + 2rem);
+      }
+    }
+    @media (min-width:992px) {
+      .jumbotron {
+        font-size: calc(20px + 1rem);
+      }
+    } */
+    .jumbotron>.c1 {
+      font-size: calc(12px + 3vw);
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .jumbotron>.c2 {
+      font-size: calc(6px + 2vw);
+    }
+
+    .jumbotron>.c3 {
+      font-size: calc(5px + 1.1vw);
+    }
+
+    .jumbotron>.btn-signup {
+      width: calc(200px + 1.6vw);
+      height: calc(30px + 0.5vw);
+      background-color: #02a96c;
+      border: none;
+      border-radius: 20px;
+      color: white;
+    }
+
+    .c-title {
+      color: #5b9e7e;
+      font-size: 20px;
+
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+
+    .c-content {
+      font-size: calc(8px+0.5vw);
+    }
+
+    .items {
+      --bs-gap: 1.5rem
+    }
+  </style>
 </head>
 
-<style>
-  @media (max-width: 768) {}
-
-  @media (min-width: 768) and (max-width: 992) {}
-
-  @media (min-width: 992) {}
-
-  header {
-    height: 630px;
-    background: linear-gradient(rgb(40, 42, 53, 0.90), rgb(40, 42, 53,
-          0.90)), url('./Project2-Images/P1-img/bg-img.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    color: white;
-  }
-
-  .c-title {
-    color: #519f82;
-    font-weight: bold;
-    font-size: 30px;
-  }
-
-  .how-it-works {
-    background-color: #282a36;
-    color: white;
-  }
-
-  .c-content {}
-
-  .btn-custom-signup {}
-
-  .sec-3-line {
-    margin: 0px 5 0px 5;
-  }
-
-  .sec-3-text {
-    width: 20%;
-  }
-
-  .hiw-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hiw-small-img {
-    width: 15%;
-    margin-bottom: 10px;
-  }
-</style>
 
 <body>
   <main class="container-fluid border">
     <header class="d-flex align-items-center justify-content-center">
       <div class="jumbotron text-center">
-        <h1 class="fw-bold text-nowrap">Create a Free Website</h1>
-        <p class="text-nowrap">Everything you need right in the browser.</p>
-        <p class="text-nowrap">Build your own website. Its easy to use - try it!</p>
-        <button class="btn btn-primary btn-custom-signup">Get started for free</button>
+        <p class="text-nowrap c1">Create a Free Website</p>
+        <p class="text-nowrap c2">Everything you need right in the browser.</p>
+        <p class="text-nowrap c3">Build your own website. Its easy to use - try it!</p>
+        <button class="btn-signup">Get started for free</button>
       </div>
     </header>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
-        <div class="c-title p-3 text-nowrap">Website</div>
+    <div class="row items g-3 my-3">
+      <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+        <div class="c-title text-nowrap">Website</div>
         <div class="c-content text-nowrap">Create your own website and share it with others</div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
-        <div class="c-title p-3 text-nowrap">Code Editor</div>
+      <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+        <div class="c-title text-nowrap">Code Editor</div>
         <div class="c-content text-nowrap">Code directly in your browser</div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
-        <div class="c-title p-3 text-nowrap">File Manager</div>
+      <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+        <div class="c-title text-nowrap">File Manager</div>
         <div class="c-content text-nowrap">Start with ready-to-use designs and structures</div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
-        <div class="c-title p-3 text-nowrap">Playground</div>
+      <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+        <div class="c-title text-nowrap">Playground</div>
         <div class="c-content text-nowrap">Upload and handle files in your browser</div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
-        <div class="c-title p-3 text-nowrap">Website</div>
+      <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+        <div class="c-title text-nowrap">Website</div>
         <div class="c-content text-nowrap">Learn, test and go live with your space</div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
-        <div class="c-title p-3 text-nowrap">Website</div>
+      <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
+        <div class="c-title text-nowrap">Website</div>
         <div class="c-content text-nowrap">Playground for HTML, CSS and Javascript</div>
       </div>
     </div>
@@ -140,11 +163,82 @@
           <hiw-small-text>4. Share your website with the world</hiw-small-text>
         </div>
       </div>
-
     </div>
 
+    <div class="row row-cols-3 mb-3 text-center">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-start">
+          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          </div>
+          <div class="tier mx-3">Free</div>
+          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
+            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-start">
+          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          </div>
+          <div class="tier mx-3">Free</div>
+          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
+            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-start">
+          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          </div>
+          <div class="tier mx-3">Free</div>
+          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
+            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card text-start">
+          <div class="price m-3 mb-0 d-flex">$0.00/ <div class="month ">month</div>
+          </div>
+          <div class="tier mx-3">Free</div>
+          <div class="desc mx-3">For new web developers ready to create their first website</div>
+          <div class="features row m-3 mt-2 mb-5 d-flex flex-column gy-1">
+            <div class="feature col"><i class="bi bi-check me-2"></i>Browser with ads</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>Build static sites</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>1 space</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>100 MB storage</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>75 MB data/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>500 requests/month</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>myhost.com subsomain</div>
+            <div class="feature col"><i class="bi bi-check me-2"></i>SSL certificate</div>
+          </div>
+        </div>
+      </div>
     </div>
-
   </main>
 
 
