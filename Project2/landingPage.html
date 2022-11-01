@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"
+    defer></script>
+
+
+</head>
+
+<style>
+  @media (max-width: 768) {}
+
+  @media (min-width: 768) and (max-width: 992) {}
+
+  @media (min-width: 992) {}
+
+  header {
+    height: 630px;
+    background: linear-gradient(rgb(40, 42, 53, 0.90), rgb(40, 42, 53,
+          0.90)), url('./Project2-Images/P1-img/bg-img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    color: white;
+  }
+
+  .c-title {
+    color: #519f82;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .how-it-works {
+    background-color: #282a36;
+    color: white;
+  }
+
+  .c-content {}
+
+  .btn-custom-signup {}
+
+  .sec-3-line {
+    margin: 0px 5 0px 5;
+  }
+
+  .sec-3-text {
+    width: 20%;
+  }
+
+  .hiw-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hiw-small-img {
+    width: 15%;
+    margin-bottom: 10px;
+  }
+</style>
+
+<body>
+  <main class="container-fluid border">
+    <header class="d-flex align-items-center justify-content-center">
+      <div class="jumbotron text-center">
+        <h1 class="fw-bold text-nowrap">Create a Free Website</h1>
+        <p class="text-nowrap">Everything you need right in the browser.</p>
+        <p class="text-nowrap">Build your own website. Its easy to use - try it!</p>
+        <button class="btn btn-primary btn-custom-signup">Get started for free</button>
+      </div>
+    </header>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
+        <div class="c-title p-3 text-nowrap">Website</div>
+        <div class="c-content text-nowrap">Create your own website and share it with others</div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
+        <div class="c-title p-3 text-nowrap">Code Editor</div>
+        <div class="c-content text-nowrap">Code directly in your browser</div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
+        <div class="c-title p-3 text-nowrap">File Manager</div>
+        <div class="c-content text-nowrap">Start with ready-to-use designs and structures</div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
+        <div class="c-title p-3 text-nowrap">Playground</div>
+        <div class="c-content text-nowrap">Upload and handle files in your browser</div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
+        <div class="c-title p-3 text-nowrap">Website</div>
+        <div class="c-content text-nowrap">Learn, test and go live with your space</div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center p-4">
+        <div class="c-title p-3 text-nowrap">Website</div>
+        <div class="c-content text-nowrap">Playground for HTML, CSS and Javascript</div>
+      </div>
+    </div>
+    <div class="row text-center how-it-works">
+      <p class="fs-2">How it works</p>
+      <div class="sec-3-big d-none d-lg-block">
+        <div class="img-row-big">
+          <img src="./Project2-Images/P1-img/img1.svg" class="sec-3">
+          <img src="./Project2-Images/P1-img/img2.svg" class="sec-3-line">
+          <img src="./Project2-Images/P1-img/img3.svg" class="sec-3">
+          <img src="./Project2-Images/P1-img/img4.svg" class="sec-3-line">
+          <img src="./Project2-Images/P1-img/img5.svg" class="sec-3">
+          <img src="./Project2-Images/P1-img/img2.svg" class="sec-3-line">
+          <img src="./Project2-Images/P1-img/img6.svg" class="sec-3">
+        </div>
+        <div class="text-row-big d-flex justify-content-center">
+          <p class="sec-3-text mx-0">1. Join and create a space</p>
+          <p class="sec-3-text mx-0">2. Chose a template - or start from scratch</p>
+          <p class="sec-3-text mx-0">3. Edit code directly in your browser</p>
+          <p class="sec-3-text mx-0">4. Share your website with the world</p>
+        </div>
+      </div>
+      <div class="sec-3-small row text-center d-lg-none gy-5">
+        <div class="hiw-card col-md-6">
+          <img src="./Project2-Images/P1-img/img1.svg" class="hiw-small-img">
+          <hiw-small-text>1. Join and create a space</hiw-small-text>
+        </div>
+        <div class="hiw-card col-md-6">
+          <img src="./Project2-Images/P1-img/img3.svg" class="hiw-small-img">
+          <hiw-small-text>2. Chose a template - or start from scratch</hiw-small-text>
+        </div>
+        <div class="hiw-card col-md-6">
+          <img src="./Project2-Images/P1-img/img5.svg" class="hiw-small-img">
+          <hiw-small-text>3. Edit code directly in your browser</hiw-small-text>
+        </div>
+        <div class="hiw-card col-md-6">
+          <img src="./Project2-Images/P1-img/img6.svg" class="hiw-small-img">
+          <hiw-small-text>4. Share your website with the world</hiw-small-text>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+
+  </main>
+
+
+
+</body>
+
+</html>
