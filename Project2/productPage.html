@@ -242,7 +242,7 @@
   }
 
   .buy-one-get-discount {
-    border-bottom: solid 1px #bebebe;
+    border-bottom: solid 1px rgb(237, 231, 231);
     color: #40ad40;
     font-weight: bold;
   }
@@ -386,7 +386,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    border-bottom: 1px solid #bebebe;
+    border-bottom: 1px solid rgb(237, 231, 231);
     padding: 16px 0px;
   }
 
@@ -425,7 +425,8 @@
     display: flex;
     justify-content: space-between;
   }
-  .delivery-option{
+
+  .delivery-option {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -525,7 +526,80 @@
     margin-left: 8px;
   }
 
-  product-detail @media (min-width: 992px) {}
+  @media (max-width: 992px) {
+    :root {
+      --product-details-fs: calc(12px);
+      --title-brand-fs: calc(15px);
+      --price-fs: calc(16px);
+      --currency-fs: calc(20px);
+      --rating-fs: calc(15px);
+      --stars-fs: calc(15px + 0.1vw);
+      --reviews-fs: calc(10px);
+      --installment-fs: calc(13px);
+      --vendor-fs: calc(10px);
+      --vendor-points-fs: calc(8px);
+      --discount-promotion-fs: calc(12px);
+      --amount-fs: calc(12px);
+      --add-to-cart-fs: calc(15px);
+      --switch-old-new-fs: calc(14px);
+      --question-mark-fs: calc(17px);
+      --faydalan-fs: calc(12px);
+      --like-add-compare: calc(14px);
+      --delivery-options-fs: calc(16px);
+      --delivery-option-fs: calc(14px);
+      --delivery-time-fs: calc(12px);
+      --loc-btn-fs: calc(12px);
+      --other-vendors-fs: calc(16px);
+      --other-vendor-name-fs: calc(13px);
+      --other-vendor-delivery-time-fs: calc(13px);
+      --other-vendor-price-fs: calc(15px);
+      --other-vendor-add-to-cart-fs: calc(13px);
+
+    }
+
+    .product-price-rating {
+      justify-content: center;
+    }
+
+    .add-to-cart-elements {
+      border-top: 1px solid rgb(237, 231, 231);
+      width: 100%;
+      margin-top: 40px;
+      padding-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .amount-display {
+      font-size: var(--amount-fs);
+      font-weight: bold;
+    }
+
+    .swap-wrapper {
+      width: 98%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .like-add-compare-wrapper {
+      width: 98%;
+      padding-left: 40px;
+    }
+
+    .delivery-options-wrapper {
+      width: 98%;
+    }
+
+    .other-vendors-wrapper {
+      width: 88%;
+    }
+
+    .other-vendors-list-wrapper {
+      background-color: #f5f5f5;
+      border: solid 1px rgb(237, 231, 231);
+    }
+  }
 </style>
 
 <body>
@@ -561,13 +635,13 @@
           </div>
         </div>
       </div>
-      <div class="col col-12 col-lg-6 right">
+      <div class="col col-12 col-lg-6 right d-flex flex-column align-items-center d-lg-block">
         <h1 class="product-name d-none d-lg-block">
           TWS i12 Bluetooth 5.0 Kulaklık - Şarj Üniteli
         </h1>
         <a class="d-none d-lg-block" href="">TWS</a>
-        <div class="product-top-info-wrapper">
-          <div class="product-price-rating d-flex justify-content-between">
+        <div class="product-top-info-wrapper d-flex flex-column align-items-center d-lg-block">
+          <div class="product-price-rating d-flex justify-content-around justify-content-lg-between">
             <div class="product-price d-flex align-items-baseline">
               <p class="price me-2">115,00</p>
               <p class="currency">TL</p>
@@ -590,9 +664,10 @@
               <p class="reviews">7460 Değerlendirme</p>
             </div>
           </div>
-          <p class="installment">19 TL x 6 aya varan <b>Taksitle</b> </p>
+          <p class="installment text-center text-lg-start mt-2 mt-lg-0 mb-5 mb-lg-0">19 TL x 6 aya varan <b>Taksitle</b>
+          </p>
           <div class="vendor-info-wrapper">
-            <div class="vendor-name-wrapper d-flex">
+            <div class="vendor-name-wrapper d-flex ">
               <p class="vendor me-1">Satıcı:</p>
               <a class="vendor-name me-2" href="">SFIT TEKNOLOJI ...</a>
             </div>
@@ -608,18 +683,21 @@
               <div class="promotions-icon me-2">3</div>
             </div>
           </div>
-          <p class="py-2 buy-one-get-discount">Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10 İndirimli!</p>
+          <p class="py-2 buy-one-get-discount d-none d-lg-block">Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10
+            İndirimli!</p>
         </div>
-        <div class="add-to-cart-wrapper">
-          <div class="add-to-cart-amount-wrapper d-flex">
-            <button class="minus">-</button>
-            <div class="amount-display">1 <br>Adet</div>
-            <button class="plus">+</button>
+        <div class="add-to-cart-elements">
+          <div class="add-to-cart-wrapper">
+            <div class="add-to-cart-amount-wrapper d-flex">
+              <button class="minus">-</button>
+              <div class="amount-display d-flex flex-column"> <b>1</b>Adet</div>
+              <button class="plus">+</button>
+            </div>
+            <button class="add-to-cart-big-btn">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p class="add-to-cart-btn-text">Sepete Ekle</p>
+            </button>
           </div>
-          <button class="add-to-cart-big-btn">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <p class="add-to-cart-btn-text">Sepete Ekle</p>
-          </button>
         </div>
         <div class="swap-wrapper justify-content-between">
           <div class="swap-text">Eski ürünü yenisi ile değiştirmek ister misin?</div>
@@ -666,13 +744,13 @@
         <div class="other-vendors-list-wrapper">
           <div class="vendor1-wrapper other-vendor">
             <div class="other-vendor-title-wrapper d-flex">
-              <div class="other-vendor-score puan-box px-2 me-1">9,7</div>
+              <div class="other-vendor-score puan-box px-2 pt-1 me-1 px-lg-2 me-lg-1">9,7</div>
               <div class="other-vendor-name ">Torima</div>
             </div>
             <div class="other-vendors-details-wrapper d-flex justify-content-between align-items-center">
               <div class="option-delivery-date other-vendor-d-date"><b class="fw-semibold">21 saat 42 dakika</b> içinde
                 sipariş verirsen yarın kargoda</div>
-              <p class="other-vendor-price mb-0 fw-bold">148,97 TL</p>
+              <p class="other-vendor-price me-3 me-lg-0 mb-0 fw-bold">148,97 TL</p>
               <button class="add-to-cart-btn-small add-to-cart-big-btn">Sepete Ekle</button>
             </div>
           </div>
