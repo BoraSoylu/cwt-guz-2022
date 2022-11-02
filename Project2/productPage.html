@@ -530,7 +530,7 @@
     :root {
       --product-details-fs: calc(12px);
       --title-brand-fs: calc(15px);
-      --price-fs: calc(16px);
+      --price-fs: calc(20px + 1vw);
       --currency-fs: calc(20px);
       --rating-fs: calc(15px);
       --stars-fs: calc(15px + 0.1vw);
@@ -604,6 +604,9 @@
     .container {
       width: 100%;
     }
+    .product-rating{
+      margin-left: 15vw;
+    }
   }
 </style>
 
@@ -647,7 +650,7 @@
         <a class="d-none d-lg-block" href="">TWS</a>
         <div class="product-top-info-wrapper d-flex flex-column align-items-center d-lg-block">
           <div class="product-price-rating d-flex justify-content-around justify-content-lg-between">
-            <div class="product-price d-flex align-items-baseline">
+            <div class="product-price d-flex align-items-baseline me-5 me-lg-0">
               <p class="price me-2">115,00</p>
               <p class="currency">TL</p>
             </div>
