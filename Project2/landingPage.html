@@ -32,22 +32,6 @@
       color: white;
     }
 
-
-    /* @media (max-width: 768px) {
-      .jumbotron {
-        font-size: calc(20px + 2rem);
-      }
-    }
-    @media (max-width: 992px){
-      .jumbotron {
-        font-size: calc(20px + 2rem);
-      }
-    }
-    @media (min-width:992px) {
-      .jumbotron {
-        font-size: calc(20px + 1rem);
-      }
-    } */
     .jumbotron>.c1 {
       font-size: calc(12px + 3vw);
       font-weight: bold;
@@ -62,7 +46,7 @@
       font-size: calc(5px + 1.1vw);
     }
 
-    .jumbotron>.btn-signup {
+    .btn-signup {
       width: calc(200px + 1.6vw);
       height: calc(30px + 0.5vw);
       background-color: #02a96c;
@@ -188,19 +172,24 @@
       padding: 10px 0px 40px 0px;
       font-size: calc(7px + 0.4vw);
     }
+    @media (max-width: 768px){
+      .btn-signup{
+        width: 84%;
+      }
+    }
   </style>
 </head>
 
 
 <body>
   <main class="container-xl">
-    <header class="d-flex align-items-center justify-content-center">
+    <header class="d-flex flex-column align-items-center justify-content-center">
       <div class="jumbotron text-center">
         <p class="text-nowrap c1">Create a Free Website</p>
         <p class="text-nowrap c2">Everything you need right in the browser.</p>
         <p class="text-nowrap c3">Build your own website. Its easy to use - try it!</p>
-        <button class="btn-signup">Get started for free</button>
       </div>
+      <button class="btn-signup">Get started for free</button>
     </header>
     <div class="row items g-3 my-3">
       <div class="col col-sm-12 col-md-6 col-lg-4 text-center">
