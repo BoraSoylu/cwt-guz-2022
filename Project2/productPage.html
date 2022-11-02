@@ -107,6 +107,7 @@
 
   .product-price-rating {
     width: 100%;
+    margin: 0 !important;
   }
 
   .product-name {}
@@ -158,15 +159,19 @@
   .price {
     font-weight: bold;
     font-size: var(--price-fs);
+    margin-bottom: 0 !important;
   }
 
   .currency {
     font-weight: bold;
     font-size: var(--currency-fs);
+    margin-bottom: 0
   }
 
   .rating {
     font-size: var(--rating-fs);
+    margin-bottom: 0 !important;
+    margin-right: 7px !important;
   }
 
   .start {
@@ -175,10 +180,14 @@
 
   .reviews {
     font-size: var(--reviews-fs);
+    margin-bottom: 0 !important;
+    margin-left: 20px;
+    font-weight: 700;
   }
 
   .installment {
     font-size: var(--installment-fs);
+    margin-bottom: 6px;
   }
 
   .vendor-info-wrapper {
@@ -242,15 +251,22 @@
     width: fit-content;
     background-color: #bfbfbf;
     border-radius: 20% 20% 20% 20%;
-    height: 60px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .amount-display {
+    height: 46px !important;
+    margin: 0 !important;
   }
 
   .minus {
     background-color: #bfbfbf;
     text-align: center;
-    width: 58px;
+    width: 27px;
     border: none;
-    height: 60px;
+    height: 48px;
     border-radius: 20% 0% 0% 20%;
 
   }
@@ -258,14 +274,14 @@
   .plus {
     background-color: #bfbfbf;
     text-align: center;
-    width: 58px;
+    width: 27px;
     border: none;
-    height: 60px;
+    height: 48px;
     border-radius: 0% 20% 20% 0%;
 
   }
 
-  .swap-text{
+  .swap-text {
     font-size: var(--switch-old-new-fs)
   }
 
@@ -292,8 +308,8 @@
   }
 
   .add-to-cart-big-btn {
-    width: 210px;
-    height: 62px;
+    width: 152px;
+    height: 48px;
     background-color: #ff6000;
     color: white;
     display: flex;
@@ -307,7 +323,8 @@
     border-radius: 5px;
     gap: 10px;
   }
-  .add-to-cart-btn-small{
+
+  .add-to-cart-btn-small {
     width: 100px;
     height: 36px;
     font-size: var(--other-vendor-add-to-cart-fs);
@@ -316,9 +333,11 @@
     padding-bottom: 3px;
     font-weight: 500;
   }
+
   .add-to-cart-btn-text {
     font-size: var(--add-to-cart-fs);
     margin: 0px;
+    font-weight: bold;
   }
 
   .swap-wrapper {
@@ -327,7 +346,7 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    padding: 18px 16px 18px 16px;
+    padding: 8px 16px;
     margin-top: 10px;
   }
 
@@ -365,22 +384,28 @@
 
   .like-add-compare-wrapper {
     display: flex;
+    align-items: center;
     text-align: center;
     border-bottom: 1px solid #bebebe;
+    padding: 16px 0px;
   }
 
   .like-add-compare-wrapper>div {
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+
+
+  }
+
+  .like-add-compare-wrapper>div>p {
+
+    margin: 0px 24px 0px 8px;
 
   }
 
   .like-add-compare-wrapper>div>.fa {
     font-weight: none;
-    font-size: var(--like-add-compare);
-
+    font-size: 25px;
   }
 
   .like-add-compare-wrapper>div>* {
@@ -389,16 +414,21 @@
 
   .delivery-options-wrapper {
     display: grid;
-    grid-template-columns: auto auto;
-    /* grid has two columns; content defines width */
-    justify-content: space-between;
-    /* horizontal alignment of grid tracks */
-    align-content: space-between;
-    /* vertical alignment of grid tracks */
-    height: 116px;
+    padding: 16px !important;
+
     background-color: white;
     border-radius: 5px;
     margin-top: 20px;
+  }
+
+  .d-option-upper-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .delivery-option{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .delivery-options-wrapper {
@@ -424,6 +454,8 @@
     font-size: var(--delivery-time-fs);
     color: #484848;
     font-weight: 350;
+    width: 250px;
+    margin-top: 4px;
   }
 
   .loc-btn {
@@ -449,39 +481,55 @@
     margin: 20px 0px 20px 0px;
   }
 
-  .other-vendors-text-wrapper > * {
+  .other-vendors-text-wrapper>* {
     font-size: var(--other-vendors-fs);
   }
 
   .other-vendors-all {
     color: #ff6000;
     font-size: var(--other-vendors-fs);
+    font-weight: 600;
   }
 
-  .other-vendors-list-wrapper{
+  .other-vendors-list-wrapper {
     background-color: white;
     border-radius: 5px;
-    padding: 8px;
+    padding: 12px;
   }
 
-  .other-vendor-name{
+  .other-vendor-name {
     font-size: var(--other-vendor-name-fs);
   }
-  .other-vendor-name{
+
+  .other-vendor-name {
     font-size: var(--other-vendor-name-fs);
   }
-  .other-vendor-d-date{
+
+  .other-vendor-d-date {
     font-size: var(--other-vendor-delivery-time-fs);
   }
-  .other-vendor-price{
+
+  .other-vendor-price {
     font-size: var(--other-vendor-price-fs);
+  }
+
+  main {
+    border-radius: 5px;
+  }
+
+  .q-wrapper {
+    color: #919191;
+  }
+
+  .adw-text {
+    margin-left: 8px;
   }
 
   product-detail @media (min-width: 992px) {}
 </style>
 
 <body>
-  <main class="container">
+  <main class="container border mt-2">
     <div class="row">
       <div class="col col-12 col-lg-6 left">
         <div class="product-img text-center"><img class="img-fluid" src="./Project2-Images/P2-img/kulaklik.jfif"></div>
@@ -550,14 +598,17 @@
             </div>
             <div class="vendor-points-wrapper d-flex">
               <p class="mx-1">Puan</p>
-              <div class="puan-box px-3 mx-2">9,4</div>
+              <div class="puan-box px-2 me-1">9,4</div>
+              <div class="q-wrapper me-1">
+                <i class="fa fa-question-circle" aria-hidden="true"></i>
+              </div>
             </div>
             <div class="vendor-promotions-wrapper d-flex border-0">
               <p class="mx-2 fw-bolder text-dark">Kampanyaları Gör</p>
               <div class="promotions-icon me-2">3</div>
             </div>
           </div>
-          <p class="py-3 buy-one-get-discount">Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10 İndirimli!</p>
+          <p class="py-2 buy-one-get-discount">Seçili Telefon Alana TWS i12 Bluetooth 5.0 Kulaklık %10 İndirimli!</p>
         </div>
         <div class="add-to-cart-wrapper">
           <div class="add-to-cart-amount-wrapper d-flex">
@@ -580,34 +631,34 @@
         <div class="like-add-compare-wrapper">
           <div class="like-wrapper">
             <i class="fa fa-regular fa-heart"></i>
-            <p class="m-0 p-3">Beğen</p>
+            <p class="adw-text">Beğen</p>
           </div>
           <div class="add-wrapper">
             <i class="fa fa-regular fa-bookmark"></i>
-            <p class="m-0 p-3">Listeme Ekle</p>
+            <p class="adw-text">Listeme Ekle</p>
           </div>
           <div class="compare-wrapper">
             <i class="fa fa-regular fa-bookmark"></i>
-            <p class="m-0 p-3">Karşılaştır</p>
+            <p class="adw-text">Karşılaştır</p>
           </div>
         </div>
         <div class="delivery-options-wrapper">
-          <!-- <div class="upper-wrapper"> -->
-          <p class="delivery-options-text">Teslimat seçenekleri</p>
-          <button class="loc-btn"><i class="fa fa-map-marker" aria-hidden="true"></i>
-            Konum seç</button>
-          <!-- </div> -->
-          <!-- <div class="delıvery-option1"> -->
-          <div class="option-text-wrapper">
-            <p class="option-title m-0 fw-semibold">Standart teslimat</p>
-            <p class="option-delivery-date m-0">En geç <b class="fw-semibold">14 Ekim Cuma</b> günü kargoda</p>
+          <div class="d-option-upper-wrapper">
+            <p class="delivery-options-text">Teslimat seçenekleri</p>
+            <button class="loc-btn"><i class="fa fa-map-marker" aria-hidden="true"></i>
+              Konum seç</button>
           </div>
-          <div class="option-logo">HEPSIJET LOGO</div>
-          <!-- </div> -->
+          <div class="delivery-option">
+            <div class="option-text-wrapper">
+              <p class="option-title m-0 fw-bold">Standart teslimat</p>
+              <p class="option-delivery-date m-0">En geç <b class="fw-semibold">14 Ekim Cuma</b> günü kargoda</p>
+            </div>
+            <div class="option-logo">HEPSIJET LOGO</div>
+          </div>
         </div>
         <div class="other-vendors-wrapper">
-          <div class="other-vendors-text-wrapper d-flex">
-            <p class="me-1">Diğer Satıcılar -</p>
+          <div class="other-vendors-text-wrapper d-flex align-items-center">
+            <p class="me-1 mb-0">Diğer Satıcılar -</p>
             <a href="http://" class="other-vendors-all">Tümü (2)</a>
           </div>
           <div class="question-mark q2">?</div>
@@ -615,17 +666,18 @@
         <div class="other-vendors-list-wrapper">
           <div class="vendor1-wrapper other-vendor">
             <div class="other-vendor-title-wrapper d-flex">
-              <div class="other-vendor-score puan-box px-3 mx-2">9,7</div>
+              <div class="other-vendor-score puan-box px-2 me-1">9,7</div>
               <div class="other-vendor-name ">Torima</div>
             </div>
-            <div class="other-vendors-details-wrapper d-flex">
-              <div class="option-delivery-date other-vendor-d-date"><b class="fw-semibold">21 saat 42 dakika</b> içinde sipariş verirsen yarın kargoda</div>
-              <p class="other-vendor-price">148,97 TL</p>
+            <div class="other-vendors-details-wrapper d-flex justify-content-between align-items-center">
+              <div class="option-delivery-date other-vendor-d-date"><b class="fw-semibold">21 saat 42 dakika</b> içinde
+                sipariş verirsen yarın kargoda</div>
+              <p class="other-vendor-price mb-0 fw-bold">148,97 TL</p>
               <button class="add-to-cart-btn-small add-to-cart-big-btn">Sepete Ekle</button>
             </div>
           </div>
         </div>
-        
+
       </div>
 
     </div>
