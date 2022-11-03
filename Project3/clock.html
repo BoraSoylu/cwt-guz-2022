@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clock</title>
+  <!-- <script src="./clock.js" defer></script> -->
 </head>
 
 <style>
-  
-
   body {
     background-image: url('./Project3-Images/P1-img/levander.jpg');
     background-size: cover;
@@ -19,7 +18,9 @@
     justify-content: center;
     align-items: center;
   }
-  .container , .container *{
+
+  .container,
+  .container * {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +35,8 @@
   .clock-main-wrapper {
     flex-direction: column;
   }
-  .clock-text{
+
+  .clock-text {
     width: 100%;
     height: auto;
     font-weight: bold;
@@ -71,37 +73,51 @@
     font-size: 16px;
   }
 
-  .am-pm{
+  .am-pm {
     height: 40px;
+    background: rgba(5, 180, 14, 0.65);
+    width: 50px;
   }
 </style>
-<div class="container">
-  <div class="clock-wrapper">
-    <div class="clock-main-wrapper">
-      <div class="clock-text">DIGITAL CLOCK</div>
-      <div class="digits-wrapper">
-        <div class="digit">
-          <div class="digit-number">04</div>
-          <div class="digit-text">HOURS</div>
-        </div>
-        <div class="digit">
-          <div class="digit-number">09</div>
-          <div class="digit-text">MINUTES</div>
-        </div>
-        <div class="digit">
-          <div class="digit-number">44</div>
-          <div class="digit-text">SECONDS</div>
-        </div>
-      </div>
-    </div>
-    <div class="am-pm">PM</div>
-  </div>
-
-</div>
 
 <body>
+  <div class="container">
+    <div class="clock-wrapper">
+      <div class="clock-main-wrapper">
+        <div class="clock-text">DIGITAL CLOCK</div>
+        <div class="digits-wrapper">
+          <div class="digit">
+            <div class="digit-number" id="hours"></div>
+            <div class="digit-text">HOURS</div>
+          </div>
+          <div class="digit">
+            <div class="digit-number" id="minutes"></div>
+            <div class="digit-text">MINUTES</div>
+          </div>
+          <div class="digit">
+            <div class="digit-number" id="seconds"></div>
+            <div class="digit-text">SECONDS</div>
+          </div>
+        </div>
+      </div>
+      <div class="am-pm" id="am-pm">PM</div>
+    </div>
+  </div>
+  <script>
+    let updateClock = () => {
+      var time = new Date();
+      let h = time.getHours();
+      let m = time.getMinutes();
+      let s = time.getSeconds();
+      document.getElementById("hours").innerText = h < 12 ? h : "0" + (h - 12);
+      document.getElementById("minutes").innerText = m > 9 ? m : "0" + m;
+      document.getElementById("seconds").innerText = s > 9 ? s : "0" + s;
+      document.getElementById("am-pm").innerText = h < 12 ? "am" : "pm";
+      setTimeout(updateClock, 1000);
+    };
 
-
+    updateClock();
+  </script>
 </body>
 
 </html>
