@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock</title>
+</head>
+
+<style>
+  
+
+  body {
+    background-image: url('./Project3-Images/P1-img/levander.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container , .container *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .clock-wrapper {
+    color: white;
+    align-items: flex-end;
+    gap: 15px;
+  }
+
+  .clock-main-wrapper {
+    flex-direction: column;
+  }
+  .clock-text{
+    width: 100%;
+    height: auto;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px 0px;
+  }
+
+  .digits-wrapper {
+    gap: 15px;
+  }
+
+  .digit {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    width: 100px;
+  }
+
+  .digit-number {
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    background: rgba(0, 0, 200, 0.2);
+    font-weight: bolder;
+    font-size: 40px;
+  }
+
+  .digit-text {
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    background: rgba(0, 0, 200, 0.5);
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  .am-pm{
+    height: 40px;
+  }
+</style>
+<div class="container">
+  <div class="clock-wrapper">
+    <div class="clock-main-wrapper">
+      <div class="clock-text">DIGITAL CLOCK</div>
+      <div class="digits-wrapper">
+        <div class="digit">
+          <div class="digit-number">04</div>
+          <div class="digit-text">HOURS</div>
+        </div>
+        <div class="digit">
+          <div class="digit-number">09</div>
+          <div class="digit-text">MINUTES</div>
+        </div>
+        <div class="digit">
+          <div class="digit-number">44</div>
+          <div class="digit-text">SECONDS</div>
+        </div>
+      </div>
+    </div>
+    <div class="am-pm">PM</div>
+  </div>
+
+</div>
+
+<body>
+
+
+</body>
+
+</html>
