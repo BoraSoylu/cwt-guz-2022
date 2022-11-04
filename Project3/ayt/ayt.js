@@ -41,14 +41,15 @@ const BoxTypes = Object.freeze({
 fetch('./data.json')
   .then((response) => response.json())
   .then((json) => {
-    const panel = generatePanelBlock(json[0]);
+    const panel = generateExamPanelBlock(json[0]);
 
     const root = document.querySelector('#root');
     root.appendChild(panel);
   });
 
-function generatePanelBlock(panel) {
+function generateExamPanelBlock(panel) {
   const wrapper = document.createElement('div');
+  wrapper.classList.add('panel');
 
   const panelTitle = document.createElement('p');
   panelTitle.textContent = panel.panel_name;
@@ -90,7 +91,7 @@ function generateSubjectRow(subject) {
   const wrapper = document.createElement('div');
 
   wrapper.classList.add('subject-row');
-  wrapper.classList.add(`${subject.subject_id}-row-wrapper`);
+  wrapper.classList.add(`row-id${subject.subject_id}`);
 
   wrapper.appendChild(generateSubjectNameAndQCount(subject));
   wrapper.appendChild(generateSubjectBoxes(subject));
@@ -119,16 +120,15 @@ function generateSubjectBoxes(subject) {
   const wrapper = document.createElement('div');
 
   wrapper.classList.add('subject-box-wrapper');
-  wrapper.classList.add(`subject_id-${subject.subject_id}-box-wrapper`);
 
-  wrapper.appendChild(generateBox(BoxTypes.correct));
-  wrapper.appendChild(generateBox(BoxTypes.incorrect));
-  wrapper.appendChild(generateBox(BoxTypes.net));
+  wrapper.appendChild(generateBox(BoxTypes.correct, subject.subject_id));
+  wrapper.appendChild(generateBox(BoxTypes.incorrect, subject.subject_id));
+  wrapper.appendChild(generateBox(BoxTypes.net, subject.subject_id));
 
   return wrapper;
 }
 
-function generateBox(type) {
+function generateBox(type, boxId) {
   const [elementType, cssClasses, textContent] = type;
 
   const box = document.createElement(elementType);
@@ -136,8 +136,13 @@ function generateBox(type) {
   cssClasses.forEach((element) => {
     box.classList.add(element);
   });
+  if (boxId !== null) {
+    box.classList.add(`boxId-${boxId}`);
+  }
 
   box.textContent = textContent;
+
+  box.placeholder = textContent;
 
   return box;
 }
