@@ -20,22 +20,23 @@
     SOZ end display box - SOZ_end
     */
 const BoxTypes = Object.freeze({
-  ok_icon: ['div', ['generic-box', 'fa', 'fa-check'], ''],
-  cross_icon: ['div', ['generic-box', 'cross_icon'], 'X'],
-  net_icon: ['div', ['generic-box', 'net_icon'], 'Net'],
-  correct: ['input', ['generic-box', 'correct'], '-'],
-  incorrect: ['input', ['generic-box', 'incorrect'], '-'],
-  net: ['p', ['generic-box', 'net'], '-'],
-  gpa: ['input', ['generic-box', 'gpa'], '-'],
-  obp: ['p', ['generic-box', 'obp'], '-'],
-  tyt_raw: ['p', ['generic-box', 'tyt_raw'], '-'],
-  tyt_end: ['p', ['generic-box', 'tyt_end'], '-'],
-  say_raw: ['p', ['generic-box', 'say_raw'], '-'],
-  say_end: ['p', ['generic-box', 'say_end'], '-'],
-  ea_raw: ['p', ['generic-box', 'ea_raw'], '-'],
-  ea_end: ['p', ['generic-box', 'ea_end'], '-'],
-  SOZ_raw: ['p', ['generic-box', 'SOZ_raw'], '-'],
-  SOZ_end: ['p', ['generic-box', 'SOZ_end'], '-'],
+  ok_icon: ['div', ['fa', 'fa-check'], ''],
+  cross_icon: ['div', ['cross-icon'], 'X'],
+  net_icon: ['div', ['net-icon'], 'Net'],
+  correct: ['input', ['correct'], '-'],
+  incorrect: ['input', ['incorrect'], '-'],
+  net: ['p', ['net'], '-'],
+  obp_gpa: ['input', ['obp-gpa'], '-'],
+  obp_score: ['p', ['obp-score'], '-'],
+  tyt_raw: ['p', ['tyt-raw'], '-'],
+  tyt_end: ['p', ['tyt-end'], '-'],
+  say_raw: ['p', ['say-raw'], '-'],
+  say_end: ['p', ['say-end'], '-'],
+  ea_raw: ['p', ['ea-raw'], '-'],
+  ea_end: ['p', ['ea-end'], '-'],
+  soz_raw: ['p', ['SOZ-raw'], '-'],
+  soz_end: ['p', ['SOZ-end'], '-'],
+  obp_checkbox: ['input', ['obp-checkbox'], ''],
 });
 
 fetch('./data.json')
@@ -45,6 +46,7 @@ fetch('./data.json')
 
     const root = document.querySelector('#root');
     root.appendChild(panel);
+    root.appendChild(generateObsPanel());
   });
 
 function generateExamPanelBlock(panel) {
@@ -52,7 +54,7 @@ function generateExamPanelBlock(panel) {
   wrapper.classList.add('panel');
 
   const panelTitle = document.createElement('p');
-  panelTitle.textContent = panel.panel_name;
+  panelTitle.innerHTML = `<b>${panel.panel_name}</b> Puanı Hesaplama`;
   panelTitle.classList.add('panel-title');
   wrapper.appendChild(panelTitle);
 
@@ -136,8 +138,10 @@ function generateBox(type, boxId) {
   cssClasses.forEach((element) => {
     box.classList.add(element);
   });
+  box.classList.add('generic-box');
+
   if (boxId !== null) {
-    box.classList.add(`boxId-${boxId}`);
+    box.classList.add(`box-id-${boxId}`);
   }
 
   box.textContent = textContent;
@@ -145,4 +149,55 @@ function generateBox(type, boxId) {
   box.placeholder = textContent;
 
   return box;
+}
+
+function generateObsPanel() {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('panel');
+
+  const panelTitle = document.createElement('p');
+  panelTitle.innerHTML = '<b>Ortaöğretim</b> Başarı Puanı';
+  panelTitle.classList.add('panel-title');
+  wrapper.appendChild(panelTitle);
+
+  wrapper.appendChild(createObsRow('Dipolma Notu', BoxTypes.obp_gpa));
+  wrapper.appendChild(createObsRow('OBP', BoxTypes.obp_score));
+
+  const checkWrapper = document.createElement('div');
+  const checkBox = generateBox(BoxTypes.obp_checkbox);
+  checkBox.type = 'checkbox';
+  checkWrapper.appendChild(checkBox);
+  checkWrapper.classList.add('obs-row');
+  const checkText = document.createElement('p');
+  checkText.textContent = 'Geçen Sene Bir Bölüme Yerleştim';
+  checkWrapper.appendChild(checkText);
+  wrapper.appendChild(checkWrapper);
+
+  function createObsRow(text, box) {
+    const rowWrapper = document.createElement('div');
+    rowWrapper.classList.add('obs-row');
+
+    const obsText = document.createElement('p');
+
+    obsText.textContent = text;
+
+    rowWrapper.appendChild(obsText);
+
+    rowWrapper.appendChild(generateBox(box));
+
+    return rowWrapper;
+  }
+
+  return wrapper;
+}
+
+function generateResultsPanel() {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('panel');
+
+  function createResultsRow(text) {
+    return rowWrapper;
+  }
+
+  function createResultsHeaders(text, box) {}
 }
