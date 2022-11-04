@@ -1,5 +1,24 @@
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
+const BoxTypes = Object.freeze({
+  ok_icon: ['div', ['generic-box', 'fa', 'fa-check'], ''],
+  cross_icon: ['div', ['generic-box', 'cross_icon'], 'X'],
+  net_icon: ['div', ['generic-box', 'net_icon'], 'Net'],
+  correct: ['input', ['generic-box', 'correct'], '-'],
+  incorrect: ['input', ['generic-box', 'incorrect'], '-'],
+  net: ['p', ['generic-box', 'net'], '-'],
+  gpa: ['input', ['generic-box', 'gpa'], '-'],
+  obp: ['p', ['generic-box', 'obp'], '-'],
+  tyt_raw: ['p', ['generic-box', 'tyt_raw'], '-'],
+  tyt_end: ['p', ['generic-box', 'tyt_end'], '-'],
+  say_raw: ['p', ['generic-box', 'say_raw'], '-'],
+  say_end: ['p', ['generic-box', 'say_end'], '-'],
+  ea_raw: ['p', ['generic-box', 'ea_raw'], '-'],
+  ea_end: ['p', ['generic-box', 'ea_end'], '-'],
+  SOZ_raw: ['p', ['generic-box', 'SOZ_raw'], '-'],
+  SOZ_end: ['p', ['generic-box', 'SOZ_end'], '-'],
+});
+
 fetch('./data.json')
   .then((response) => response.json())
   .then((json) => {
@@ -9,8 +28,11 @@ fetch('./data.json')
     root.appendChild(field);
   });
 
+function generatePanelBlock(panel) {
+  const wrapper = document.createElement(div);
+}
+
 function generateFieldBlock(field) {
-  // Create wrapper div
   const wrapper = document.createElement('div');
   wrapper.classList.add('field-wrapper');
   if (field.soz === true) {
@@ -19,8 +41,6 @@ function generateFieldBlock(field) {
   if (field.say === true) {
     wrapper.classList.add('say');
   }
-  console.log(field);
-
   field.subjects.forEach((subject) => {
     wrapper.appendChild(generateSubjectRow(subject));
   });
@@ -28,11 +48,8 @@ function generateFieldBlock(field) {
   return wrapper;
 }
 
-function generatePanelBlock() {}
 
-// Generates a subject row with subject name, question count, and boxes
 function generateSubjectRow(subject) {
-  // Create wrapper div
   const wrapper = document.createElement('div');
 
   wrapper.classList.add('subject-row');
@@ -44,19 +61,15 @@ function generateSubjectRow(subject) {
   return wrapper;
 }
 
-// Generates subject (i.e Tarih-1) name and question count div.
 function generateSubjectNameAndQCount(subject) {
-  // Create wrapper div
   const wrapper = document.createElement('div');
   wrapper.classList.add('subject-name-q-wrapper');
 
-  // Create p element for subject name and append to wrapper
   const subjectName = document.createElement('p');
   subjectName.textContent = subject.subject_name;
   subjectName.classList.add('subject-name');
   wrapper.appendChild(subjectName);
 
-  // Create p element for subject question count and append to wrapper
   const questionCount = document.createElement('p');
   questionCount.textContent = subject.question_count;
   questionCount.classList.add('subject-q-count');
@@ -65,52 +78,48 @@ function generateSubjectNameAndQCount(subject) {
   return wrapper;
 }
 
-// Generates correct, incorrect, and net boxes in a wrapper for a specific subject
 function generateSubjectBoxes(subject) {
-  // Create wrapper div
   const wrapper = document.createElement('div');
 
-  // Add classes to wrapper
   wrapper.classList.add('subject-box-wrapper');
   wrapper.classList.add(`subject_id-${subject.subject_id}-box-wrapper`);
 
-  // Create boxes and append to wrapper
-  wrapper.appendChild(generateBox('correct', true, subject.subject_id));
-  wrapper.appendChild(generateBox('incorrect', true, subject.subject_id));
-  wrapper.appendChild(generateBox('net', false, subject.subject_id));
+  wrapper.appendChild(generateBox(BoxTypes.correct));
+  wrapper.appendChild(generateBox(BoxTypes.incorrect));
+  wrapper.appendChild(generateBox(BoxTypes.net));
 
   return wrapper;
 }
 
-// Creates boxes dynamically
-// generateIOBox("correct", true, subject0)
-// generateIOBox("tyt-raw", false)
-function generateBox(boxType, input, subject) {
-  const box = document.createElement('input');
-  box.classList.add(boxType);
-  box.textContent = '-';
+function generateBox(type) {
+  const [elementType, cssClasses, textContent] = type;
 
-  if (subject !== null) {
-    box.classList.add(subject);
-  }
-  if (input === false) {
-    box.disabled = true;
-  }
+  const box = document.createElement(elementType);
 
-  /* Boxes:
+  cssClasses.forEach((element) => {
+    box.classList.add(element);
+  });
+
+  box.textContent = textContent;
+
+  return box;
+}
+
+/* Boxes:
+    Correct checkmark icon - ok-icon
+    Incorrect croos icon - cross-icon
+    Net text label - net-icon
     Correct answers input box - correct
     Incorrect answers input box - incorrect
     Net answers input box  - net
     GPA input box - gpa
     OBP display box - obp
-    TYT raw display box - tyt-raw
-    TYT end display box - tyt-end
-    SAY raw display box - say-raw
-    SAY end display box - say-end
-    EA raw display box - ea-raw
-    EA end display box - ea-end
-    SOZ raw display box - SOZ-raw
-    SOZ end display box - SOZ-end
+    TYT raw display box - tyt_raw
+    TYT end display box - tyt_end
+    SAY raw display box - say_raw
+    SAY end display box - say_end
+    EA raw display box - ea_raw
+    EA end display box - ea_end
+    SOZ raw display box - SOZ_raw
+    SOZ end display box - SOZ_end
     */
-  return box;
-}
