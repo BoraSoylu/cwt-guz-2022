@@ -41,14 +41,33 @@ const BoxTypes = Object.freeze({
 fetch('./data.json')
   .then((response) => response.json())
   .then((json) => {
-    const field = generateFieldBlock(json[0].fields[0]);
+    const panel = generatePanelBlock(json[0]);
 
     const root = document.querySelector('#root');
-    root.appendChild(field);
+    root.appendChild(panel);
   });
 
 function generatePanelBlock(panel) {
-  const wrapper = document.createElement(div);
+  const wrapper = document.createElement('div');
+
+  const panelTitle = document.createElement('p');
+  panelTitle.textContent = panel.panel_name;
+  panelTitle.classList.add('panel-title');
+  wrapper.appendChild(panelTitle);
+
+  const headerIconsWrapper = document.createElement('div');
+  headerIconsWrapper.classList.add('header-icons-wrapper');
+  headerIconsWrapper.appendChild(generateBox(BoxTypes.ok_icon));
+  headerIconsWrapper.appendChild(generateBox(BoxTypes.cross_icon));
+  headerIconsWrapper.appendChild(generateBox(BoxTypes.net_icon));
+  wrapper.appendChild(headerIconsWrapper);
+
+  console.log(panel);
+  panel.fields.forEach((element) => {
+    wrapper.appendChild(generateFieldBlock(element));
+  });
+
+  return wrapper;
 }
 
 function generateFieldBlock(field) {
@@ -66,7 +85,6 @@ function generateFieldBlock(field) {
 
   return wrapper;
 }
-
 
 function generateSubjectRow(subject) {
   const wrapper = document.createElement('div');
@@ -123,4 +141,3 @@ function generateBox(type) {
 
   return box;
 }
-
