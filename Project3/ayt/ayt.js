@@ -15,7 +15,15 @@ fetch('./data.json')
     root.appendChild(SubjectBoxes);
   });
 
-function generateSubjectRow() {}
+// Generates a subject row with subject name, question count, and boxes
+function generateSubjectRow(subject) {
+  const wrapper = document.createElement('div')
+
+  wrapper.classList.add('subject-row')
+  wrapper.classList.add(subject.s_id+'-row-wrapper')
+
+  return wrapper
+}
 
 // Generates subject (i.e Tarih-1) name and question count div.
 function generateSubjectNameAndQCount(subject) {
