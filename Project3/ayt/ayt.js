@@ -1,5 +1,24 @@
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
+
+/* Boxes:
+    Correct checkmark icon - ok-icon
+    Incorrect croos icon - cross-icon
+    Net text label - net-icon
+    Correct answers input box - correct
+    Incorrect answers input box - incorrect
+    Net answers input box  - net
+    GPA input box - gpa
+    OBP display box - obp
+    TYT raw display box - tyt_raw
+    TYT end display box - tyt_end
+    SAY raw display box - say_raw
+    SAY end display box - say_end
+    EA raw display box - ea_raw
+    EA end display box - ea_end
+    SOZ raw display box - SOZ_raw
+    SOZ end display box - SOZ_end
+    */
 const BoxTypes = Object.freeze({
   ok_icon: ['div', ['generic-box', 'fa', 'fa-check'], ''],
   cross_icon: ['div', ['generic-box', 'cross_icon'], 'X'],
@@ -105,21 +124,3 @@ function generateBox(type) {
   return box;
 }
 
-/* Boxes:
-    Correct checkmark icon - ok-icon
-    Incorrect croos icon - cross-icon
-    Net text label - net-icon
-    Correct answers input box - correct
-    Incorrect answers input box - incorrect
-    Net answers input box  - net
-    GPA input box - gpa
-    OBP display box - obp
-    TYT raw display box - tyt_raw
-    TYT end display box - tyt_end
-    SAY raw display box - say_raw
-    SAY end display box - say_end
-    EA raw display box - ea_raw
-    EA end display box - ea_end
-    SOZ raw display box - SOZ_raw
-    SOZ end display box - SOZ_end
-    */
