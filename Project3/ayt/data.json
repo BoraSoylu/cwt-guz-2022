@@ -3,12 +3,12 @@
     "section_name": "AYT Puani Hesaplama",
     "subsection0": {
       "subsection_name": "Turk dili ve edebiyati.... -1 Testi",
-      "SOZ": true,
+      "SOZ": true, // Sozel, sayisal puan hesaplama icin. Pdfde altta anlatiyor
       "SAY": false,
       "subject0": {
         "subject_name": "Turk dili ve edebiyati",
         "question_count": 24,
-        "s_id": 0
+        "s_id": 0 
       },
       "subject1": {
         "subject_name": "Tarih-1",
