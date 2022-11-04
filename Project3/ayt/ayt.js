@@ -3,31 +3,50 @@
 fetch('./data.json')
   .then((response) => response.json())
   .then((json) => {
-    console.log(json);
-    const SubjectNameAndQCount = generateSubjectNameAndQCount(
-      json.section0.subsection0.subject0,
-    );
-    const SubjectBoxes = generateSubjectBoxes(
-      json.section0.subsection0.subject1,
-    );
+    const field = generateFieldBlock(json[0].fields[0]);
+
     const root = document.querySelector('#root');
-    root.appendChild(SubjectNameAndQCount);
-    root.appendChild(SubjectBoxes);
+    root.appendChild(field);
   });
+
+function generateFieldBlock(field) {
+  // Create wrapper div
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('field-wrapper');
+  if (field.soz === true) {
+    wrapper.classList.add('soz');
+  }
+  if (field.say === true) {
+    wrapper.classList.add('say');
+  }
+  console.log(field);
+
+  field.subjects.forEach((subject) => {
+    wrapper.appendChild(generateSubjectRow(subject));
+  });
+
+  return wrapper;
+}
+
+function generatePanelBlock() {}
 
 // Generates a subject row with subject name, question count, and boxes
 function generateSubjectRow(subject) {
-  const wrapper = document.createElement('div')
+  // Create wrapper div
+  const wrapper = document.createElement('div');
 
-  wrapper.classList.add('subject-row')
-  wrapper.classList.add(subject.s_id+'-row-wrapper')
+  wrapper.classList.add('subject-row');
+  wrapper.classList.add(`${subject.subject_id}-row-wrapper`);
 
-  return wrapper
+  wrapper.appendChild(generateSubjectNameAndQCount(subject));
+  wrapper.appendChild(generateSubjectBoxes(subject));
+
+  return wrapper;
 }
 
 // Generates subject (i.e Tarih-1) name and question count div.
 function generateSubjectNameAndQCount(subject) {
-  // Create wrapper
+  // Create wrapper div
   const wrapper = document.createElement('div');
   wrapper.classList.add('subject-name-q-wrapper');
 
@@ -48,17 +67,17 @@ function generateSubjectNameAndQCount(subject) {
 
 // Generates correct, incorrect, and net boxes in a wrapper for a specific subject
 function generateSubjectBoxes(subject) {
-  // Create wrapper
+  // Create wrapper div
   const wrapper = document.createElement('div');
 
   // Add classes to wrapper
   wrapper.classList.add('subject-box-wrapper');
-  wrapper.classList.add(`s_id-${subject.s_id}-box-wrapper`);
+  wrapper.classList.add(`subject_id-${subject.subject_id}-box-wrapper`);
 
   // Create boxes and append to wrapper
-  wrapper.appendChild(generateBox('correct', true, subject.s_id));
-  wrapper.appendChild(generateBox('incorrect', true, subject.s_id));
-  wrapper.appendChild(generateBox('net', false, subject.s_id));
+  wrapper.appendChild(generateBox('correct', true, subject.subject_id));
+  wrapper.appendChild(generateBox('incorrect', true, subject.subject_id));
+  wrapper.appendChild(generateBox('net', false, subject.subject_id));
 
   return wrapper;
 }
@@ -67,7 +86,6 @@ function generateSubjectBoxes(subject) {
 // generateIOBox("correct", true, subject0)
 // generateIOBox("tyt-raw", false)
 function generateBox(boxType, input, subject) {
-  //
   const box = document.createElement('input');
   box.classList.add(boxType);
   box.textContent = '-';
@@ -96,7 +114,3 @@ function generateBox(boxType, input, subject) {
     */
   return box;
 }
-
-function generateSubSectionBlock() {}
-
-function generateSectionBlock() {}

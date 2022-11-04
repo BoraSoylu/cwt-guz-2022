@@ -1,35 +1,43 @@
-{
-  "section0": {
-    "section_name": "AYT Puani Hesaplama",
-    "subsection0": {
-      "subsection_name": "Turk dili ve edebiyati.... -1 Testi",
-      "SOZ": true, // Sozel, sayisal puan hesaplama icin. Pdfde altta anlatiyor
-      "SAY": false,
-      "subject0": {
-        "subject_name": "Turk dili ve edebiyati",
-        "question_count": 24,
-        "s_id": 0 
-      },
-      "subject1": {
-        "subject_name": "Tarih-1",
-        "question_count": 10,
-        "s_id": 1
-      }
-    },
-    "subsection1": {
-      "subsection_name": "Sosyal ... -2 Testi",
-      "SOZ": true,
-      "SAY": false,
-      "subject2": {
-        "subject_name": "Tarih-2",
-        "question_count": 11,
-        "s_id": 2
-      },
-      "subject3": {
-        "subject_name": "Cografya-2",
-        "question_count": 11,
-        "s_id": 3
-      }
-    }
+[
+  {
+     "panel_name":"AYT Puani Hesaplama",
+     "fields":[
+        {
+           "field_name":"Turk dili ve edebiyati.... -1 Testi",
+           "field_id" : 0,
+           "soz":true,
+           "say":false,
+           "subjects":[
+              {
+                 "subject_name":"Turk dili ve edebiyati",
+                 "question_count":24,
+                 "subject_id":0
+              },
+              {
+                 "subject_name":"Tarih-1",
+                 "question_count":10,
+                 "subject_id":1
+              }
+           ]
+        },
+        {
+           "subsection_name":"Sosyal ... -2 Testi",
+           "field_id" : 1,
+           "soz":true,
+           "say":false,
+           "subjects":[
+              {
+                 "subject_name":"Tarih-2",
+                 "question_count":11,
+                 "subject_id":2
+              },
+              {
+                 "subject_name":"Cografya-2",
+                 "question_count":11,
+                 "subject_id":3
+              }
+           ]
+        }
+     ]
   }
-}
+]
