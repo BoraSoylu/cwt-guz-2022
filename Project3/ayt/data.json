@@ -1,43 +1,127 @@
-[
-  {
-     "panel_name":"AYT",
-     "fields":[
-        {
-           "field_name":"Turk dili ve edebiyati.... -1 Testi",
-           "field_id" : 0,
-           "soz":true,
-           "say":false,
-           "subjects":[
-              {
-                 "subject_name":"Turk dili ve edebiyati",
-                 "question_count":30,
-                 "subject_id":0
-              },
-              {
-                 "subject_name":"Tarih-1",
-                 "question_count":10,
-                 "subject_id":1
-              }
-           ]
-        },
-        {
-           "subsection_name":"Sosyal ... -2 Testi",
-           "field_id" : 1,
-           "soz":true,
-           "say":false,
-           "subjects":[
-              {
-                 "subject_name":"Tarih-2",
-                 "question_count":11,
-                 "subject_id":2
-              },
-              {
-                 "subject_name":"Cografya-2",
-                 "question_count":11,
-                 "subject_id":3
-              }
-           ]
-        }
-     ]
-  }
-]
+   [
+      {
+         "panel_name": "AYT",
+         "fields": [
+            {
+               "field_name": "Türk Dili ve Edebiyatı ve Sosyal Bilimler-1 Testi",
+               "field_id": 0,
+               "soz": true,
+               "say": false,
+               "subjects": [
+                  {
+                     "subject_name": "Türk Dili ve Edebiyatı",
+                     "question_count": 24,
+                     "subject_id": 0
+                  },
+                  {
+                     "subject_name": "Tarih-1",
+                     "question_count": 10,
+                     "subject_id": 1
+                  },
+                  {
+                     "subject_name": "Coğrafya-1",
+                     "question_count": 6,
+                     "subject_id": 2
+                  }
+               ]
+            },
+            {
+               "field_name": "Sosyal Bilimler-2 Testi",
+               "field_id": 1,
+               "soz": true,
+               "say": false,
+               "subjects": [
+                  {
+                     "subject_name": "Tarih-2",
+                     "question_count": 11,
+                     "subject_id": 4
+                  },
+                  {
+                     "subject_name": "Coğrafya-2",
+                     "question_count": 11,
+                     "subject_id": 5
+                  },
+                  {
+                     "subject_name": "Felsefe Grubu",
+                     "question_count": 12,
+                     "subject_id": 5
+                  },
+                  {
+                     "subject_name": "Din Kültürü ve Ahlak Bilgisi / Ek Felsefe Grubu",
+                     "question_count": 6,
+                     "subject_id": 6
+                  }
+               ]
+            },
+            {
+               "field_name": "Matematik Testi",
+               "field_id": 2,
+               "soz": false,
+               "say": true,
+               "subjects": [
+                  {
+                     "subject_name": "Matematik",
+                     "question_count": 40,
+                     "subject_id": 7
+                  }
+               ]
+            },
+            {
+               "field_name": "Fen Bilimleri Testi",
+               "field_id": 3,
+               "soz": false,
+               "say": true,
+               "subjects": [
+                  {
+                     "subject_name": "Fizik",
+                     "question_count": 14,
+                     "subject_id": 8
+                  },
+                  {
+                     "subject_name": "Kimya",
+                     "question_count": 13,
+                     "subject_id": 9
+                  },
+                  {
+                     "subject_name": "Biyoloji",
+                     "question_count": 13,
+                     "subject_id": 10
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "panel_name": "TYT",
+         "fields": [
+            {
+               "field_name": "",
+               "field_id": 0,
+               "soz": false,
+               "say": false,
+               "subjects": [
+                  {
+                     "subject_name": "Türkçe",
+                     "question_count": 40,
+                     "subject_id": 1
+                  },
+                  {
+                     "subject_name": "Sosyal Bilimler",
+                     "question_count": 20,
+                     "subject_id": 12
+                  },
+                  {
+                     "subject_name": "Temel Matematik",
+                     "question_count": 40,
+                     "subject_id": 13
+                  },
+                  {
+                     "subject_name": "Fen Bilimleri",
+                     "question_count": 20,
+                     "subject_id": 14
+                  }
+               ]
+            }
+         ]
+      }
+   ]
