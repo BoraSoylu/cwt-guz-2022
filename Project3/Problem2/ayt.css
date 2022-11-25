@@ -1,0 +1,31 @@
+:root {
+  --panel-title-fs: 20px
+}
+.root{
+  gap: 20px;
+}
+
+.panel-title{
+  text-align: center;
+  margin-top: var(--panel-title-fs); 
+}
+
+.panel{
+  border: dotted 1px green;
+}
+
+.header-icons-wrapper, .subject-box-wrapper {
+  border: solid 1px red;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.generic-box{
+  border: solid 1px blue;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+}

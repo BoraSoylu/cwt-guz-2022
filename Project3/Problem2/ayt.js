@@ -39,19 +39,27 @@ const BoxTypes = Object.freeze({
   obp_checkbox: ['input', ['obp-checkbox'], ''],
 });
 
+const panelClasses = ['col-12', 'col-lg-6'];
+
 fetch('./data.json')
   .then((response) => response.json())
   .then((json) => {
-    const panel = generateExamPanelBlock(json[0]);
+    json.forEach((element) => {
+      const panel = generateExamPanelBlock(element);
+      const root = document.querySelector('#root');
+      root.appendChild(panel);
+    });
 
-    const root = document.querySelector('#root');
-    root.appendChild(panel);
     root.appendChild(generateObsPanel());
   });
 
 function generateExamPanelBlock(panel) {
   const wrapper = document.createElement('div');
   wrapper.classList.add('panel');
+
+  panelClasses.forEach((element) => {
+    wrapper.classList.add(element);
+  });
 
   const panelTitle = document.createElement('p');
   panelTitle.innerHTML = `<b>${panel.panel_name}</b> Puanı Hesaplama`;
@@ -65,7 +73,6 @@ function generateExamPanelBlock(panel) {
   headerIconsWrapper.appendChild(generateBox(BoxTypes.net_icon));
   wrapper.appendChild(headerIconsWrapper);
 
-  console.log(panel);
   panel.fields.forEach((element) => {
     wrapper.appendChild(generateFieldBlock(element));
   });
