@@ -1,5 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
+/* https://knowyourmeme.com/memes/we-have-food-at-home */
+/* 
+Why spend 20 minutes doing something when you can 
+fail to automate it for 10 hours?
+                              -Ancient proverb
+*/
+
 
 /* Boxes:
     Correct checkmark icon - ok-icon
@@ -41,17 +48,15 @@ const BoxTypes = Object.freeze({
 
 const panelClasses = ['col-12', 'col-lg-6'];
 
-fetch('./data.json')
-  .then((response) => response.json())
-  .then((json) => {
-    json.forEach((element) => {
-      const panel = generateExamPanelBlock(element);
-      const root = document.querySelector('#root');
-      root.appendChild(panel);
-    });
 
-    root.appendChild(generateObsPanel());
+
+export default function generateAll(panels) {
+  const root = document.querySelector('#root');
+  panels.forEach((element) => {
+    const panel = generateExamPanelBlock(element);
+    root.appendChild(panel);
   });
+}
 
 function generateExamPanelBlock(panel) {
   const wrapper = document.createElement('div');
@@ -82,6 +87,12 @@ function generateExamPanelBlock(panel) {
 
 function generateFieldBlock(field) {
   const wrapper = document.createElement('div');
+
+  const fieldName = document.createElement('p');
+  fieldName.innerText = field.field_name;
+  fieldName.classList.add('field-name');
+  wrapper.appendChild(fieldName)
+
   wrapper.classList.add('field-wrapper');
   if (field.soz === true) {
     wrapper.classList.add('soz');
@@ -157,7 +168,7 @@ function generateBox(type, boxId) {
 
   return box;
 }
-
+//--------------------------------------------------------------------
 function generateObsPanel() {
   const wrapper = document.createElement('div');
   wrapper.classList.add('panel');

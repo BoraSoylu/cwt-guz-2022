@@ -1,5 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
-  --panel-title-fs: 20px
+  --panel-title-fs: 2em;
+  --subject-name-fs: 1em;
+  --subject-q-count-fs: 1em;
 }
 .root{
   gap: 20px;
@@ -7,25 +14,45 @@
 
 .panel-title{
   text-align: center;
-  margin-top: var(--panel-title-fs); 
+  margin-top: 5px; 
+  font-size: var(--panel-title-fs); 
 }
 
+
 .panel{
-  border: dotted 1px green;
 }
 
 .header-icons-wrapper, .subject-box-wrapper {
-  border: solid 1px red;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
 }
 
 .generic-box{
-  border: solid 1px blue;
   text-align: center;
   width: 30px;
   height: 30px;
   margin: 0;
   padding: 0;
+}
+
+.subject-name-q-wrapper{
+  width: 20%;
+}
+
+.subject-name{
+  word-wrap: break-word;
+  font-size: var(--subject-name-fs);
+  margin: 0;
+}
+
+.subject-q-count{
+  font-size: var(--subject-q-count-fs);
+}
+
+.subject-row{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid grey;
 }
