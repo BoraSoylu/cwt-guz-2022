@@ -7,7 +7,6 @@ fail to automate it for 10 hours?
                               -Ancient proverb
 */
 
-
 /* Boxes:
     Correct checkmark icon - ok-icon
     Incorrect croos icon - cross-icon
@@ -48,14 +47,23 @@ const BoxTypes = Object.freeze({
 
 const panelClasses = ['col-12', 'col-lg-6'];
 
-
-
 export default function generateAll(panels) {
   const root = document.querySelector('#root');
+
+  const title = document.createElement('h1');
+  title.textContent = '2023 YKS, TYT, AYT Puan Hesaplama';
+  title.classList.add('title');
+  title.classList.add('col-12');
+  root.appendChild(title);
+
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('panels');
+  wrapper.classList.add('row');
   panels.forEach((element) => {
     const panel = generateExamPanelBlock(element);
-    root.appendChild(panel);
+    wrapper.appendChild(panel);
   });
+  root.appendChild(wrapper);
 }
 
 function generateExamPanelBlock(panel) {
@@ -91,7 +99,7 @@ function generateFieldBlock(field) {
   const fieldName = document.createElement('p');
   fieldName.innerText = field.field_name;
   fieldName.classList.add('field-name');
-  wrapper.appendChild(fieldName)
+  wrapper.appendChild(fieldName);
 
   wrapper.classList.add('field-wrapper');
   if (field.soz === true) {
