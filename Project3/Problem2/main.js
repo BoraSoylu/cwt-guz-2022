@@ -4,6 +4,10 @@ fetch('./data.json')
   .then((response) => response.json())
   .then((json) => {
     generateAll(json);
+    const body = document.querySelector('body');
+    const error_box = document.createElement('div');
+    error_box.innerHTML = returnErrorHtml();
+    body.appendChild(error_box);
     main();
   });
 
@@ -20,13 +24,36 @@ function main() {
         rows_valid = false;
       }
     });
+    if (!correctObp()) {
+      rows_valid = false;
+    }
     if (rows_valid) {
+      console.log('results calculated');
       calculateResults();
     }
   });
 }
 
 function calculateResults() {}
+
+function correctObp() {
+  const obp = document.querySelector('.obp-gpa');
+  const panel = document.querySelector('.obs-panel');
+  console.log(obp);
+  const score = Number(obp.value);
+  if (score > 100 || score < 0) {
+    const error_box = document.querySelector('error-box');
+    if (!panel.childNodes[1].classList.contains('invalid-row')) {
+      panel.childNodes[1].classList.toggle('invalid-row');
+    }
+    errorMessage('Obp 0 ile 100 arasında olmalıdır!');
+    return false;
+  }
+  if (panel.childNodes[1].classList.contains('invalid-row')) {
+    panel.childNodes[1].classList.toggle('invalid-row');
+  }
+  return true;
+}
 
 function correctQuestionCount(row) {
   const q_count = Number(
@@ -36,13 +63,9 @@ function correctQuestionCount(row) {
   const incorrect = Number(row.childNodes[1].childNodes[1].childNodes[0].value);
 
   if (correct + incorrect > q_count) {
-    const body = document.querySelector('body');
-    const error_box = document.createElement('div');
-    error_box.innerHTML = errorMessage(
+    errorMessage(
       'Doğruların ve yanlışların toplamı soru sayısından büyük olmamalı!'
     );
-    body.appendChild(error_box);
-    showBanner('.banner.error');
     invalidRow(row, true);
     return false;
   } else if (correct + incorrect <= q_count) {
@@ -87,11 +110,18 @@ const hideBanners = (e) => {
 };
 
 function errorMessage(string) {
+  const error_box = document.querySelector('.banner-message');
+  error_box.innerText = string;
+
+  showBanner('.banner.error');
+}
+
+function returnErrorHtml() {
   return `<div class="banners-container">
-    <div class="banners">
-      <div class="banner error">
-        <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
-        <div class="banner-message">${string}</div>
-        <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
-      </div></div>`;
+  <div class="banners">
+    <div class="banner error">
+      <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
+      <div class="banner-message"></div>
+      <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
+    </div></div>`;
 }
