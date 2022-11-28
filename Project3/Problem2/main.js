@@ -49,6 +49,11 @@ function main() {
     result_displays.forEach((result_display) => {
       result_display.innerText = '-';
     });
+    let errors = document.querySelectorAll('.invalid-row');
+    errors.forEach((error) => {
+      error.classList.remove('invalid-row');
+    });
+    hideBanners();
   });
 }
 
@@ -105,7 +110,7 @@ function calculateResults() {
   //   ea_raw: ayt_ea_ham,
   //   ea_end: ayt_ea_yer,
   // };
-  console.log(ayt_ea_ham)
+  console.log(ayt_ea_ham);
   return [
     tyt_ham,
     tyt_yer,
@@ -123,7 +128,7 @@ function setResults(results) {
   for (let i = 0; i < display.length; i++) {
     display[i].innerText = results[i];
   }
-  console.log(display)
+  console.log(display);
 }
 
 function correctObp() {
