@@ -6,8 +6,3 @@ fetch('./data.json')
     generateAll(json);
   });
 
-const sil = document.querySelector(
-  '.sil-bunu-gecici-github-pages-guncellendi-mi-diye-gormek-icin'
-);
-
-sil.innerText = '1';
