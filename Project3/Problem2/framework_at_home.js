@@ -293,6 +293,8 @@ function generateResultsPanel() {
 
     const row_text = document.createElement('p');
     row_text.innerText = row[0];
+    row_text.classList.add('subject-name')
+    row_text.classList.add('result-text')
     row_wrapper.appendChild(row_text);
 
     row_wrapper.appendChild(generateBox(row[1]));
