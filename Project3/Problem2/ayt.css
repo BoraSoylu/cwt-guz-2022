@@ -1,3 +1,8 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
 @font-face {
   font-family: Roboto;
   src: url('./Roboto/Roboto-Regular.ttf');
@@ -15,12 +20,6 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-
-
-#root {
-  gap: 20px;
-}
-
 .title {
   display: flex;
   margin: 0px 0px 30px;
@@ -33,11 +32,99 @@ body {
   color: #283247;
 }
 
-.panel {
-  box-shadow: 0px 3px 20px 3px rgb(0 0 0 / 10%);
-  padding: 0px;
+#root {
+  gap: 30px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
-.panels{
-  padding: 0pX;
+.panel {
+  box-shadow: 0px 3px 20px 3px rgb(0 0 0 / 10%);
+  width: 440px;
+  border-radius: 5px;
 }
+.panel-title {
+  font-size: var(--panel-title-fs);
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.generic-box {
+  width: 3.75rem;
+  height: 2rem;
+  box-shadow: 0px 2px 0px #00000029;
+  border-radius: 7px;
+  border: 0.75px solid #c9c9c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.header-icons-wrapper,
+.subject-box-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 5px;
+}
+
+.header-icons-wrapper > *, .net {
+  border: none;
+  box-shadow: none;
+}
+
+.net{
+  font-weight: bold;
+}
+
+.field-name {
+  color: #aaa;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  margin: 25px 0px 8px;
+}
+
+.correct,
+.incorrect {
+  text-align: center;
+}
+
+.subject-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.subject-name-q-wrapper {
+  margin: 0px;
+}
+.subject-name-q-wrapper > * {
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.subject-name{
+  font-weight: bold;
+}
+
+.subject-q-count{
+  font-size: 11px;
+  color: #004085;
+  line-height: 1.5;
+}
+

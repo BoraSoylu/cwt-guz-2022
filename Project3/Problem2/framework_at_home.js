@@ -26,8 +26,8 @@ fail to automate it for 10 hours?
     SOZ end display box - SOZ_end
     */
 const BoxTypes = Object.freeze({
-  ok_icon: ['div', ['fa', 'fa-check'], ''],
-  cross_icon: ['div', ['cross-icon'], 'X'],
+  ok_icon: ['i', ['material-icons'], 'check'],
+  cross_icon: ['i', ['material-icons'], 'close'],
   net_icon: ['div', ['net-icon'], 'Net'],
   correct: ['input', ['correct'], '-'],
   incorrect: ['input', ['incorrect'], '-'],
@@ -50,20 +50,20 @@ const panelClasses = ['col-12', 'col-lg-6'];
 export default function generateAll(panels) {
   const root = document.querySelector('#root');
 
-  const title = document.createElement('h1');
-  title.textContent = '2023 YKS, TYT, AYT Puan Hesaplama';
-  title.classList.add('title');
-  title.classList.add('col-12');
-  root.appendChild(title);
+  // const title = document.createElement('h1');
+  // title.textContent = '2023 YKS, TYT, AYT Puan Hesaplama';
+  // title.classList.add('title');
+  // title.classList.add('col-12');
+  // root.appendChild(title);
 
-  const wrapper = document.createElement('div');
-  wrapper.classList.add('panels');
-  wrapper.classList.add('row');
+  // const wrapper = document.createElement('div');
+  // wrapper.classList.add('panels');
+  // wrapper.classList.add('row');
   panels.forEach((element) => {
     const panel = generateExamPanelBlock(element);
-    wrapper.appendChild(panel);
+    root.appendChild(panel);
   });
-  root.appendChild(wrapper);
+  // root.appendChild(wrapper);
 }
 
 function generateExamPanelBlock(panel) {
@@ -74,7 +74,7 @@ function generateExamPanelBlock(panel) {
     wrapper.classList.add(element);
   });
 
-  const panelTitle = document.createElement('p');
+  const panelTitle = document.createElement('h2');
   panelTitle.innerHTML = `<b>${panel.panel_name}</b> Puanı Hesaplama`;
   panelTitle.classList.add('panel-title');
   wrapper.appendChild(panelTitle);
@@ -137,7 +137,7 @@ function generateSubjectNameAndQCount(subject) {
   wrapper.appendChild(subjectName);
 
   const questionCount = document.createElement('p');
-  questionCount.textContent = subject.question_count;
+  questionCount.textContent = subject.question_count + ' soru';
   questionCount.classList.add('subject-q-count');
   wrapper.appendChild(questionCount);
 
