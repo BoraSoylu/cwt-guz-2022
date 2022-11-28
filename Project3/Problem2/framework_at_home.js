@@ -132,6 +132,7 @@ function generateSubjectRow(subject) {
   const wrapper = document.createElement('div');
 
   wrapper.classList.add('subject-row');
+  wrapper.classList.add('input-row');
   wrapper.classList.add(`row-id${subject.subject_id}`);
 
   wrapper.appendChild(generateSubjectNameAndQCount(subject));
