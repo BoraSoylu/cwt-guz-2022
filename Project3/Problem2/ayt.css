@@ -95,6 +95,16 @@ h2 {
   gap: 30px;
 }
 
+@media screen and (max-width: 600px) {
+  .header-icons-wrapper,
+.subject-box-wrapper {
+  gap: 10px;
+}
+.generic-box{
+  width: 2.75rem;
+}
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
