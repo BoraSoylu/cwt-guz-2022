@@ -30,12 +30,101 @@ function main() {
     }
     if (rows_valid) {
       console.log('results calculated');
-      calculateResults();
+      setResults(calculateResults());
     }
+  });
+
+  let clr_btn = document.querySelector('.clear-btn');
+  let nets = document.querySelectorAll('.net');
+  let result_displays = document.querySelectorAll('.result-display');
+  clr_btn.addEventListener('click', () => {
+    console.log('click');
+    const all_input = document.querySelectorAll('input');
+    all_input.forEach((input) => {
+      input.value = null;
+    });
+    nets.forEach((net) => {
+      net.innerText = '-';
+    });
+    result_displays.forEach((result_display) => {
+      result_display.innerText = '-';
+    });
   });
 }
 
-function calculateResults() {}
+function calculateResults() {
+  const tyt_nets = document.querySelectorAll('.tyt-net');
+  const gpa = document.querySelector('.obp-gpa');
+  const lower_score = document.querySelector('.obp-checkbox').checked;
+  let gpa_score = lower_score ? gpa.value * 0.3 : gpa.value * 0.6;
+
+  let tyt_ham = 0;
+  tyt_nets.forEach((net) => {
+    if (net.innerText === '-') {
+      net.innerText = 0;
+    }
+    tyt_ham += Number(net.innerText) * 5;
+  });
+
+  let tyt_yer = tyt_ham + gpa_score;
+
+  const ayt_say_nets = document.querySelectorAll('.say-net');
+  let ayt_say_ham = 0;
+  ayt_say_nets.forEach((net) => {
+    if (net.innerText === '-') {
+      net.innerText = 0;
+    }
+    ayt_say_ham += Number(net.innerText) * 6.25;
+  });
+
+  let ayt_say_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
+  ayt_say_yer = ayt_say_yer + gpa_score;
+
+  const ayt_soz_nets = document.querySelectorAll('.soz-net');
+  let ayt_soz_ham = 0;
+  ayt_soz_nets.forEach((net) => {
+    if (net.innerText === '-') {
+      net.innerText = 0;
+    }
+    ayt_soz_ham += Number(net.innerText) * 6.25;
+  });
+
+  let ayt_soz_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
+  ayt_soz_yer = ayt_soz_yer + gpa_score;
+
+  let ayt_mat_net = document.querySelector('.ayt-mat');
+  let ayt_ea_ham = (ayt_soz_ham + 12.5 * ayt_mat_net.innerText) * 0.5;
+  let ayt_ea_yer = ayt_soz_yer + gpa_score;
+  // return {
+  //   tyt_raw: tyt_ham,
+  //   tyt_end: tyt_yer,
+  //   say_raw: ayt_say_ham,
+  //   say_end: ayt_say_yer,
+  //   soz_raw: ayt_soz_ham,
+  //   soz_end: ayt_soz_yer,
+  //   ea_raw: ayt_ea_ham,
+  //   ea_end: ayt_ea_yer,
+  // };
+  console.log(ayt_ea_ham)
+  return [
+    tyt_ham,
+    tyt_yer,
+    ayt_say_ham,
+    ayt_say_yer,
+    ayt_soz_ham,
+    ayt_soz_yer,
+    ayt_ea_ham,
+    ayt_ea_yer,
+  ];
+}
+
+function setResults(results) {
+  let display = document.querySelectorAll('.result-display');
+  for (let i = 0; i < display.length; i++) {
+    display[i].innerText = results[i];
+  }
+  console.log(display)
+}
 
 function correctObp() {
   const obp = document.querySelector('.obp-gpa');
@@ -144,7 +233,6 @@ function obpAddKeyListener() {
       e.target.value = '';
     }
   });
-
 }
 
 function addRowEventListener() {

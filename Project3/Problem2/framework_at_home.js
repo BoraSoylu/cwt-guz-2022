@@ -133,7 +133,7 @@ function generateSubjectRow(subject) {
 
   wrapper.classList.add('subject-row');
   wrapper.classList.add('input-row');
-  wrapper.classList.add(`row-id${subject.subject_id}`);
+  // wrapper.classList.add(`row-id${subject.subject_type}`);
 
   wrapper.appendChild(generateSubjectNameAndQCount(subject));
   wrapper.appendChild(generateSubjectBoxes(subject));
@@ -163,14 +163,14 @@ function generateSubjectBoxes(subject) {
 
   wrapper.classList.add('subject-box-wrapper');
 
-  wrapper.appendChild(generateBox(BoxTypes.correct, subject.subject_id));
-  wrapper.appendChild(generateBox(BoxTypes.incorrect, subject.subject_id));
-  wrapper.appendChild(generateBox(BoxTypes.net, subject.subject_id));
+  wrapper.appendChild(generateBox(BoxTypes.correct, subject.subject_type));
+  wrapper.appendChild(generateBox(BoxTypes.incorrect, subject.subject_type));
+  wrapper.appendChild(generateBox(BoxTypes.net, subject.subject_type));
 
   return wrapper;
 }
 
-function generateBox(type, boxId) {
+function generateBox(type, box_types) {
   const [elementType, cssClasses, textContent] = type;
 
   const box = document.createElement(elementType);
@@ -179,12 +179,14 @@ function generateBox(type, boxId) {
     box.classList.add(element);
   });
   box.classList.add('generic-box');
-  if(box.classList.contains('obp-score')){
-    box.readOnly = true
+  if (box.classList.contains('obp-score')) {
+    box.readOnly = true;
   }
-
-  if (boxId !== null) {
-    box.classList.add(`box-id-${boxId}`);
+  // box.classList.add(box_types);
+  if (box_types !== undefined && elementType === 'p') {
+    box_types.forEach((box_type) => {
+      box.classList.add(box_type);
+    });
   }
 
   box.textContent = textContent;
@@ -211,7 +213,6 @@ function generateBox(type, boxId) {
 
   return box;
 }
-//--------------------------------------------------------------------
 function generateObsPanel() {
   const wrapper = document.createElement('div');
   wrapper.classList.add('panel');
@@ -311,7 +312,7 @@ function generateResultsPanel() {
 
 function generateButtons() {
   const wrapper = document.createElement('div');
-  wrapper.classList.add('btn-wrapper')
+  wrapper.classList.add('btn-wrapper');
 
   const calc_btn = document.createElement('button');
   calc_btn.innerText = 'Hesapla';
@@ -325,5 +326,5 @@ function generateButtons() {
   wrapper.appendChild(calc_btn);
   wrapper.appendChild(clear_btn);
 
-  return wrapper
+  return wrapper;
 }

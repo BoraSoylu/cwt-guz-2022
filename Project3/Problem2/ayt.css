@@ -96,8 +96,8 @@ h2 {
 }
 
 @media screen and (max-width: 992px) {
-  #root{
-    margin-top:900px;
+  #root {
+    margin-top: 900px;
   }
 }
 
@@ -264,6 +264,7 @@ h2 {
 
 .result-text {
   min-width: 48px;
+  width: fit-content;
 }
 
 .btn-wrapper {
