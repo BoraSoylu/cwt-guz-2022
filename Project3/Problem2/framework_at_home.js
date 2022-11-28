@@ -188,7 +188,6 @@ function generateBox(type, boxId) {
   box.placeholder = textContent;
 
   if (cssClasses.includes('correct') || cssClasses.includes('incorrect')) {
-    console.log('aasdasda');
     const wrapper = document.createElement('div');
     wrapper.classList.add('input-wrapper');
     wrapper.appendChild(box);

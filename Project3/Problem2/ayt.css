@@ -326,3 +326,8 @@ input.generic-box:focus {
   border-color: none;
   box-shadow: none;
 }
+
+.invalid-row{
+  transition: all 0.2s ease-in-out;
+  border: solid 1px red;
+}
