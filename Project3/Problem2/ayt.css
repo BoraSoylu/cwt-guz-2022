@@ -51,12 +51,17 @@ body {
 .right-side {
   width: 440px;
   border-radius: 5px;
-  padding-bottom: 7px;
   height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0px;
+  padding-bottom: 7px;
+}
+
+.right-side>.panel{
+  width: 100%;
 }
 .panel-title {
   font-size: var(--panel-title-fs);
@@ -136,6 +141,8 @@ h2 {
 
 .subject-name-q-wrapper {
   margin: 0px;
+  width: 20%;
+  min-width: 75px;
 }
 .subject-name-q-wrapper > * {
   margin: 0px;
@@ -144,6 +151,7 @@ h2 {
 
 .subject-name {
   font-weight: bold;
+  width: 100%;
 }
 
 .subject-q-count {
