@@ -95,11 +95,7 @@ h2 {
   gap: 30px;
 }
 
-@media screen and (max-width: 992px) {
-  #root {
-    margin-top: 900px;
-  }
-}
+
 
 @media screen and (max-width: 400px) {
   .header-icons-wrapper,
@@ -368,6 +364,10 @@ html,
 body {
   margin: 0;
   height: 100%;
+}
+
+.container{
+  height: 100vh;
 }
 
 body {
