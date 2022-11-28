@@ -140,7 +140,11 @@ function obpAddKeyListener() {
     if ((e.target.value * 5).toString() !== 'NaN') {
       obp_score.value = e.target.value * 5;
     }
+    if (e.target.value == 0) {
+      e.target.value = '';
+    }
   });
+
 }
 
 function addRowEventListener() {
