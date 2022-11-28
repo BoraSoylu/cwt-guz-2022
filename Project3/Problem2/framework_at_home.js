@@ -159,6 +159,8 @@ function generateSubjectBoxes(subject) {
 function generateBox(type, boxId) {
   const [elementType, cssClasses, textContent] = type;
 
+  
+
   const box = document.createElement(elementType);
 
   cssClasses.forEach((element) => {
@@ -173,6 +175,28 @@ function generateBox(type, boxId) {
   box.textContent = textContent;
 
   box.placeholder = textContent;
+
+
+  if (cssClasses.includes('correct')  || cssClasses.includes('incorrect')){
+    console.log('aasdasda')
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('input-wrapper')
+    wrapper.appendChild(box)
+    const icon = document.createElement('i')
+    icon.classList.add('material-icons')
+    icon.classList.add('small-icons')
+    if (cssClasses.includes('correct')){
+      icon.innerText='check'
+      icon.classList.add('small-check')
+    }else{
+      icon.innerText='close'
+      icon.classList.add('small-cross')
+    }
+    wrapper.appendChild(icon) 
+    return wrapper
+  }
+  
+
 
   return box;
 }
