@@ -145,6 +145,14 @@ function obpAddKeyListener() {
 
 function addRowEventListener() {
   const rows = document.querySelectorAll('.subject-box-wrapper');
+  const inputs = document.querySelectorAll('input');
+  inputs.forEach((input) => {
+    input.addEventListener('focus', (e) => {
+      if (e.target.value == 0) {
+        e.target.value = '';
+      }
+    });
+  });
 
   rows.forEach((row) => {
     row.childNodes[0].childNodes[0].addEventListener('input', (e) => {
