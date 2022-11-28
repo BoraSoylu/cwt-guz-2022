@@ -60,7 +60,7 @@ body {
   padding-bottom: 7px;
 }
 
-.right-side>.panel{
+.right-side > .panel {
   width: 100%;
 }
 .panel-title {
@@ -95,14 +95,14 @@ h2 {
   gap: 30px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .header-icons-wrapper,
-.subject-box-wrapper {
-  gap: 10px;
-}
-.generic-box{
-  width: 2.75rem;
-}
+  .subject-box-wrapper {
+    gap: 10px;
+  }
+  .generic-box {
+    width: 2.75rem;
+  }
 }
 
 .material-icons {
@@ -147,7 +147,7 @@ h2 {
   align-items: flex-start;
   border-bottom: 1px solid #c9c9c9;
   margin-bottom: 7px;
-} 
+}
 
 .subject-name-q-wrapper {
   margin: 0px;
@@ -294,11 +294,9 @@ button.calc-btn:hover {
   text-shadow: none;
 }
 
-.AYT>.field-wrapper{
+.AYT > .field-wrapper {
   margin-bottom: 55px;
 }
-.AYT>.field-wrapper:last-child{
+.AYT > .field-wrapper:last-child {
   margin-bottom: 0px;
 }
-
-
