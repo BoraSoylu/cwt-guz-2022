@@ -13,14 +13,14 @@ fetch('./data.json')
 
 function main() {
   const calc_btn = document.querySelector('.calc-btn');
-
+  obpAddKeyListener();
   let rows_valid = true;
 
   calc_btn.addEventListener('click', () => {
     hideBanners();
     const input_rows = document.querySelectorAll('.input-row');
     input_rows.forEach((row) => {
-      if (!correctQuestionCount(row)) {
+      if (!correctQuestionInput(row)) {
         rows_valid = false;
       }
     });
@@ -39,8 +39,15 @@ function calculateResults() {}
 function correctObp() {
   const obp = document.querySelector('.obp-gpa');
   const panel = document.querySelector('.obs-panel');
-  console.log(obp);
   const score = Number(obp.value);
+  if (score.toString() === 'NaN') {
+    const error_box = document.querySelector('error-box');
+    if (!panel.childNodes[1].classList.contains('invalid-row')) {
+      panel.childNodes[1].classList.toggle('invalid-row');
+    }
+    errorMessage('Diploma notu bir sayı olmalıdır!');
+    return false;
+  }
   if (score > 100 || score < 0) {
     const error_box = document.querySelector('error-box');
     if (!panel.childNodes[1].classList.contains('invalid-row')) {
@@ -52,25 +59,47 @@ function correctObp() {
   if (panel.childNodes[1].classList.contains('invalid-row')) {
     panel.childNodes[1].classList.toggle('invalid-row');
   }
+  if (document.querySelector('.obp-gpa').value == 0) {
+    document.querySelector('.obp-gpa').value = 0;
+    document.querySelector('.obp-score').value = 0;
+  }
   return true;
 }
 
-function correctQuestionCount(row) {
+function correctQuestionInput(row) {
   const q_count = Number(
     row.childNodes[0].childNodes[1].innerText.split(' ')[0]
   );
   const correct = Number(row.childNodes[1].childNodes[0].childNodes[0].value);
   const incorrect = Number(row.childNodes[1].childNodes[1].childNodes[0].value);
 
+  if (correct.toString() === 'NaN' || incorrect.toString() == 'NaN') {
+    errorMessage('Girişler sayı olmak zorundadır!');
+    invalidRow(row, true);
+    return false;
+  }
+
+  if (correct === 0) {
+    row.childNodes[1].childNodes[0].childNodes[0].value = 0;
+  }
+  if (incorrect === 0) {
+    row.childNodes[1].childNodes[1].childNodes[0].value = 0;
+  }
+
+  if (correct < 0 || incorrect < 0) {
+    errorMessage('Girişler negatif olamaz!');
+    invalidRow(row, true);
+    return false;
+  }
   if (correct + incorrect > q_count) {
     errorMessage(
       'Doğruların ve yanlışların toplamı soru sayısından büyük olmamalı!'
     );
     invalidRow(row, true);
     return false;
-  } else if (correct + incorrect <= q_count) {
-    invalidRow(row, false);
   }
+
+  invalidRow(row, false);
   return true;
 }
 
@@ -86,13 +115,34 @@ function invalidRow(row, invalid) {
   }
 }
 
-function alertUser(message) {
-  const body = document.queryCommandIndeterm;
+function errorMessage(string) {
+  const error_box = document.querySelector('.banner-message');
+  error_box.innerText = string;
+
+  showBanner('.banner.error');
+}
+
+function returnErrorHtml() {
+  return `<div class="banners-container">
+  <div class="banners">
+  <div class="banner error">
+  <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
+  <div class="banner-message"></div>
+  <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
+  </div></div>`;
+}
+
+function obpAddKeyListener() {
+  const obp = document.querySelector('.obp-gpa');
+  const obp_score = document.querySelector('.obp-score');
+  obp.addEventListener('input', (e) => {
+    if ((e.target.value * 5).toString() !== 'NaN') {
+      obp_score.value = e.target.value * 5;
+    }
+  });
 }
 
 // credit: https://codepen.io/brookesb91/pen/KKVWbzq
-
-// Pssst, I've created a github package - https://github.com/brookesb91/dismissible
 
 const showBanner = (selector) => {
   hideBanners();
@@ -108,20 +158,3 @@ const hideBanners = (e) => {
     .querySelectorAll('.banner.visible')
     .forEach((b) => b.classList.remove('visible'));
 };
-
-function errorMessage(string) {
-  const error_box = document.querySelector('.banner-message');
-  error_box.innerText = string;
-
-  showBanner('.banner.error');
-}
-
-function returnErrorHtml() {
-  return `<div class="banners-container">
-  <div class="banners">
-    <div class="banner error">
-      <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
-      <div class="banner-message"></div>
-      <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
-    </div></div>`;
-}
