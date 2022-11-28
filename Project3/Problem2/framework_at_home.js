@@ -33,7 +33,7 @@ const BoxTypes = Object.freeze({
   incorrect: ['input', ['incorrect'], '-'],
   net: ['p', ['net'], '-'],
   obp_gpa: ['input', ['obp-gpa'], '-'],
-  obp_score: ['p', ['obp-score'], '-'],
+  obp_score: ['input', ['obp-score'], '-'],
   tyt_raw: ['p', ['tyt-raw'], '-'],
   tyt_end: ['p', ['tyt-end'], '-'],
   say_raw: ['p', ['say-raw'], '-'],
@@ -63,12 +63,24 @@ export default function generateAll(panels) {
     const panel = generateExamPanelBlock(element);
     root.appendChild(panel);
   });
+
+  const rightSide = document.createElement('div');
+  rightSide.classList.add('right-side');
+  panelClasses.forEach((element) => {
+    rightSide.classList.add(element);
+  });
+  rightSide.appendChild(document.querySelector('.TYT'));
+  rightSide.appendChild(generateObsPanel());
+  rightSide.appendChild(generateResultsPanel());
+  root.appendChild(rightSide);
+
   // root.appendChild(wrapper);
 }
 
 function generateExamPanelBlock(panel) {
   const wrapper = document.createElement('div');
   wrapper.classList.add('panel');
+  wrapper.classList.add(panel.panel_name);
 
   panelClasses.forEach((element) => {
     wrapper.classList.add(element);
@@ -159,8 +171,6 @@ function generateSubjectBoxes(subject) {
 function generateBox(type, boxId) {
   const [elementType, cssClasses, textContent] = type;
 
-  
-
   const box = document.createElement(elementType);
 
   cssClasses.forEach((element) => {
@@ -176,27 +186,24 @@ function generateBox(type, boxId) {
 
   box.placeholder = textContent;
 
-
-  if (cssClasses.includes('correct')  || cssClasses.includes('incorrect')){
-    console.log('aasdasda')
+  if (cssClasses.includes('correct') || cssClasses.includes('incorrect')) {
+    console.log('aasdasda');
     const wrapper = document.createElement('div');
-    wrapper.classList.add('input-wrapper')
-    wrapper.appendChild(box)
-    const icon = document.createElement('i')
-    icon.classList.add('material-icons')
-    icon.classList.add('small-icons')
-    if (cssClasses.includes('correct')){
-      icon.innerText='check'
-      icon.classList.add('small-check')
-    }else{
-      icon.innerText='close'
-      icon.classList.add('small-cross')
+    wrapper.classList.add('input-wrapper');
+    wrapper.appendChild(box);
+    const icon = document.createElement('i');
+    icon.classList.add('material-icons');
+    icon.classList.add('small-icons');
+    if (cssClasses.includes('correct')) {
+      icon.innerText = 'check';
+      icon.classList.add('small-check');
+    } else {
+      icon.innerText = 'close';
+      icon.classList.add('small-cross');
     }
-    wrapper.appendChild(icon) 
-    return wrapper
+    wrapper.appendChild(icon);
+    return wrapper;
   }
-  
-
 
   return box;
 }
@@ -204,16 +211,20 @@ function generateBox(type, boxId) {
 function generateObsPanel() {
   const wrapper = document.createElement('div');
   wrapper.classList.add('panel');
+  wrapper.classList.add('obs-panel');
+  wrapper.classList.add('col-12');
+  wrapper.classList.add('col-lg-6');
 
   const panelTitle = document.createElement('p');
   panelTitle.innerHTML = '<b>Ortaöğretim</b> Başarı Puanı';
   panelTitle.classList.add('panel-title');
   wrapper.appendChild(panelTitle);
 
-  wrapper.appendChild(createObsRow('Dipolma Notu', BoxTypes.obp_gpa));
+  wrapper.appendChild(createObsRow('Diploma Notu', BoxTypes.obp_gpa));
   wrapper.appendChild(createObsRow('OBP', BoxTypes.obp_score));
 
   const checkWrapper = document.createElement('div');
+  checkWrapper.classList.add('check-wrapper');
   const checkBox = generateBox(BoxTypes.obp_checkbox);
   checkBox.type = 'checkbox';
   checkWrapper.appendChild(checkBox);
@@ -228,6 +239,7 @@ function generateObsPanel() {
     rowWrapper.classList.add('obs-row');
 
     const obsText = document.createElement('p');
+    obsText.classList.add('subject-name');
 
     obsText.textContent = text;
 
@@ -244,10 +256,49 @@ function generateObsPanel() {
 function generateResultsPanel() {
   const wrapper = document.createElement('div');
   wrapper.classList.add('panel');
+  wrapper.classList.add('results');
 
-  function createResultsRow(text) {
-    return rowWrapper;
-  }
+  const panelTitle = document.createElement('h2');
+  panelTitle.innerHTML = `<b>SONUÇLAR</b>`;
+  panelTitle.classList.add('panel-title');
+  wrapper.appendChild(panelTitle);
 
-  function createResultsHeaders(text, box) {}
+  const headerIconsWrapper = document.createElement('div');
+  headerIconsWrapper.classList.add('header-icons-wrapper');
+  headerIconsWrapper.classList.add('results-header-icons-wrapper');
+  headerIconsWrapper.classList.add('subject-row');
+  headerIconsWrapper.classList.add('result-row');
+  const result_headers = ['Puan Türü', 'Ham Puan', 'Yerleştirme Puanı'];
+
+  result_headers.forEach((element) => {
+    const a = document.createElement('p');
+    a.textContent = element;
+    a.classList.add('result-header');
+    headerIconsWrapper.appendChild(a);
+  });
+  wrapper.appendChild(headerIconsWrapper);
+
+  const results = [
+    ['TYT', BoxTypes.tyt_raw, BoxTypes.tyt_end],
+    ['SAY', BoxTypes.say_raw, BoxTypes.say_end],
+    ['EA', BoxTypes.ea_raw, BoxTypes.ea_end],
+    ['SÖZ', BoxTypes.soz_raw, BoxTypes.soz_end],
+  ];
+
+  results.forEach((row) => {
+    const row_wrapper = document.createElement('div');
+
+    row_wrapper.classList.add('result-row');
+    row_wrapper.classList.add('subject-row');
+
+    const row_text = document.createElement('p');
+    row_text.innerText = row[0];
+    row_wrapper.appendChild(row_text);
+
+    row_wrapper.appendChild(generateBox(row[1]));
+    row_wrapper.appendChild(generateBox(row[2]));
+    wrapper.appendChild(row_wrapper);
+  });
+
+  return wrapper;
 }
