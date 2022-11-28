@@ -104,6 +104,15 @@ h2 {
     width: 2.75rem;
   }
 }
+@media screen and (max-width: 300px) {
+  .header-icons-wrapper,
+  .subject-box-wrapper {
+    gap: 3px;
+  }
+  .generic-box {
+    width: 1.5rem;
+  }
+}
 
 .material-icons {
   font-family: 'Material Icons';
@@ -151,8 +160,7 @@ h2 {
 
 .subject-name-q-wrapper {
   margin: 0px;
-  width: 20%;
-  min-width: 75px;
+  width: 30%;
 }
 .subject-name-q-wrapper > * {
   margin: 0px;
@@ -255,7 +263,7 @@ h2 {
 .btn-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 105%;
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -295,7 +303,7 @@ button.calc-btn:hover {
 }
 
 .AYT > .field-wrapper {
-  margin-bottom: 55px;
+  margin-bottom: 50px;
 }
 .AYT > .field-wrapper:last-child {
   margin-bottom: 0px;
