@@ -14,6 +14,7 @@ fetch('./data.json')
 function main() {
   const calc_btn = document.querySelector('.calc-btn');
   obpAddKeyListener();
+  addRowEventListener();
   let rows_valid = true;
 
   calc_btn.addEventListener('click', () => {
@@ -139,6 +140,25 @@ function obpAddKeyListener() {
     if ((e.target.value * 5).toString() !== 'NaN') {
       obp_score.value = e.target.value * 5;
     }
+  });
+}
+
+function addRowEventListener() {
+  const rows = document.querySelectorAll('.subject-box-wrapper');
+
+  rows.forEach((row) => {
+    row.childNodes[0].childNodes[0].addEventListener('input', (e) => {
+      if ((e.target.value * 5).toString() !== 'NaN') {
+        row.childNodes[2].innerText =
+          e.target.value - row.childNodes[1].childNodes[0].value;
+      }
+    });
+    row.childNodes[1].childNodes[0].addEventListener('input', (e) => {
+      if ((e.target.value * 5).toString() !== 'NaN') {
+        row.childNodes[2].innerText =
+          row.childNodes[0].childNodes[0].value - e.target.value;
+      }
+    });
   });
 }
 
