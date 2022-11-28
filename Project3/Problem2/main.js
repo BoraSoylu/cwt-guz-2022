@@ -10,16 +10,23 @@ fetch('./data.json')
 function main() {
   const calc_btn = document.querySelector('.calc-btn');
 
-  let rows_correct = false
+  let rows_valid = true;
 
   calc_btn.addEventListener('click', () => {
-    hideBanners()
+    hideBanners();
     const input_rows = document.querySelectorAll('.input-row');
     input_rows.forEach((row) => {
-      correctQuestionCount(row);
+      if (!correctQuestionCount(row)) {
+        rows_valid = false;
+      }
     });
+    if (rows_valid) {
+      calculateResults();
+    }
   });
 }
+
+function calculateResults() {}
 
 function correctQuestionCount(row) {
   const q_count = Number(
@@ -31,13 +38,9 @@ function correctQuestionCount(row) {
   if (correct + incorrect > q_count) {
     const body = document.querySelector('body');
     const error_box = document.createElement('div');
-    error_box.innerHTML = `<div class="banners-container">
-    <div class="banners">
-      <div class="banner error">
-        <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
-        <div class="banner-message">Hata! Doğruların ve yanlışların toplamı soru sayısından büyük olmamalı!</div>
-        <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
-      </div></div>`;
+    error_box.innerHTML = errorMessage(
+      'Doğruların ve yanlışların toplamı soru sayısından büyük olmamalı!'
+    );
     body.appendChild(error_box);
     showBanner('.banner.error');
     invalidRow(row, true);
@@ -82,3 +85,13 @@ const hideBanners = (e) => {
     .querySelectorAll('.banner.visible')
     .forEach((b) => b.classList.remove('visible'));
 };
+
+function errorMessage(string) {
+  return `<div class="banners-container">
+    <div class="banners">
+      <div class="banner error">
+        <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
+        <div class="banner-message">${string}</div>
+        <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
+      </div></div>`;
+}

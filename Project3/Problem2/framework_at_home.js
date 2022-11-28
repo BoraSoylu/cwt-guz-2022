@@ -179,6 +179,9 @@ function generateBox(type, boxId) {
     box.classList.add(element);
   });
   box.classList.add('generic-box');
+  if(box.classList.contains('obp-score')){
+    box.readOnly = true
+  }
 
   if (boxId !== null) {
     box.classList.add(`box-id-${boxId}`);

@@ -326,21 +326,35 @@ input.generic-box:focus {
   border-color: none;
   box-shadow: none;
 }
+.obp-score {
+  background: white !important;
+  transition: 0.4s, background-position 0s;
+}
+.obp-score:hover {
+  --p: 100%;
+  color: #fff;
+}
+.obp-score:focus {
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  color: white !important;
 
-.invalid-row{
+  background-color: white !important;
+  border-color: none;
+  box-shadow: 0px 2px 0px #00000029 !important;
+}
+
+.invalid-row {
   transition: all 0.2s ease-in-out;
   border: solid 1px red;
   border-radius: 5px;
   padding: 10px;
-  
 }
 
-
-
 /* credit: https://codepen.io/brookesb91/pen/KKVWbzq */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700');
 :root {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 html,
@@ -411,7 +425,7 @@ i {
 }
 
 .banner::after {
-  content: "";
+  content: '';
   position: absolute;
   height: 10%;
   width: 100%;
