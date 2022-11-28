@@ -53,6 +53,10 @@ body {
   border-radius: 5px;
   padding-bottom: 7px;
   height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .panel-title {
   font-size: var(--panel-title-fs);
@@ -71,6 +75,11 @@ body {
   align-items: center;
   margin: 0px;
   text-align: center;
+}
+
+h2 {
+  padding-bottom: 0px !important;
+  margin-block-end: 0px !important;
 }
 
 .header-icons-wrapper,
@@ -108,6 +117,7 @@ body {
   font-size: 14px;
   line-height: 21px;
   margin: 25px 0px 8px;
+  margin-top: 0px;
 }
 
 .correct,
@@ -119,9 +129,10 @@ body {
 .obs-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid #c9c9c9;
-}
+  margin-bottom: 7px;
+} 
 
 .subject-name-q-wrapper {
   margin: 0px;
@@ -196,21 +207,80 @@ body {
   box-shadow: none;
 }
 
-.results{
+.results {
   padding-right: calc(var(--bs-gutter-x) * 0.5);
   padding-left: calc(var(--bs-gutter-x) * 0.5);
 }
 
-.result-text, .result-header{
+.result-text,
+.result-header {
   margin-bottom: 8px;
   padding: 8px;
-  padding-left : 10px;
+  padding-left: 10px;
 }
-.result-row{
+.result-row {
   display: flex;
   justify-content: space-between;
 }
 
-.result-text{
+.result-display {
+  border: none;
+  box-shadow: none;
+  font-weight: bold;
+  margin-right: 3rem;
+}
+
+.result-text {
   min-width: 48px;
 }
+
+.btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 105%;
+  margin-top: 20px;
+}
+
+.big-btn {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  padding: 0px 22px;
+  line-height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.calc-btn {
+  background-color: #eb0241;
+  color: white;
+}
+
+.clear-btn {
+  border: 2px solid #eb0241;
+  color: #eb0241;
+  background-color: white;
+}
+button.clear-btn:hover {
+  transition: all 0.2s ease-in-out;
+  background: #eb0241;
+  color: #fff;
+  text-shadow: none;
+}
+button.calc-btn:hover {
+  transition: all 0.2s ease-in-out;
+  background: #d70241;
+  color: #fff;
+  text-shadow: none;
+}
+
+.AYT>.field-wrapper{
+  margin-bottom: 55px;
+}
+.AYT>.field-wrapper:last-child{
+  margin-bottom: 0px;
+}
+
+

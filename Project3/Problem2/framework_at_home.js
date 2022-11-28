@@ -34,14 +34,14 @@ const BoxTypes = Object.freeze({
   net: ['p', ['net'], '-'],
   obp_gpa: ['input', ['obp-gpa'], '-'],
   obp_score: ['input', ['obp-score'], '-'],
-  tyt_raw: ['p', ['tyt-raw'], '-'],
-  tyt_end: ['p', ['tyt-end'], '-'],
-  say_raw: ['p', ['say-raw'], '-'],
-  say_end: ['p', ['say-end'], '-'],
-  ea_raw: ['p', ['ea-raw'], '-'],
-  ea_end: ['p', ['ea-end'], '-'],
-  soz_raw: ['p', ['SOZ-raw'], '-'],
-  soz_end: ['p', ['SOZ-end'], '-'],
+  tyt_raw: ['p', ['tyt-raw', 'result-display'], '-'],
+  tyt_end: ['p', ['tyt-end', 'result-display'], '-'],
+  say_raw: ['p', ['say-raw', 'result-display'], '-'],
+  say_end: ['p', ['say-end', 'result-display'], '-'],
+  ea_raw: ['p', ['ea-raw', 'result-display'], '-'],
+  ea_end: ['p', ['ea-end', 'result-display'], '-'],
+  soz_raw: ['p', ['SOZ-raw', 'result-display'], '-'],
+  soz_end: ['p', ['SOZ-end', 'result-display'], '-'],
   obp_checkbox: ['input', ['obp-checkbox'], ''],
 });
 
@@ -72,6 +72,7 @@ export default function generateAll(panels) {
   rightSide.appendChild(document.querySelector('.TYT'));
   rightSide.appendChild(generateObsPanel());
   rightSide.appendChild(generateResultsPanel());
+  rightSide.appendChild(generateButtons());
   root.appendChild(rightSide);
 
   // root.appendChild(wrapper);
@@ -293,8 +294,8 @@ function generateResultsPanel() {
 
     const row_text = document.createElement('p');
     row_text.innerText = row[0];
-    row_text.classList.add('subject-name')
-    row_text.classList.add('result-text')
+    row_text.classList.add('subject-name');
+    row_text.classList.add('result-text');
     row_wrapper.appendChild(row_text);
 
     row_wrapper.appendChild(generateBox(row[1]));
@@ -303,4 +304,23 @@ function generateResultsPanel() {
   });
 
   return wrapper;
+}
+
+function generateButtons() {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('btn-wrapper')
+
+  const calc_btn = document.createElement('button');
+  calc_btn.innerText = 'Hesapla';
+  calc_btn.classList.add('big-btn');
+  calc_btn.classList.add('calc-btn');
+  const clear_btn = document.createElement('button');
+  clear_btn.innerText = 'Temizle';
+  clear_btn.classList.add('big-btn');
+  clear_btn.classList.add('clear-btn');
+
+  wrapper.appendChild(calc_btn);
+  wrapper.appendChild(clear_btn);
+
+  return wrapper
 }
