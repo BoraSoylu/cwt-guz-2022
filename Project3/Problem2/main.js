@@ -58,11 +58,12 @@ function main() {
 }
 
 function calculateResults() {
-  const tyt_nets = document.querySelectorAll('.tyt-net');
   const gpa = document.querySelector('.obp-gpa');
   const lower_score = document.querySelector('.obp-checkbox').checked;
   let gpa_score = lower_score ? gpa.value * 0.3 : gpa.value * 0.6;
 
+  // calc tyt scores
+  const tyt_nets = document.querySelectorAll('.tyt-net');
   let tyt_ham = 0;
   tyt_nets.forEach((net) => {
     if (net.innerText === '-') {
@@ -70,9 +71,9 @@ function calculateResults() {
     }
     tyt_ham += Number(net.innerText) * 5;
   });
-
   let tyt_yer = tyt_ham + gpa_score;
 
+  //calc ayt sayisal scores
   const ayt_say_nets = document.querySelectorAll('.say-net');
   let ayt_say_ham = 0;
   ayt_say_nets.forEach((net) => {
@@ -81,10 +82,10 @@ function calculateResults() {
     }
     ayt_say_ham += Number(net.innerText) * 6.25;
   });
-
   let ayt_say_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
   ayt_say_yer = ayt_say_yer + gpa_score;
 
+  //calc ayt sayisal scores
   const ayt_soz_nets = document.querySelectorAll('.soz-net');
   let ayt_soz_ham = 0;
   ayt_soz_nets.forEach((net) => {
@@ -93,7 +94,6 @@ function calculateResults() {
     }
     ayt_soz_ham += Number(net.innerText) * 6.25;
   });
-
   let ayt_soz_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
   ayt_soz_yer = ayt_soz_yer + gpa_score;
 
@@ -110,7 +110,6 @@ function calculateResults() {
   //   ea_raw: ayt_ea_ham,
   //   ea_end: ayt_ea_yer,
   // };
-  console.log(ayt_ea_ham);
   return [
     tyt_ham,
     tyt_yer,
