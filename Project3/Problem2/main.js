@@ -125,7 +125,7 @@ function calculateResults() {
 function setResults(results) {
   let display = document.querySelectorAll('.result-display');
   for (let i = 0; i < display.length; i++) {
-    display[i].innerText = results[i];
+    display[i].innerText = results[i].toFixed(2).replace(/[.,]00$/, '');
   }
   console.log(display);
 }
@@ -189,6 +189,11 @@ function correctQuestionInput(row) {
     errorMessage(
       'Doğruların ve yanlışların toplamı soru sayısından büyük olmamalı!'
     );
+    invalidRow(row, true);
+    return false;
+  }
+  if (!Number.isInteger(correct) || !Number.isInteger(incorrect)) {
+    errorMessage('Girişler tamsayı olmalıdır!');
     invalidRow(row, true);
     return false;
   }
