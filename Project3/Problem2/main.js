@@ -15,12 +15,13 @@ function main() {
   const calc_btn = document.querySelector('.calc-btn');
   obpAddKeyListener();
   addRowEventListener();
-  let rows_valid = true;
-
+  
   calc_btn.addEventListener('click', () => {
+    let rows_valid = true;
     hideBanners();
     const input_rows = document.querySelectorAll('.input-row');
     input_rows.forEach((row) => {
+      row.classList.remove('invalid-row');
       if (!correctQuestionInput(row)) {
         rows_valid = false;
       }
