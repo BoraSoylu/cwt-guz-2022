@@ -147,7 +147,7 @@ function correctObp() {
     if (!panel.childNodes[1].classList.contains('invalid-row')) {
       panel.childNodes[1].classList.toggle('invalid-row');
     }
-    errorMessage('Obp 0 ile 100 arasında olmalıdır!');
+    errorMessage('Diploma notu 0 ile 100 arasında olmalıdır!');
     return false;
   }
   if (panel.childNodes[1].classList.contains('invalid-row')) {
