@@ -531,7 +531,6 @@
   <script>
     /* eslint-disable no-console */
     /* eslint-disable no-use-before-define */
-    /* https://knowyourmeme.com/memes/we-have-food-at-home */
     /* 
     Why spend 20 minutes doing something when you can 
     fail to automate it for 10 hours?
@@ -1066,10 +1065,10 @@
         }
         ayt_say_ham += Number(net.innerText) * 6.25;
       });
-      let ayt_say_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
-      ayt_say_yer = ayt_say_yer + gpa_score;
+      ayt_say_ham = ayt_say_ham * 0.6 + tyt_ham * 0.4;
+      ayt_say_yer = ayt_say_ham + gpa_score;
 
-      //calc ayt sayisal scores
+      //calc ayt soz scores
       const ayt_soz_nets = document.querySelectorAll('.soz-net');
       let ayt_soz_ham = 0;
       ayt_soz_nets.forEach((net) => {
@@ -1078,12 +1077,12 @@
         }
         ayt_soz_ham += Number(net.innerText) * 6.25;
       });
-      let ayt_soz_yer = ayt_soz_ham * 0.6 + tyt_ham * 0.4;
-      ayt_soz_yer = ayt_soz_yer + gpa_score;
+      ayt_soz_ham = ayt_soz_ham * 0.6 + tyt_ham * 0.4;
+      ayt_soz_yer = ayt_soz_ham + gpa_score;
 
       let ayt_mat_net = document.querySelector('.ayt-mat');
-      let ayt_ea_ham = (ayt_soz_ham + 12.5 * ayt_mat_net.innerText) * 0.5;
-      let ayt_ea_yer = ayt_soz_yer + gpa_score;
+      let ayt_ea_ham = (ayt_soz_ham + (12.5 * ayt_mat_net.innerText)) * 0.5;
+      let ayt_ea_yer = ayt_ea_ham + gpa_score;
       // return {
       //   tyt_raw: tyt_ham,
       //   tyt_end: tyt_yer,
