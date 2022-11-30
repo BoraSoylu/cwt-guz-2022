@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AYT</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    @font-face {
+      font-family: Roboto;
+      src: url('./Roboto/Roboto-Regular.ttf');
+    }
+
+    :root {
+      --panel-title-fs: 22px;
+      --subject-name-fs: 14px;
+      --subject-q-count-fs: 11px;
+      --title-fs: 32px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Roboto, sans-serif;
+    }
+
+    .title {
+      display: flex;
+      margin: 0px 0px 30px;
+      padding: 0px;
+      font-size: var(--title-fs);
+      font-weight: bold;
+      line-height: 32px;
+      width: fit-content;
+      height: fit-content;
+      color: #283247;
+    }
+
+    #root {
+      gap: 30px;
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .panel {
+      box-shadow: 0px 3px 20px 3px rgb(0 0 0 / 10%);
+      width: 440px;
+      border-radius: 5px;
+      padding-bottom: 7px;
+      height: fit-content;
+      margin-top: 20px;
+    }
+
+    .right-side {
+      width: 440px;
+      border-radius: 5px;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      padding-bottom: 7px;
+    }
+
+    .right-side>.panel {
+      width: 100%;
+    }
+
+    .panel-title {
+      font-size: var(--panel-title-fs);
+      text-align: center;
+      padding: 10px 0px;
+    }
+
+    .generic-box {
+      width: 3.75rem;
+      height: 2rem;
+      box-shadow: 0px 2px 0px #00000029;
+      border-radius: 7px;
+      border: 0.75px solid #c9c9c9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0px;
+      text-align: center;
+    }
+
+    h2 {
+      padding-bottom: 0px !important;
+      margin-block-end: 0px !important;
+    }
+
+    .header-icons-wrapper,
+    .subject-box-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 30px;
+    }
+
+
+
+    @media screen and (max-width: 400px) {
+
+      .header-icons-wrapper,
+      .subject-box-wrapper {
+        gap: 10px;
+      }
+
+      .generic-box {
+        width: 2.75rem;
+      }
+    }
+
+    @media screen and (max-width: 300px) {
+
+      .header-icons-wrapper,
+      .subject-box-wrapper {
+        gap: 3px;
+      }
+
+      .generic-box {
+        width: 1.5rem;
+      }
+    }
+
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      text-align: center;
+      vertical-align: middle;
+      margin-top: 5px;
+    }
+
+    .header-icons-wrapper>*,
+    .net {
+      border: none;
+      box-shadow: none;
+    }
+
+    .net {
+      font-weight: bold;
+    }
+
+    .field-name {
+      color: #aaa;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 21px;
+      margin: 25px 0px 8px;
+      margin-top: 0px;
+    }
+
+    .correct,
+    .incorrect {
+      text-align: center;
+    }
+
+    .subject-row,
+    .obs-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #c9c9c9;
+      margin-bottom: 7px;
+    }
+
+    .subject-name-q-wrapper {
+      margin: 0px;
+      width: 30%;
+    }
+
+    .subject-name-q-wrapper>* {
+      margin: 0px;
+      padding-left: 10px;
+    }
+
+    .subject-name {
+      font-weight: bold;
+      width: 100%;
+    }
+
+    .subject-q-count {
+      font-size: 11px;
+      color: #004085;
+      line-height: 1.5;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .small-icons {
+      font-family: 'Material Icons';
+      position: absolute;
+      bottom: 2px;
+      right: 7px;
+      height: fit-content;
+      width: fit-content;
+      font-size: 14px !important;
+      box-sizing: border-box;
+    }
+
+    .small-check {
+      color: #0f7b1d;
+    }
+
+    .small-cross {
+      color: #ea0241;
+    }
+
+    .obs-panel {
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+    }
+
+    .check-wrapper {
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 10px 0px;
+    }
+
+    .check-wrapper>p {
+      margin: 0px;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .check-wrapper>input {
+      margin: 0px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: normal;
+      padding: 15px 10px;
+      cursor: pointer;
+      text-align: center;
+      height: 13px;
+      width: 13px;
+      border: none;
+      box-shadow: none;
+    }
+
+    .results {
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+    }
+
+    .result-text,
+    .result-header {
+      margin-bottom: 8px;
+      padding: 8px;
+      padding-left: 10px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .result-display {
+      border: none;
+      box-shadow: none;
+      font-weight: bold;
+      margin-right: 3rem;
+    }
+
+    .result-text {
+      min-width: 48px;
+      width: fit-content;
+    }
+
+    .btn-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .big-btn {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      padding: 0px 22px;
+      line-height: 40px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .calc-btn {
+      background-color: #eb0241;
+      color: white;
+    }
+
+    .clear-btn {
+      border: 2px solid #eb0241;
+      color: #eb0241;
+      background-color: white;
+    }
+
+    button.clear-btn:hover {
+      transition: all 0.2s ease-in-out;
+      background: #eb0241;
+      color: #fff;
+      text-shadow: none;
+    }
+
+    button.calc-btn:hover {
+      transition: all 0.2s ease-in-out;
+      background: #d70241;
+      color: #fff;
+      text-shadow: none;
+    }
+
+    .AYT>.field-wrapper {
+      margin-bottom: 50px;
+    }
+
+    .AYT>.field-wrapper:last-child {
+      margin-bottom: 0px;
+    }
+
+    input.generic-box {
+      background: linear-gradient(#1095c1 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+      transition: 0.4s, background-position 0s;
+    }
+
+    input.generic-box:hover {
+      --p: 100%;
+      color: #fff;
+    }
+
+    input.generic-box:focus {
+      outline-color: #1095c1;
+      transition: all 0.2s ease-in-out;
+      color: white;
+
+      background-color: #1095c1;
+      border-color: none;
+      box-shadow: none;
+    }
+
+    .obp-score {
+      background: white !important;
+      transition: 0.4s, background-position 0s;
+    }
+
+    .obp-score:hover {
+      --p: 100%;
+      color: #fff;
+    }
+
+    .obp-score:focus {
+      outline: none;
+      transition: all 0.2s ease-in-out;
+      color: white !important;
+
+      background-color: white !important;
+      border-color: none;
+      box-shadow: 0px 2px 0px #00000029 !important;
+    }
+
+    .invalid-row {
+      transition: all 0.2s ease-in-out;
+      border: solid 1px red;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    /* credit: https://codepen.io/brookesb91/pen/KKVWbzq */
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700');
+
+    :root {
+      font-family: 'Montserrat';
+    }
+
+    html,
+    body {
+      margin: 0;
+      height: 100%;
+    }
+
+    .container {
+      height: 100vh;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    i {
+      color: inherit;
+    }
+
+    .banners-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .banner {
+      color: white;
+      font-weight: 700;
+      padding: 2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .banner .banner-message {
+      flex: 1;
+      padding: 0 2rem;
+    }
+
+    .banner .banner-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .banner .banner-close:hover {
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .banner.success {
+      background: #10c15c;
+    }
+
+    .banner.success::after {
+      background: #10c15c;
+    }
+
+    .banner.error {
+      background: #ed1c24;
+    }
+
+    .banner.error::after {
+      background: #ed1c24;
+    }
+
+    .banner.info {
+      background: #0b22e2;
+    }
+
+    .banner.info::after {
+      background: #0b22e2;
+    }
+
+    .banner::after {
+      content: '';
+      position: absolute;
+      height: 10%;
+      width: 100%;
+      bottom: 100%;
+      left: 0;
+    }
+
+    .banner:not(.visible) {
+      display: none;
+      transform: translateY(-100%);
+    }
+
+    .banner.visible {
+      box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.12);
+      animation-name: banner-in;
+      animation-direction: forwards;
+      animation-duration: 0.6s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+
+    @keyframes banner-in {
+      0% {
+        transform: translateY(-100%);
+      }
+
+      50% {
+        transform: translateY(10%);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    .show-banner {
+      appearance: none;
+      background: #ededed;
+      border: 0;
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      margin: 0.25rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container d-flex justify-content-center align-items-center">
+    <div id="root" class="row container d-flex justify-content-center align-items-start">
+    </div>
+  </div>
+  <script>
+    /* eslint-disable no-console */
+    /* eslint-disable no-use-before-define */
+    /* https://knowyourmeme.com/memes/we-have-food-at-home */
+    /* 
+    Why spend 20 minutes doing something when you can 
+    fail to automate it for 10 hours?
+                                  -Ancient proverb
+    */
+
+    /* Boxes:
+        Correct checkmark icon - ok-icon
+        Incorrect croos icon - cross-icon
+        Net text label - net-icon
+        Correct answers input box - correct
+        Incorrect answers input box - incorrect
+        Net answers input box  - net
+        GPA input box - gpa
+        OBP display box - obp
+        TYT raw display box - tyt_raw
+        TYT end display box - tyt_end
+        SAY raw display box - say_raw
+        SAY end display box - say_end
+        EA raw display box - ea_raw
+        EA end display box - ea_end
+        SOZ raw display box - SOZ_raw
+        SOZ end display box - SOZ_end
+        */
+    const BoxTypes = Object.freeze({
+      ok_icon: ['i', ['material-icons'], 'check'],
+      cross_icon: ['i', ['material-icons'], 'close'],
+      net_icon: ['div', ['net-icon'], 'Net'],
+      correct: ['input', ['correct'], '-'],
+      incorrect: ['input', ['incorrect'], '-'],
+      net: ['p', ['net'], '-'],
+      obp_gpa: ['input', ['obp-gpa'], '-'],
+      obp_score: ['input', ['obp-score'], '-'],
+      tyt_raw: ['p', ['tyt-raw', 'result-display'], '-'],
+      tyt_end: ['p', ['tyt-end', 'result-display'], '-'],
+      say_raw: ['p', ['say-raw', 'result-display'], '-'],
+      say_end: ['p', ['say-end', 'result-display'], '-'],
+      ea_raw: ['p', ['ea-raw', 'result-display'], '-'],
+      ea_end: ['p', ['ea-end', 'result-display'], '-'],
+      soz_raw: ['p', ['SOZ-raw', 'result-display'], '-'],
+      soz_end: ['p', ['SOZ-end', 'result-display'], '-'],
+      obp_checkbox: ['input', ['obp-checkbox'], ''],
+    });
+
+    const panelClasses = ['col-12', 'col-lg-6'];
+
+    function generateAll(panels) {
+      const root = document.querySelector('#root');
+
+      // const title = document.createElement('h1');
+      // title.textContent = '2023 YKS, TYT, AYT Puan Hesaplama';
+      // title.classList.add('title');
+      // title.classList.add('col-12');
+      // root.appendChild(title);
+
+      // const wrapper = document.createElement('div');
+      // wrapper.classList.add('panels');
+      // wrapper.classList.add('row');
+      panels.forEach((element) => {
+        const panel = generateExamPanelBlock(element);
+        root.appendChild(panel);
+      });
+
+      const rightSide = document.createElement('div');
+      rightSide.classList.add('right-side');
+      panelClasses.forEach((element) => {
+        rightSide.classList.add(element);
+      });
+      rightSide.appendChild(document.querySelector('.TYT'));
+      rightSide.appendChild(generateObsPanel());
+      rightSide.appendChild(generateResultsPanel());
+      rightSide.appendChild(generateButtons());
+      root.appendChild(rightSide);
+
+      // root.appendChild(wrapper);
+    }
+
+    function generateExamPanelBlock(panel) {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('panel');
+      wrapper.classList.add(panel.panel_name);
+
+      panelClasses.forEach((element) => {
+        wrapper.classList.add(element);
+      });
+
+      const panelTitle = document.createElement('h2');
+      panelTitle.innerHTML = `<b>${panel.panel_name}</b> Puanı Hesaplama`;
+      panelTitle.classList.add('panel-title');
+      wrapper.appendChild(panelTitle);
+
+      const headerIconsWrapper = document.createElement('div');
+      headerIconsWrapper.classList.add('header-icons-wrapper');
+      headerIconsWrapper.appendChild(generateBox(BoxTypes.ok_icon));
+      headerIconsWrapper.appendChild(generateBox(BoxTypes.cross_icon));
+      headerIconsWrapper.appendChild(generateBox(BoxTypes.net_icon));
+      wrapper.appendChild(headerIconsWrapper);
+
+      panel.fields.forEach((element) => {
+        wrapper.appendChild(generateFieldBlock(element));
+      });
+
+      return wrapper;
+    }
+
+    function generateFieldBlock(field) {
+      const wrapper = document.createElement('div');
+
+      const fieldName = document.createElement('p');
+      fieldName.innerText = field.field_name;
+      fieldName.classList.add('field-name');
+      wrapper.appendChild(fieldName);
+
+      wrapper.classList.add('field-wrapper');
+      if (field.soz === true) {
+        wrapper.classList.add('soz');
+      }
+      if (field.say === true) {
+        wrapper.classList.add('say');
+      }
+      field.subjects.forEach((subject) => {
+        wrapper.appendChild(generateSubjectRow(subject));
+      });
+
+      return wrapper;
+    }
+
+    function generateSubjectRow(subject) {
+      const wrapper = document.createElement('div');
+
+      wrapper.classList.add('subject-row');
+      wrapper.classList.add('input-row');
+      // wrapper.classList.add(`row-id${subject.subject_type}`);
+
+      wrapper.appendChild(generateSubjectNameAndQCount(subject));
+      wrapper.appendChild(generateSubjectBoxes(subject));
+
+      return wrapper;
+    }
+
+    function generateSubjectNameAndQCount(subject) {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('subject-name-q-wrapper');
+
+      const subjectName = document.createElement('p');
+      subjectName.textContent = subject.subject_name;
+      subjectName.classList.add('subject-name');
+      wrapper.appendChild(subjectName);
+
+      const questionCount = document.createElement('p');
+      questionCount.textContent = subject.question_count + ' soru';
+      questionCount.classList.add('subject-q-count');
+      wrapper.appendChild(questionCount);
+
+      return wrapper;
+    }
+
+    function generateSubjectBoxes(subject) {
+      const wrapper = document.createElement('div');
+
+      wrapper.classList.add('subject-box-wrapper');
+
+      wrapper.appendChild(generateBox(BoxTypes.correct, subject.subject_type));
+      wrapper.appendChild(generateBox(BoxTypes.incorrect, subject.subject_type));
+      wrapper.appendChild(generateBox(BoxTypes.net, subject.subject_type));
+
+      return wrapper;
+    }
+
+    function generateBox(type, box_types) {
+      const [elementType, cssClasses, textContent] = type;
+
+      const box = document.createElement(elementType);
+
+      cssClasses.forEach((element) => {
+        box.classList.add(element);
+      });
+      box.classList.add('generic-box');
+      if (box.classList.contains('obp-score')) {
+        box.readOnly = true;
+      }
+      // box.classList.add(box_types);
+      if (box_types !== undefined && elementType === 'p') {
+        box_types.forEach((box_type) => {
+          box.classList.add(box_type);
+        });
+      }
+
+      box.textContent = textContent;
+
+      box.placeholder = textContent;
+
+      if (cssClasses.includes('correct') || cssClasses.includes('incorrect')) {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('input-wrapper');
+        wrapper.appendChild(box);
+        const icon = document.createElement('i');
+        icon.classList.add('material-icons');
+        icon.classList.add('small-icons');
+        if (cssClasses.includes('correct')) {
+          icon.innerText = 'check';
+          icon.classList.add('small-check');
+        } else {
+          icon.innerText = 'close';
+          icon.classList.add('small-cross');
+        }
+        wrapper.appendChild(icon);
+        return wrapper;
+      }
+
+      return box;
+    }
+    function generateObsPanel() {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('panel');
+      wrapper.classList.add('obs-panel');
+      wrapper.classList.add('col-12');
+      wrapper.classList.add('col-lg-6');
+
+      const panelTitle = document.createElement('p');
+      panelTitle.innerHTML = '<b>Ortaöğretim</b> Başarı Puanı';
+      panelTitle.classList.add('panel-title');
+      wrapper.appendChild(panelTitle);
+
+      wrapper.appendChild(createObsRow('Diploma Notu', BoxTypes.obp_gpa));
+      wrapper.appendChild(createObsRow('OBP', BoxTypes.obp_score));
+
+      const checkWrapper = document.createElement('div');
+      checkWrapper.classList.add('check-wrapper');
+      const checkBox = generateBox(BoxTypes.obp_checkbox);
+      checkBox.type = 'checkbox';
+      checkWrapper.appendChild(checkBox);
+      checkWrapper.classList.add('obs-row');
+      const checkText = document.createElement('p');
+      checkText.textContent = 'Geçen Sene Bir Bölüme Yerleştim';
+      checkWrapper.appendChild(checkText);
+      wrapper.appendChild(checkWrapper);
+
+      function createObsRow(text, box) {
+        const rowWrapper = document.createElement('div');
+        rowWrapper.classList.add('obs-row');
+
+        const obsText = document.createElement('p');
+        obsText.classList.add('subject-name');
+
+        obsText.textContent = text;
+
+        rowWrapper.appendChild(obsText);
+
+        rowWrapper.appendChild(generateBox(box));
+
+        return rowWrapper;
+      }
+
+      return wrapper;
+    }
+
+    function generateResultsPanel() {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('panel');
+      wrapper.classList.add('results');
+
+      const panelTitle = document.createElement('h2');
+      panelTitle.innerHTML = `<b>SONUÇLAR</b>`;
+      panelTitle.classList.add('panel-title');
+      wrapper.appendChild(panelTitle);
+
+      const headerIconsWrapper = document.createElement('div');
+      headerIconsWrapper.classList.add('header-icons-wrapper');
+      headerIconsWrapper.classList.add('results-header-icons-wrapper');
+      headerIconsWrapper.classList.add('subject-row');
+      headerIconsWrapper.classList.add('result-row');
+      const result_headers = ['Puan Türü', 'Ham Puan', 'Yerleştirme Puanı'];
+
+      result_headers.forEach((element) => {
+        const a = document.createElement('p');
+        a.textContent = element;
+        a.classList.add('result-header');
+        headerIconsWrapper.appendChild(a);
+      });
+      wrapper.appendChild(headerIconsWrapper);
+
+      const results = [
+        ['TYT', BoxTypes.tyt_raw, BoxTypes.tyt_end],
+        ['SAY', BoxTypes.say_raw, BoxTypes.say_end],
+        ['EA', BoxTypes.ea_raw, BoxTypes.ea_end],
+        ['SÖZ', BoxTypes.soz_raw, BoxTypes.soz_end],
+      ];
+
+      results.forEach((row) => {
+        const row_wrapper = document.createElement('div');
+
+        row_wrapper.classList.add('result-row');
+        row_wrapper.classList.add('subject-row');
+
+        const row_text = document.createElement('p');
+        row_text.innerText = row[0];
+        row_text.classList.add('subject-name');
+        row_text.classList.add('result-text');
+        row_wrapper.appendChild(row_text);
+
+        row_wrapper.appendChild(generateBox(row[1]));
+        row_wrapper.appendChild(generateBox(row[2]));
+        wrapper.appendChild(row_wrapper);
+      });
+
+      return wrapper;
+    }
+
+    function generateButtons() {
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('btn-wrapper');
+
+      const calc_btn = document.createElement('button');
+      calc_btn.innerText = 'Hesapla';
+      calc_btn.classList.add('big-btn');
+      calc_btn.classList.add('calc-btn');
+      const clear_btn = document.createElement('button');
+      clear_btn.innerText = 'Temizle';
+      clear_btn.classList.add('big-btn');
+      clear_btn.classList.add('clear-btn');
+
+      wrapper.appendChild(calc_btn);
+      wrapper.appendChild(clear_btn);
+
+      return wrapper;
+    }
+    const data = [
+      {
+        "panel_name": "AYT",
+        "fields": [
+          {
+            "field_name": "Türk Dili ve Edebiyatı ve Sosyal Bilimler-1 Testi",
+            "field_id": 0,
+            "soz": true,
+            "say": false,
+            "subjects": [
+              {
+                "subject_name": "Türk Dili ve Edebiyatı",
+                "question_count": 24,
+                "subject_type": ["ayt-net", "soz-net"]
+              },
+              {
+                "subject_name": "Tarih-1",
+                "question_count": 10,
+                "subject_type": ["ayt-net", "soz-net"]
+              },
+              {
+                "subject_name": "Coğrafya-1",
+                "question_count": 6,
+                "subject_type": ["ayt-net", "soz-net"]
+              }
+            ]
+          },
+          {
+            "field_name": "Sosyal Bilimler-2 Testi",
+            "field_id": 1,
+            "soz": true,
+            "say": false,
+            "subjects": [
+              {
+                "subject_name": "Tarih-2",
+                "question_count": 11,
+                "subject_type": ["ayt-net", "soz-net"]
+              },
+              {
+                "subject_name": "Coğrafya-2",
+                "question_count": 11,
+                "subject_type": ["ayt-net", "soz-net"]
+              },
+              {
+                "subject_name": "Felsefe Grubu",
+                "question_count": 12,
+                "subject_type": ["ayt-net", "soz-net"]
+              },
+              {
+                "subject_name": "Din Kültürü ve Ahlak Bilgisi / Ek Felsefe Grubu",
+                "question_count": 6,
+                "subject_type": ["ayt-net", "soz-net"]
+              }
+            ]
+          },
+          {
+            "field_name": "Matematik Testi",
+            "field_id": 2,
+            "soz": false,
+            "say": true,
+            "subjects": [
+              {
+                "subject_name": "Matematik",
+                "question_count": 40,
+                "subject_type": ["ayt-net", "say-net", "ayt-mat"]
+              }
+            ]
+          },
+          {
+            "field_name": "Fen Bilimleri Testi",
+            "field_id": 3,
+            "soz": false,
+            "say": true,
+            "subjects": [
+              {
+                "subject_name": "Fizik",
+                "question_count": 14,
+                "subject_type": ["ayt-net", "say-net"]
+              },
+              {
+                "subject_name": "Kimya",
+                "question_count": 13,
+                "subject_type": ["ayt-net", "say-net"]
+              },
+              {
+                "subject_name": "Biyoloji",
+                "question_count": 13,
+                "subject_type": ["ayt-net", "say-net"]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "panel_name": "TYT",
+        "fields": [
+          {
+            "field_name": "",
+            "field_id": 0,
+            "soz": false,
+            "say": false,
+            "subjects": [
+              {
+                "subject_name": "Türkçe",
+                "question_count": 40,
+                "subject_type": ["tyt-net"]
+              },
+              {
+                "subject_name": "Sosyal Bilimler",
+                "question_count": 20,
+                "subject_type": ["tyt-net"]
+              },
+              {
+                "subject_name": "Temel Matematik",
+                "question_count": 40,
+                "subject_type": ["tyt-net"]
+              },
+              {
+                "subject_name": "Fen Bilimleri",
+                "question_count": 20,
+                "subject_type": ["tyt-net"]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+
+    generateAll(data);
+    const body = document.querySelector('body');
+    const error_box = document.createElement('div');
+    error_box.innerHTML = returnErrorHtml();
+    body.appendChild(error_box);
+    main();
+
+    function main() {
+      const calc_btn = document.querySelector('.calc-btn');
+      obpAddKeyListener();
+      addRowEventListener();
+
+      calc_btn.addEventListener('click', () => {
+        let rows_valid = true;
+        hideBanners();
+        const input_rows = document.querySelectorAll('.input-row');
+        input_rows.forEach((row) => {
+          row.classList.remove('invalid-row');
+          if (!correctQuestionInput(row)) {
+            rows_valid = false;
+          }
+        });
+        if (!correctObp()) {
+          rows_valid = false;
+        }
+        if (rows_valid) {
+          console.log('results calculated');
+          setResults(calculateResults());
+        }
+      });
+
+      let clr_btn = document.querySelector('.clear-btn');
+      let nets = document.querySelectorAll('.net');
+      let result_displays = document.querySelectorAll('.result-display');
+      clr_btn.addEventListener('click', () => {
+        console.log('click');
+        const all_input = document.querySelectorAll('input');
+        all_input.forEach((input) => {
+          input.value = null;
+        });
+        nets.forEach((net) => {
+          net.innerText = '-';
+        });
+        result_displays.forEach((result_display) => {
+          result_display.innerText = '-';
+        });
+        let errors = document.querySelectorAll('.invalid-row');
+        errors.forEach((error) => {
+          error.classList.remove('invalid-row');
+        });
+        hideBanners();
+      });
+    }
+
+    function calculateResults() {
+      const gpa = document.querySelector('.obp-gpa');
+      const lower_score = document.querySelector('.obp-checkbox').checked;
+      let gpa_score = lower_score ? gpa.value * 0.3 : gpa.value * 0.6;
+
+      // calc tyt scores
+      const tyt_nets = document.querySelectorAll('.tyt-net');
+      let tyt_ham = 0;
+      tyt_nets.forEach((net) => {
+        if (net.innerText === '-') {
+          net.innerText = 0;
+        }
+        tyt_ham += Number(net.innerText) * 5;
+      });
+      let tyt_yer = tyt_ham + gpa_score;
+
+      //calc ayt sayisal scores
+      const ayt_say_nets = document.querySelectorAll('.say-net');
+      let ayt_say_ham = 0;
+      ayt_say_nets.forEach((net) => {
+        if (net.innerText === '-') {
+          net.innerText = 0;
+        }
+        ayt_say_ham += Number(net.innerText) * 6.25;
+      });
+      let ayt_say_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
+      ayt_say_yer = ayt_say_yer + gpa_score;
+
+      //calc ayt sayisal scores
+      const ayt_soz_nets = document.querySelectorAll('.soz-net');
+      let ayt_soz_ham = 0;
+      ayt_soz_nets.forEach((net) => {
+        if (net.innerText === '-') {
+          net.innerText = 0;
+        }
+        ayt_soz_ham += Number(net.innerText) * 6.25;
+      });
+      let ayt_soz_yer = ayt_say_ham * 0.6 + tyt_ham * 0.4;
+      ayt_soz_yer = ayt_soz_yer + gpa_score;
+
+      let ayt_mat_net = document.querySelector('.ayt-mat');
+      let ayt_ea_ham = (ayt_soz_ham + 12.5 * ayt_mat_net.innerText) * 0.5;
+      let ayt_ea_yer = ayt_soz_yer + gpa_score;
+      // return {
+      //   tyt_raw: tyt_ham,
+      //   tyt_end: tyt_yer,
+      //   say_raw: ayt_say_ham,
+      //   say_end: ayt_say_yer,
+      //   soz_raw: ayt_soz_ham,
+      //   soz_end: ayt_soz_yer,
+      //   ea_raw: ayt_ea_ham,
+      //   ea_end: ayt_ea_yer,
+      // };
+      return [
+        tyt_ham,
+        tyt_yer,
+        ayt_say_ham,
+        ayt_say_yer,
+        ayt_soz_ham,
+        ayt_soz_yer,
+        ayt_ea_ham,
+        ayt_ea_yer,
+      ];
+    }
+
+    function setResults(results) {
+      let display = document.querySelectorAll('.result-display');
+      for (let i = 0; i < display.length; i++) {
+        display[i].innerText = results[i].toFixed(2).replace(/[.,]00$/, '');
+      }
+      console.log(display);
+    }
+
+    function correctObp() {
+      const obp = document.querySelector('.obp-gpa');
+      const panel = document.querySelector('.obs-panel');
+      const score = Number(obp.value);
+      if (score.toString() === 'NaN') {
+        const error_box = document.querySelector('error-box');
+        if (!panel.childNodes[1].classList.contains('invalid-row')) {
+          panel.childNodes[1].classList.toggle('invalid-row');
+        }
+        errorMessage('Diploma notu bir sayı olmalıdır!');
+        return false;
+      }
+      if (score > 100 || score < 0) {
+        const error_box = document.querySelector('error-box');
+        if (!panel.childNodes[1].classList.contains('invalid-row')) {
+          panel.childNodes[1].classList.toggle('invalid-row');
+        }
+        errorMessage('Diploma notu 0 ile 100 arasında olmalıdır!');
+        return false;
+      }
+      if (panel.childNodes[1].classList.contains('invalid-row')) {
+        panel.childNodes[1].classList.toggle('invalid-row');
+      }
+      if (document.querySelector('.obp-gpa').value == 0) {
+        document.querySelector('.obp-gpa').value = 0;
+        document.querySelector('.obp-score').value = 0;
+      }
+      return true;
+    }
+
+    function correctQuestionInput(row) {
+      const q_count = Number(
+        row.childNodes[0].childNodes[1].innerText.split(' ')[0]
+      );
+      const correct = Number(row.childNodes[1].childNodes[0].childNodes[0].value);
+      const incorrect = Number(row.childNodes[1].childNodes[1].childNodes[0].value);
+
+      if (correct.toString() === 'NaN' || incorrect.toString() == 'NaN') {
+        errorMessage('Girişler sayı olmak zorundadır!');
+        invalidRow(row, true);
+        return false;
+      }
+
+      if (correct === 0) {
+        row.childNodes[1].childNodes[0].childNodes[0].value = 0;
+      }
+      if (incorrect === 0) {
+        row.childNodes[1].childNodes[1].childNodes[0].value = 0;
+      }
+
+      if (correct < 0 || incorrect < 0) {
+        errorMessage('Girişler negatif olamaz!');
+        invalidRow(row, true);
+        return false;
+      }
+      if (correct + incorrect > q_count) {
+        errorMessage(
+          'Doğruların ve yanlışların toplamı soru sayısından büyük olmamalı!'
+        );
+        invalidRow(row, true);
+        return false;
+      }
+      if (!Number.isInteger(correct) || !Number.isInteger(incorrect)) {
+        errorMessage('Girişler tamsayı olmalıdır!');
+        invalidRow(row, true);
+        return false;
+      }
+
+      invalidRow(row, false);
+      return true;
+    }
+
+    function invalidRow(row, invalid) {
+      if (invalid) {
+        if (!row.childNodes[1].classList.contains('invalid-row')) {
+          row.childNodes[1].classList.toggle('invalid-row');
+        }
+      } else {
+        if (row.childNodes[1].classList.contains('invalid-row')) {
+          row.childNodes[1].classList.toggle('invalid-row');
+        }
+      }
+    }
+
+    function errorMessage(string) {
+      const error_box = document.querySelector('.banner-message');
+      error_box.innerText = string;
+
+      showBanner('.banner.error');
+    }
+
+    function returnErrorHtml() {
+      return `<div class="banners-container">
+  <div class="banners">
+  <div class="banner error">
+  <div class="banner-icon"><i data-eva="alert-circle-outline" data-eva-fill="#ffffff" data-eva-height="48" data-eva-width="48"></i></div>
+  <div class="banner-message"></div>
+  <div class="banner-close" onclick="hideBanners()"><i data-eva="close-outline" data-eva-fill="#ffffff"></i></div>
+  </div></div>`;
+    }
+
+    function obpAddKeyListener() {
+      const obp = document.querySelector('.obp-gpa');
+      const obp_score = document.querySelector('.obp-score');
+      obp.addEventListener('input', (e) => {
+        if ((e.target.value * 5).toString() !== 'NaN') {
+          obp_score.value = e.target.value * 5;
+        }
+        if (e.target.value == 0) {
+          e.target.value = '';
+        }
+      });
+    }
+
+    function addRowEventListener() {
+      const rows = document.querySelectorAll('.subject-box-wrapper');
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach((input) => {
+        input.addEventListener('focus', (e) => {
+          if (e.target.value == 0) {
+            e.target.value = '';
+          }
+        });
+      });
+
+      rows.forEach((row) => {
+        row.childNodes[0].childNodes[0].addEventListener('input', (e) => {
+          if ((e.target.value * 5).toString() !== 'NaN') {
+            row.childNodes[2].innerText =
+              e.target.value - row.childNodes[1].childNodes[0].value;
+          }
+        });
+        row.childNodes[1].childNodes[0].addEventListener('input', (e) => {
+          if ((e.target.value * 5).toString() !== 'NaN') {
+            row.childNodes[2].innerText =
+              row.childNodes[0].childNodes[0].value - e.target.value;
+          }
+        });
+      });
+    }
+
+    // credit: https://codepen.io/brookesb91/pen/KKVWbzq
+
+    const showBanner = (selector) => {
+      hideBanners();
+      // Ensure animation plays even if the same alert type is triggered.
+      requestAnimationFrame(() => {
+        const banner = document.querySelector(selector);
+        banner.classList.add('visible');
+      });
+    };
+
+    const hideBanners = (e) => {
+      document
+        .querySelectorAll('.banner.visible')
+        .forEach((b) => b.classList.remove('visible'));
+    };
+  </script>
+</body>
+
+</html>
