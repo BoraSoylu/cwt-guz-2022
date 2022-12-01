@@ -1,26 +1,125 @@
-// const fsm = new calcFsm();
+const fsm = new calcFsm();
 
-// fsm.handleInput(3);
+fsm.setMainDisplayElement('.main-display');
+
+document.querySelector('.btn').addEventListener('click', () => {
+  fsm.handleInput('1');
+  console.log('btn click');
+});
 
 function calcFsm() {
-  const State = {
-    Zero: '0',
-    One: '1',
-    Two: '2',
-    Three: '3',
-  };
+  /* ------------- Variables -------------*/
+  let mainDisplayElement = '';
+  let miniDisplayElement = '';
+  let operand1 = '';
+  let operand2 = '';
+  let currentOperator = '';
+
+  /* ------------- Valid Operators -------------*/
   const Operators = {
     Divide: '/',
     Multiply: '*',
     Subtract: '-',
     Add: '+',
     Calculate: '=',
+    Clear: 'c',
   };
 
-  let mainDisplayElement = '';
-  let miniDisplayElement = '';
-  let operand1 = '';
-  let operand2 = '';
+  /* ------------- Finite State Machine -------------*/
+  const machine = {
+    Actions: {
+      DIGIT: 'DIGIT',
+      OPERATOR: 'OPERATOR',
+      CALCULATE: 'CALCULATE',
+      CLEAR: 'CLEAR',
+    },
+    state: 'ZERO',
+    transitions: {
+      ZERO: {
+        DIGIT(input) {
+          console.log(`in machine.ZERO.digit with input: ${input}`);
+          updateDisplay('main', 'append', input);
+          this.state = 'ONE';
+        },
+        OPERATOR() {
+          // TO-DO logic
+          this.state;
+        },
+        CALCULATE() {
+          // TO-DO logic
+          this.state;
+        },
+        CLEAR() {
+          // TO-DO logic
+          this.state;
+        },
+      },
+      ONE: {
+        DIGIT(input) {
+          updateDisplay('main', 'append', input);
+          this.state = 'ONE';
+          this.state;
+        },
+        OPERATOR() {
+          // TO-DO logic
+          this.state;
+        },
+        CALCULATE() {
+          // TO-DO logic
+          this.state;
+        },
+        CLEAR() {
+          // TO-DO logic
+          this.state;
+        },
+      },
+      TWO: {
+        DIGIT() {
+          // TO-DO logic
+          this.state;
+        },
+        OPERATOR() {
+          // TO-DO logic
+          this.state;
+        },
+        CALCULATE() {
+          // TO-DO logic
+          this.state;
+        },
+        CLEAR() {
+          // TO-DO logic
+          this.state;
+        },
+      },
+      THREE: {
+        DIGIT() {
+          // TO-DO logic
+          this.state;
+        },
+        OPERATOR() {
+          // TO-DO logic
+          this.state;
+        },
+        CALCULATE() {
+          // TO-DO logic
+          this.state;
+        },
+        CLEAR() {
+          // TO-DO logic
+          this.state;
+        },
+      },
+    },
+    dispatch(actionName, input) {
+      const action = this.transitions[this.state][actionName](input);
+
+      if (action) {
+        action.call(this);
+      } else {
+        console.log('Invalid action');
+      }
+    },
+  };
 
   /* ---------------Display---------------*/
   /* Sets the identifier (class or id) of main display
@@ -50,33 +149,74 @@ function calcFsm() {
    * @param {string} updateType - How to update display (set, replace, append)
    * @param {string} text - What to update with
    */
-  function updateDisplay(display, updateType, text) {}
+  function updateDisplay(display_id, updateType, text) {
+    const updateTypes = {
+      set: 'set',
+      replace: 'replace',
+      append: 'append',
+    };
+    if (!(display_id === 'main') && !(display_id === 'mini')) {
+      console.log(`updateDisplay: wrong display input: display: ${display_id}`);
+      return;
+    }
+    const display = document.querySelector(
+      display_id == 'main' ? mainDisplayElement : miniDisplayElement
+    );
+
+    if (updateType === updateTypes.set) {
+      display.innerText = text;
+    } else if (updateType === updateTypes.replace) {
+      display.innerText = display.innerText.replace(/.$/, text);
+    } else if (updateType === updateTypes.append) {
+      display.innerText = display.innerText + text;
+    } else {
+      console.log(
+        `updateDisplay: wrong updateType input: updateType: ${updateType}`
+      );
+    }
+  }
 
   /* ---------------Input---------------*/
   /* Handles input and updates main and mini display
   with user input (digit or operator) */
   this.handleInput = (input) => {
-    validateInput(input);
+    if (!validateInput(input)) {
+      console.log('validateInput returned false');
+      return;
+    }
+
+    if (isOperator(input)) {
+      currentOperator = input;
+    } else {
+      machine.dispatch(machine.Actions.DIGIT, input);
+    }
   };
 
   /* ---------------Validate---------------*/
   /* Validate input. Return true if operator or digit. */
   function validateInput(input) {
-    if (!input) {
-      console.log('validateInput input is empty');
-      return false;
-    }
-    for (let i in State) {
-      if (State[i] === input) {
-        return true;
-      }
-    }
     for (let i in Operators) {
-      if (State[i] === input) {
+      if (Operators[i] === input) {
         return true;
       }
     }
+    for (let index = 0; index < 10; index++) {
+      if (Number(input) === index) {
+        return true;
+      }
+    }
+    return false;
   }
+
+  function isOperator(input) {
+    for (let i in Object.keys(Operators).length) {
+      if (Operators[i] === input) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   /* ---------------Calculate---------------*/
   function calculateAndFormat(operator) {
     op1 = Number(operand1);
@@ -98,45 +238,5 @@ function calcFsm() {
         .toString(),
       operation
     );
-  }
-
-  /* ---------------Init State---------------*/
-  const state = State.Zero;
-
-  /* ---------------State 0---------------*/
-  function stateZeroDigit() {
-    state = State.One;
-  }
-
-  /* ---------------State 1---------------*/
-  function stateOneDigit() {
-    state = State.One;
-  }
-  function stateOneOperator() {
-    state = State.Two;
-  }
-
-  /* ---------------State 2---------------*/
-  function stateTwoOperator() {
-    state = State.Two;
-  }
-  function stateTwoDigit() {
-    state = State.Three;
-  }
-
-  /* ---------------State 3---------------*/
-  function stateThreeDigit() {
-    state = State.Three;
-  }
-  function stateThreeOperator() {
-    state = State.Two;
-  }
-  function stateThreeCalculate() {
-    state = State.Zero;
-  }
-
-  /* ---------------State All Clear--------*/
-  function stateAllClear() {
-    state = State.Zero;
   }
 }
