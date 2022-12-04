@@ -2,16 +2,18 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  font-family: sans-serif;
 }
 
 .container {
   width: 500px;
+  height: fit-content;
   text-align: center;
-  border: solid;
 }
 .tabs {
   display: flex;
   justify-content: center;
+  background-color: lightpink;
 }
 
 .tab {
@@ -36,4 +38,8 @@ body {
 .number-container {
   grid-template-columns: repeat(11, auto);
   grid-template-rows: repeat(13, auto);
+  background-color: lightpink;
+  padding: 20px;
+  padding-right: 40px;
+  font-weight: 520;
 }

@@ -2,6 +2,7 @@ generateNumbers();
 hideAll();
 showClicked('111');
 addEventListerners();
+handleTab('111')
 
 function addEventListerners() {
   const tabs = document.querySelectorAll('.tab');
