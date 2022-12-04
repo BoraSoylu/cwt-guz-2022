@@ -105,7 +105,6 @@ function calcFsm() {
         },
         CALCULATE(input) {
           updateDisplay('mini', `${operand1} =`);
-          operand1 = '';
           this.state = States.ONE;
         },
         CLEAR(input) {
