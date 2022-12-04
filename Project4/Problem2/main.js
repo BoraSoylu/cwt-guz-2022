@@ -16,6 +16,7 @@ function calcFsm() {
   let operand1 = '0';
   let operand2 = '';
   let currentOperator = '';
+  let result = ''
 
   /* ------------- Valid Operators -------------*/
   const Operators = {
@@ -141,8 +142,7 @@ function calcFsm() {
           this.state = States.THREE;
         },
         OPERATOR(input) {
-          // TO-DO logic
-          this.state;
+          this.state = States.THREE;
         },
         CALCULATE(input) {
           let result = calculateAndFormat();
