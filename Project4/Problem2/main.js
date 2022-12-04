@@ -9,6 +9,12 @@ buttons.forEach((button) => {
     fsm.handleInput(button.innerText);
   });
 });
+
+const body = document.querySelector('body');
+body.addEventListener('keydown', (event) => {
+  console.log(event.key);
+  fsm.handleInput(event.key);
+});
 function calcFsm() {
   /* ------------- Variables -------------*/
   let mainDisplayElement = '';
@@ -237,12 +243,13 @@ function calcFsm() {
    * @returns 
    */
   this.handleInput = (input) => {
-    console.clear();
+    if (input === 'Enter') {
+      input = '=';
+    }
     if (!validateInput(input)) {
-      console.error('validateInput returned false');
       return;
     }
-
+    console.log(inputActionType(input));
     machine.dispatch(inputActionType(input), input);
     document.querySelector('.state').innerText = machine.state; // !!!
     document.querySelector('.action-type').innerText = inputActionType(input); // !!!
