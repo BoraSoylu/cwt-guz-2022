@@ -15,8 +15,8 @@ function calcFsm() {
   let miniDisplayElement = '';
   let operand1 = '0';
   let operand2 = '';
-  let currentOperator = '';
-  let result = ''
+  let operator = '';
+  let result = '';
 
   /* ------------- Valid Operators -------------*/
   const Operators = {
@@ -58,109 +58,107 @@ function calcFsm() {
           if (input === '0') {
             return;
           }
-          updateDisplay('main', 'set', input);
           operand1 = input;
+          updateDisplay('main', operand1);
+          updateDisplay('mini', '');
           this.state = States.ONE;
         },
         OPERATOR(input) {
-          currentOperator = input;
-
-          updateDisplay('mini', 'set', `0 ${input} `);
+          operator = input;
+          updateDisplay('mini', `${operand1} ${operator}`);
           this.state = States.TWO;
         },
         CALCULATE(input) {
-          updateDisplay('mini', 'set', `0 ${input} `);
+          if (result) {
+            result = calculateAndFormat();
+            if (this.divideByZero()) return;
+            updateDisplay('mini', `${operand1} ${operator} ${operand2} =`);
+            updateDisplay('main', `${result}`);
+            operand1 = result;
+          } else {
+            updateDisplay('mini', `${operand1} =`);
+          }
+
           this.state = States.ZERO;
         },
         CLEAR(input) {
-          operand1 = '0';
-          operand2 = '';
-          currentOperator = '';
-          updateDisplay('mini', 'set', '');
-          updateDisplay('main', 'set', '0');
+          this.clearAll();
           this.state = States.ZERO;
         },
       },
       ONE: {
         DIGIT(input) {
           operand1 = operand1 + input;
-          updateDisplay('main', 'append', input);
+          updateDisplay('main', operand1);
           this.state = States.ONE;
         },
         OPERATOR(input) {
-          updateDisplay('mini', 'set', `${operand1} ${input}`);
-          currentOperator = input;
+          operator = input;
+          updateDisplay('mini', `${operand1} ${operator}`);
           this.state = States.TWO;
         },
         CALCULATE(input) {
-          updateDisplay('mini', 'set', `${operand1} ${input} `);
+          updateDisplay('mini', `${operand1} =`);
+          operand1 = '';
           this.state = States.ONE;
         },
         CLEAR(input) {
-          operand1 = '0';
-          operand2 = '';
-          currentOperator = '';
-          updateDisplay('mini', 'set', '');
-          updateDisplay('main', 'set', '0');
+          this.clearAll();
           this.state = States.ZERO;
         },
       },
       TWO: {
         DIGIT(input) {
           operand2 = input;
-          updateDisplay(
-            'mini',
-            'set',
-            `${operand1} ${currentOperator} ${operand2} `
-          );
-          updateDisplay('main', 'set', input);
+          updateDisplay('main', operand2);
+          updateDisplay('mini', `${operand1} ${operator} ${operand2}`);
+
           this.state = States.THREE;
         },
         OPERATOR(input) {
-          updateDisplay('mini', 'set', `${operand1} ${input} `);
-          currentOperator = input;
+          operator = input;
+          updateDisplay('mini', `${operand1} ${operator}`);
           this.state = States.TWO;
         },
         CALCULATE(input) {
-          // TO-DO logic
-          this.state;
+          operand2 = operand1;
+          updateDisplay('mini', `${operand1} ${operator} ${operand2} =`);
+          result = calculateAndFormat();
+          if (this.divideByZero()) return;
+          updateDisplay('main', `${calculateAndFormat()}`);
+          this.state = States.THREE;
         },
         CLEAR(input) {
-          operand1 = '0';
-          operand2 = '';
-          currentOperator = '';
-          updateDisplay('mini', 'set', '');
-          updateDisplay('main', 'set', '0');
+          this.clearAll();
           this.state = States.ZERO;
         },
       },
       THREE: {
         DIGIT(input) {
           operand2 = operand2 + input;
-          updateDisplay('main', 'append', input);
-          updateDisplay('mini', 'append', input);
+          updateDisplay('main', operand2);
+          updateDisplay('mini', `${operand1} ${operator} ${operand2}`);
           this.state = States.THREE;
         },
         OPERATOR(input) {
-          this.state = States.THREE;
+          result = calculateAndFormat();
+          if (this.divideByZero()) return;
+          operator = input;
+          updateDisplay('mini', `${result} ${operator}`);
+          updateDisplay('main', `${result}`);
+          operand1 = result;
+          this.state = States.TWO;
         },
         CALCULATE(input) {
-          let result = calculateAndFormat();
-          updateDisplay('main', 'set', result);
-          updateDisplay(
-            'mini',
-            'set',
-            `${operand1} ${currentOperator} ${operand2} =`
-          );
-
-          this.state = States.THREE;
+          result = calculateAndFormat();
+          if (this.divideByZero()) return;
+          updateDisplay('mini', `${operand1} ${operator} ${operand2} =`);
+          updateDisplay('main', `${result}`);
+          operand1 = result;
+          this.state = States.ZERO;
         },
         CLEAR(input) {
-          operand1 = '0';
-          operand2 = '';
-          currentOperator = '';
-          updateDisplay('mini', 'set', '');
-          updateDisplay('main', 'set', '0');
+          this.clearAll();
           this.state = States.ZERO;
         },
       },
@@ -170,15 +168,44 @@ function calcFsm() {
 
       if (action) {
         action.call(this, input);
+        const a = document.querySelectorAll('.help'); //!!!
+        a[0].innerText = operand1;
+        a[1].innerText = operator;
+        a[2].innerText = operand2;
+        a[3].innerText = result;
       } else {
         console.log('Invalid action');
       }
     },
+    divideByZero() {
+      if (operand2 === '0' && operator === '/') {
+        this.clearAll(true);
+        this.state = States.ZERO;
+        return true;
+      }
+      return false;
+    },
+    clearAll(divideByZero) {
+      if (divideByZero) {
+        updateDisplay('mini', `${operand1} ${operator} ${operand2} =`);
+        updateDisplay('main', `Cannot divide by zero`);
+      } else {
+        updateDisplay('main', '0');
+        updateDisplay('mini', '');
+      }
+      operand1 = '0';
+      operand2 = '';
+      operator = '';
+      result = '';
+    },
   };
 
-  /* ---------------Display---------------*/
-  /* Sets the identifier (class or id) of main display
-     Must run at the start of the program */
+  /* ---------------Select Display---------------*/
+  /**
+   *
+   * @param {string} element - Html id or class of calculator main display
+   * @returns
+   */
   this.setMainDisplayElement = (element) => {
     document.querySelector('.state').innerText = machine.state; // !!!
 
@@ -190,8 +217,11 @@ function calcFsm() {
     document.querySelector(mainDisplayElement).innerText = '0';
   };
 
-  /* Sets the identifier (class or id) of mini display
-     Must run at the start of the program */
+  /**
+   *
+   * @param {string} element - Html id or class of calculator mini/history display
+   * @returns
+   */
   this.setMiniDisplayElement = (element) => {
     if (!element) {
       console.log('setMiniDisplayElement element is empty');
@@ -199,15 +229,35 @@ function calcFsm() {
     }
     miniDisplayElement = element;
   };
+  /* ---------------Input---------------*/
+  /**
+   * 
+   * @param {string} input - Handles input and updates main and mini display
+  with user input (digit or operator). 
+   * @returns 
+   */
+  this.handleInput = (input) => {
+    console.clear();
+    if (!validateInput(input)) {
+      console.error('validateInput returned false');
+      return;
+    }
 
-  /* Updates main dipslay */
+    machine.dispatch(inputActionType(input), input);
+    document.querySelector('.state').innerText = machine.state; // !!!
+    document.querySelector('.action-type').innerText = inputActionType(input); // !!!
+  };
+  /* ---------------Update Display---------------*/
   /**
    *
    * @param {string} display - Which display to update (main or mini)
-   * @param {string} updateType - How to update display (set, replace, append)
    * @param {string} text - What to update with
+   * @param {string?} updateType - How to update display (set, replace, append)
    */
-  function updateDisplay(display_id, updateType, text) {
+  function updateDisplay(display_id, text, updateType) {
+    if (!updateType) {
+      updateType = 'set';
+    }
     const updateTypes = {
       set: 'set',
       replace: 'replace',
@@ -232,36 +282,13 @@ function calcFsm() {
         `updateDisplay: wrong updateType input: updateType: ${updateType}`
       );
     }
-  }
-
-  /* ---------------Input---------------*/
-  /* Handles input and updates main and mini display
-  with user input (digit or operator) */
-  this.handleInput = (input) => {
-    console.clear();
-    if (!validateInput(input)) {
-      console.error('validateInput returned false');
-      return;
+    if (!isNaN(display.innerText)) {
+      display.innerText = display.innerText.replace(
+        /\B(?=(\d{3})+(?!\d))/g,
+        ','
+      );
     }
-    console.log('🚀 ~ calcFsm ~ state: ', machine.state);
-    console.log(
-      '🚀 ~ calcFsm ~ inputActionType(input)',
-      inputActionType(input)
-    );
-    document.querySelector('.state').innerText = machine.state; // !!!
-    document.querySelector('.action-type').innerText = inputActionType(input); // !!!
-
-    machine.dispatch(inputActionType(input), input);
-
-    console.log('🚀 ~ calcFsm ~ after operand1: ', operand1);
-    console.log('🚀 ~ calcFsm ~ after operand2: ', operand2);
-    console.log('🚀 ~ calcFsm ~ after currentOperator: ', currentOperator);
-    console.log('🚀 ~ calcFsm ~ after state: ', machine.state);
-    console.log(
-      '🚀 ~ calcFsm ~ after inputActionType(input)',
-      inputActionType(input)
-    );
-  };
+  }
 
   /* ---------------Validate---------------*/
   /* Validate input. Return true if operator or digit. */
@@ -296,13 +323,14 @@ function calcFsm() {
   function calculateAndFormat() {
     op1 = Number(operand1);
     op2 = Number(operand2);
-    if (currentOperator === Operators.Add) {
+
+    if (operator === Operators.Add) {
       result = op1 + op2;
-    } else if (currentOperator === Operators.Divide) {
+    } else if (operator === Operators.Divide) {
       result = op1 / op2;
-    } else if (currentOperator === Operators.Multiply) {
+    } else if (operator === Operators.Multiply) {
       result = op1 * op2;
-    } else if (currentOperator === Operators.Subtract) {
+    } else if (operator === Operators.Subtract) {
       result = op1 - op2;
     }
     return result
