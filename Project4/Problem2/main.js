@@ -1,5 +1,5 @@
 const fsm = new calcFsm();
-
+console.log('asd');
 fsm.setMainDisplayElement('.main-display');
 fsm.setMiniDisplayElement('.mini-display');
 
@@ -10,11 +10,12 @@ buttons.forEach((button) => {
   });
 });
 
-const body = document.querySelector('body');
-body.addEventListener('keydown', (event) => {
-  console.log(event.key);
-  fsm.handleInput(event.key);
-});
+// const body = document.querySelector('body');
+// body.addEventListener('keydown', (event) => {
+//   console.log(event.key);
+//   fsm.handleInput(event.key);
+// });
+
 function calcFsm() {
   /* ------------- Variables -------------*/
   let mainDisplayElement = '';
