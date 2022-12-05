@@ -12,11 +12,11 @@ buttons.forEach((button) => {
   });
 });
 
-// const body = document.querySelector('body');
-// body.addEventListener('keydown', (event) => {
-//   console.log(event.key);
-//   fsm.handleInput(event.key);
-// });
+const body = document.querySelector('body');
+body.addEventListener('keydown', (event) => {
+  console.log(event.key);
+  fsm.handleInput(event.key);
+});
 
 function calcFsm() {
   /* ------------- Variables -------------*/
