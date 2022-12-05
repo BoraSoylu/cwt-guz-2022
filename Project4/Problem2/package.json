@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint",
-    "css:build": "tailwindcss -i ./src/style.css -o ./dist/style.css"
+    "css:build": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch"
   },
   "keywords": [],
   "author": "",
