@@ -1,3 +1,5 @@
+'use strict';
+
 const fsm = new calcFsm();
 console.log('asd');
 fsm.setMainDisplayElement('.main-display');
@@ -328,8 +330,8 @@ function calcFsm() {
 
   /* ---------------Calculate---------------*/
   function calculateAndFormat() {
-    op1 = Number(operand1);
-    op2 = Number(operand2);
+    let op1 = Number(operand1);
+    let op2 = Number(operand2);
 
     if (operator === Operators.Add) {
       result = op1 + op2;
