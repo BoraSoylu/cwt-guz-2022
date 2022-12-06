@@ -354,6 +354,10 @@ function addDarkThemeSwitch(c) {
   }
 
   btn.addEventListener('click', () => {
+    const all = document.querySelectorAll('*');
+    all.forEach((element) => {
+      element.classList.add('dark-mode-transition');
+    });
     if (document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.remove('dark');
       localStorage.theme = 'light';
@@ -361,5 +365,10 @@ function addDarkThemeSwitch(c) {
       document.documentElement.classList.add('dark');
       localStorage.theme = 'dark';
     }
+    setTimeout(() => {
+      all.forEach((element) => {
+        element.classList.remove('dark-mode-transition');
+      });
+    }, 550);
   });
 }

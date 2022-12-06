@@ -557,6 +557,10 @@ video {
   height: 30px;
 }
 
+.h-\[16px\] {
+  height: 16px;
+}
+
 .h-\[100px\] {
   height: 100px;
 }
@@ -565,24 +569,12 @@ video {
   height: 50px;
 }
 
-.h-\[16px\] {
-  height: 16px;
-}
-
 .w-\[320px\] {
   width: 320px;
 }
 
 .w-auto {
   width: auto;
-}
-
-.w-\[\] {
-  width: ;
-}
-
-.w-\[1\] {
-  width: 1;
 }
 
 .w-\[16px\] {
@@ -696,21 +688,9 @@ video {
   font-weight: 700;
 }
 
-.text-\[\#0a00f5\] {
-  --tw-text-opacity: 1;
-  color: rgb(10 0 245 / var(--tw-text-opacity));
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+.dark-mode-transition {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
+  transition-duration: 500ms;
 }
 
 .hover\:bg-\[\#999\]:hover {
@@ -721,10 +701,6 @@ video {
 .hover\:bg-\[\#59a4d5\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(89 164 213 / var(--tw-bg-opacity));
-}
-
-.hover\:fill-\[\#0a00f5\]:hover {
-  fill: #0a00f5;
 }
 
 .hover\:text-\[\#0a00f5\]:hover {
@@ -750,8 +726,9 @@ video {
   background-color: rgb(51 51 51 / var(--tw-bg-opacity));
 }
 
-.dark .dark\:bg-\[\] {
-  background-color: ;
+.dark .dark\:bg-\[\#1476b3\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 118 179 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:bg-\[\#555555\] {
@@ -762,16 +739,6 @@ video {
 .dark .dark\:bg-\[\#1778b6\] {
   --tw-bg-opacity: 1;
   background-color: rgb(23 120 182 / var(--tw-bg-opacity));
-}
-
-.dark .dark\:bg-\[\#1476b3\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 118 179 / var(--tw-bg-opacity));
-}
-
-.dark .dark\:bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:text-white {
@@ -793,4 +760,3 @@ video {
   --tw-text-opacity: 1;
   color: rgb(10 0 245 / var(--tw-text-opacity));
 }
-
