@@ -1,7 +1,8 @@
 'use strict';
 
+addDarkThemeSwitch('.dark-switch');
+
 const fsm = new calcFsm();
-console.log('asd');
 fsm.setMainDisplayElement('.main-display');
 fsm.setMiniDisplayElement('.mini-display');
 
@@ -12,11 +13,10 @@ buttons.forEach((button) => {
   });
 });
 
-// const body = document.querySelector('body');
-// body.addEventListener('keydown', (event) => {
-//   console.log(event.key);
-//   fsm.handleInput(event.key);
-// });
+const body = document.querySelector('body');
+body.addEventListener('keydown', (event) => {
+  fsm.handleInput(event.key);
+});
 
 function calcFsm() {
   /* ------------- Variables -------------*/
@@ -176,13 +176,8 @@ function calcFsm() {
 
       if (action) {
         action.call(this, input);
-        const a = document.querySelectorAll('.help'); //!!!
-        a[0].innerText = operand1;
-        a[1].innerText = operator;
-        a[2].innerText = operand2;
-        a[3].innerText = result;
       } else {
-        console.log('Invalid action');
+        console.error('Invalid action');
       }
     },
     divideByZero() {
@@ -215,10 +210,8 @@ function calcFsm() {
    * @returns
    */
   this.setMainDisplayElement = (element) => {
-    document.querySelector('.state').innerText = machine.state; // !!!
-
     if (!element) {
-      console.log('setMainDisplayElement element is empty');
+      console.error('setMainDisplayElement element is empty');
       return false;
     }
     mainDisplayElement = element;
@@ -232,7 +225,7 @@ function calcFsm() {
    */
   this.setMiniDisplayElement = (element) => {
     if (!element) {
-      console.log('setMiniDisplayElement element is empty');
+      console.error('setMiniDisplayElement element is empty');
       return false;
     }
     miniDisplayElement = element;
@@ -251,10 +244,7 @@ function calcFsm() {
     if (!validateInput(input)) {
       return;
     }
-    console.log(inputActionType(input));
     machine.dispatch(inputActionType(input), input);
-    document.querySelector('.state').innerText = machine.state; // !!!
-    document.querySelector('.action-type').innerText = inputActionType(input); // !!!
   };
   /* ---------------Update Display---------------*/
   /**
@@ -273,7 +263,9 @@ function calcFsm() {
       append: 'append',
     };
     if (!(display_id === 'main') && !(display_id === 'mini')) {
-      console.log(`updateDisplay: wrong display input: display: ${display_id}`);
+      console.error(
+        `updateDisplay: wrong display input: display: ${display_id}`
+      );
       return;
     }
     const display = document.querySelector(
@@ -287,7 +279,7 @@ function calcFsm() {
     } else if (updateType === updateTypes.append) {
       display.innerText = display.innerText + text;
     } else {
-      console.log(
+      console.error(
         `updateDisplay: wrong updateType input: updateType: ${updateType}`
       );
     }
@@ -347,4 +339,27 @@ function calcFsm() {
       .replace(/[.,]00$/, '')
       .toString();
   }
+}
+
+function addDarkThemeSwitch(c) {
+  const btn = document.querySelector(c);
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  btn.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
 }
