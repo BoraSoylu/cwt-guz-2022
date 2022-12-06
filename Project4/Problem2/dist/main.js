@@ -191,7 +191,7 @@ function calcFsm() {
     clearAll(divideByZero) {
       if (divideByZero) {
         updateDisplay('mini', `${operand1} ${operator} ${operand2} =`);
-        updateDisplay('main', `Cannot divide by zero`);
+        updateDisplay('main', `undefined`);
       } else {
         updateDisplay('main', '0');
         updateDisplay('mini', '');
