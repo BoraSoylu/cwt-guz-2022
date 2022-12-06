@@ -1,5 +1,7 @@
 'use strict';
 
+addDarkThemeSwitch('.dark-switch');
+
 const fsm = new calcFsm();
 fsm.setMainDisplayElement('.main-display');
 fsm.setMiniDisplayElement('.mini-display');
@@ -174,11 +176,6 @@ function calcFsm() {
 
       if (action) {
         action.call(this, input);
-        const a = document.querySelectorAll('.help'); //!!!
-        a[0].innerText = operand1;
-        a[1].innerText = operator;
-        a[2].innerText = operand2;
-        a[3].innerText = result;
       } else {
         console.error('Invalid action');
       }
@@ -213,8 +210,6 @@ function calcFsm() {
    * @returns
    */
   this.setMainDisplayElement = (element) => {
-    document.querySelector('.state').innerText = machine.state; // !!!
-
     if (!element) {
       console.error('setMainDisplayElement element is empty');
       return false;
@@ -250,8 +245,6 @@ function calcFsm() {
       return;
     }
     machine.dispatch(inputActionType(input), input);
-    document.querySelector('.state').innerText = machine.state; // !!!
-    document.querySelector('.action-type').innerText = inputActionType(input); // !!!
   };
   /* ---------------Update Display---------------*/
   /**
@@ -346,4 +339,27 @@ function calcFsm() {
       .replace(/[.,]00$/, '')
       .toString();
   }
+}
+
+function addDarkThemeSwitch(c) {
+  const btn = document.querySelector(c);
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+
+  btn.addEventListener('click', () => {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  });
 }
