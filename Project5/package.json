@@ -9,7 +9,7 @@
     "bundle": "webpack watch --mode development",
     "server:start": "json-server --watch ./data.json",
     "css:build": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch",
-    "live-server": "live-server ./dist/index.html"
+    "live-server": "live-server ./dist/index.html --browser=CHROME"
   },
   "keywords": [],
   "author": "",
