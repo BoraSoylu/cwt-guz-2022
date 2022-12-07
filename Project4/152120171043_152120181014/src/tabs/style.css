@@ -1,0 +1,45 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 500px;
+  height: fit-content;
+  text-align: center;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  background-color: lightpink;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 40px;
+  background-color: lightgray;
+  border-right: 2px solid black;
+}
+
+.tab-clicked {
+  background-color: lightpink;
+  border: none;
+}
+
+.last-tab {
+  border: none;
+}
+
+.number-container {
+  grid-template-columns: repeat(11, auto);
+  grid-template-rows: repeat(13, auto);
+  background-color: lightpink;
+  padding: 20px;
+  padding-right: 40px;
+  font-weight: 520;
+}
