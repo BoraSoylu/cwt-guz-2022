@@ -1,15 +1,20 @@
 {
   "name": "project5",
+  "browser": {
+    "fs": false
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "run-p bundle server:start css:build live-server",
-    "bundle": "webpack watch --mode development",
+    "dev": "run-p bundle server:start css:build live-server server:reset-db",
+    "dev:no-db-reset": "run-p bundle server:start css:build live-server",
     "server:start": "json-server --watch ./data.json",
+    "bundle": "webpack watch --mode development",
     "css:build": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch",
-    "live-server": "live-server ./dist/ --browser=CHROME --port=5500"
+    "live-server": "live-server ./dist/ --browser=CHROME --port=5500 --config=",
+    "server:reset-db": "node ResetDatabase.js"
   },
   "keywords": [],
   "author": "",

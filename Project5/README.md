@@ -3,9 +3,12 @@
 ## 
 
 ## Setup development environment:
-
 1. run "npm install" in root directory
 2. run "npm run dev" in root directory
+
+These commands install the necessary npm packages and starts the following packages in parallel with watch mode on: {json-server, webpack, tailwindcss, live-server}. It also resets the data. json (the database that json-server uses, holds mock student data) to the original file provided with the assignment. To start the development environment without resetting the data. json file, runs 'npm run dev: no-db-reset' instead of the original command in step 2.
+
+**Reminder:** You need node.js installed to use npm.
 
 ## Set server url: 
 
