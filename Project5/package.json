@@ -8,12 +8,12 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "run-p bundle server:start css:build live-server server:reset-db",
+    "dev": "run-p bundle server:start live-server server:reset-db css:build ",
     "dev:no-db-reset": "run-p bundle server:start css:build live-server",
     "server:start": "json-server --watch ./data.json",
     "bundle": "webpack watch --mode development",
     "css:build": "tailwindcss -i ./src/style.css -o ./dist/style.css --watch",
-    "live-server": "live-server ./dist/ --browser=CHROME --port=5500 --config=",
+    "live-server": "live-server ./dist --browser=CHROME --port=5500",
     "server:reset-db": "node ResetDatabase.js"
   },
   "keywords": [],
