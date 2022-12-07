@@ -16,7 +16,7 @@ These commands install the necessary npm packages and starts the following packa
 
 ## Packages used:
 
-**Disclaimer:** None of these packages are JavaScript frameworks and none of them include business logic that trivialises the skills that this assignment is testing. All of them are industry standard tools used to streamline production and write better maintainable and readable code. All descriptions are taken from relevant npmjs.com pages of the packages.
+**Disclaimer:** None of these packages are JavaScript frameworks and none of them include business logic that trivialise the skills that this assignment is testing. All of them are industry standard tools used to streamline production and write better maintainable and readable code. All descriptions are taken from relevant npmjs.com pages of the packages.
   
 - **eslint:** ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code. 
 - **json-server:** Get a full fake REST API with zero coding in less than 30 seconds (seriously). **Required by assignment**
