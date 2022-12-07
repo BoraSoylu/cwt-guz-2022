@@ -1,7 +1,11 @@
-import { studentRow } from './StudentRow.js';
 import { getAllStudents } from './FetchService.js';
+import { handlePerPageChange, generatePerPages } from './Pagination.js';
+import { studentRow } from './StudentRow.js';
 
+const elementClass = '.header-students';
+document.querySelector(elementClass).appendChild(studentRow('header'));
+const perPages = [5, 8, 10];
 getAllStudents().then((students) => {
-  document.querySelector('body').appendChild(studentRow('header'));
-  document.querySelector('body').appendChild(studentRow(students[0]));
+  handlePerPageChange(perPages[0], students);
+  generatePerPages(perPages, students);
 });

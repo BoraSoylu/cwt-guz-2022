@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {Object} student Student object
+ * @returns HTML element of a student entry formatted and ready to display
+ */
 const studentRow = (student) => {
   const wrapperClasses = [
     'student-row',
