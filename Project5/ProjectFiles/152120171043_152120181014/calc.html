@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script src="./src/calc/dist/main.js" defer></script>
+  <link rel="stylesheet" href="./src/calc/dist/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+
+<body class="flex justify-center items-center h-screen">
+  <div class="border border-black dark:border-white w-[320px] bg-[#eeeeee] dark:bg-[#333333]">
+    <div class="flex justify-between w-auto h-[30px] items-center mx-1.5">
+      <p class="dark:text-white font-medium text-sm">Calculator</p>
+      <div class="flex gap-2">
+        <div>
+          <i
+            class="dark-switch hover:text-[#0a00f5] dark:hover:text-[#0a00f5] fa-sharp fa-solid fa-arrow-rotate-right dark:text-white "></i>
+        </div>
+        <div class="hidden dark:block w-[16px] h-[16px] text-center dark:text-white ">
+          <i class="fa-sharp fa-solid fa-moon"></i>
+        </div>
+        <div class="dark:hidden w-[16px] h-[16px] text-center dark:text-white ">
+          <i class="fa-sharp fa-solid fa-sun"></i>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bg-[#74c1f0] dark:bg-[#1476b3] h-[100px] flex items-end justify-center flex-col border-[5px] border-black dark:border-white mx-1.5">
+      <p class="dark:text-white mini-display flex flex-1 mx-2.5 text-sm items-center pb-2"></p>
+      <p class="dark:text-white main-display flex flex-1 mx-2.5 font-semibold text-3xl pb-4">
+      </p>
+    </div>
+    <div class="btn-wrapper grid grid-cols-4 grid-rows-4 gap-2 m-2">
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">7</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">8</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">9</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">/</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">4</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">5</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">6</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">*</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">1</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">2</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">3</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">-</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">0</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">C</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#71aed4] hover:bg-[#59a4d5] dark:bg-[#1778b6] dark:hover:bg-[#50ade3] rounded-md font-bold">=</button>
+      <button
+        class="btn dark:text-white h-[50px] bg-[#cccccc] hover:bg-[#999] dark:bg-[#555555] dark:hover:bg-[#666666] rounded-md font-bold">+</button>
+    </div>
+  </div>
+</body>
+
+</html>
