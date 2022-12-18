@@ -1,3 +1,6 @@
+import { DeleteStudentButton } from './Buttons/DeleteStudentButton.js';
+import { ViewStudentButton } from './Buttons/ViewStudentButton.js';
+
 /**
  *
  * @param {Object} student Student object
@@ -19,12 +22,7 @@ const studentRow = (student, index) => {
     rowContents = ['İsim Soyisim', 'Öğrenci Numarası', 'Bölüm', 'Yetkiler'];
     wrapper.classList.add('bg-[#f2f3f8]');
   } else {
-    rowContents = [
-      `${student.fname} ${student.lname}`,
-      `${student.num}`,
-      `${depts[student.dept]}`,
-      generateAuthButtons(),
-    ];
+    rowContents = [`${student.fname} ${student.lname}`, `${student.num}`, `${depts[student.dept]}`];
   }
 
   wrapperClasses.forEach((element) => {
@@ -43,7 +41,7 @@ const studentRow = (student, index) => {
     }
     wrapper.appendChild(element);
   });
-
+  if (student !== 'header') wrapper.appendChild(generateAuthButtons(student));
   if (index) {
     wrapper.classList.add('even:bg-[#e2e9fc]');
   } else {
@@ -52,8 +50,12 @@ const studentRow = (student, index) => {
   return wrapper;
 };
 
-function generateAuthButtons() {
-  return 'Auth buttons placeholder';
+function generateAuthButtons(student) {
+  const wrapper = document.createElement('div');
+  wrapper.appendChild(DeleteStudentButton(student));
+  wrapper.appendChild(ViewStudentButton(student));
+  wrapper.classList.add('auth-buttons-wrapper');
+  return wrapper;
 }
 
 export { studentRow };

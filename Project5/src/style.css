@@ -4,12 +4,18 @@
 
 @layer components {
   .student-details {
-    @apply flex flex-col p-2 w-[100%];
+    @apply flex flex-col p-2 sm:w-[90vw] md:w-[30vw] lg:w-[17vw];
   }
   .detail-label {
     @apply flex;
   }
   .detail {
-    @apply w-[100%] bg-[#e9ecef] rounded-[8px] py-2 pl-2;
+    @apply w-[100%] bg-[#e9ecef] rounded-[8px] py-2 pl-2 mt-1;
+  }
+  .auth-buttons-wrapper {
+    @apply flex gap-2;
+  }
+  .auth-buttons {
+    @apply w-[100px] ;
   }
 }

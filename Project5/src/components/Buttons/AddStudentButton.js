@@ -17,8 +17,7 @@ export const ViewStudentButton = (student) => {
     'border-green-700',
     'rounded',
     'text-sm',
-    'my-1',
-    'auth-buttons',
+    'my-1'
   ];
   btnClassList.forEach((c) => {
     btn.classList.add(c);

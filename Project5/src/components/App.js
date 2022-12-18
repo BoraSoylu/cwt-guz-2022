@@ -7,18 +7,6 @@ export const App = () => {
   const elementClass = '.header-students';
   document.querySelector(elementClass).appendChild(studentRow('header'));
 
-  // --------------------------------------
-  const student = {
-    id: 1,
-    fname: 'Isim1',
-    lname: 'Soyisim1',
-    num: '152120171101',
-    dept: '2',
-    pob: 'Eskişehir',
-    dob: '1999-03-23',
-  };
-  document.querySelector(elementClass).appendChild(ViewStudentButton(student));
-  // --------------------------------------
 
   const perPages = [5, 8, 10];
   getAllStudents().then((students) => {
