@@ -48,30 +48,46 @@
 
     </div>
   </div>
-  <!-- -------------------------------------------------------------   -->
   <div id="page-mask" class="hidden bg-black/50 fixed z-[998] w-full h-full"></div>
-  <div class="hidden z-[999] bg-white border absolute top-10 sm:w-9/12 md:w-1/2 lg:w-1/4 sm: md: lg:" id="view-student">
-    <div class="view-student-title">
-      <div class="i-icon">i</div>
-      <p class="">Öğrenci Bilgileri</p>
-      <button>X</button>
+  <!-- -------------------------ViewStudentPopup------------------------------------   -->
+  <div
+    class="popup hidden z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-fit h-fit rounded"
+    id="view-student">
+    <div class="view-student-title flex justify-between items-center border-b">
+      <div class="flex gap-1 p-2">
+        <div class="i-icon">i</div>
+        <p class="font-bold">Öğrenci Bilgileri</p>
+      </div>
+      <button class="p-2 close-popup">X</button>
     </div>
-    <div class="view-student-content">
-      <p>İsim</p>
-      <p></p>
-      <p>Soyisim</p>
-      <p></p>
-      <p>Öğrenci Numarası</p>
-      <p></p>
-      <p>Bölüm</p>
-      <p></p>
-      <p>Doğum Yeri</p>
-      <p></p>
-      <p>Doğum Tarihi</p>
-      <p></p>
+    <div class="view-student-content grid grid-cols-2 gap-4">
+      <div class="student-details">
+        <p class="detail-label">İsim</p>
+        <p class="detail view-detail"></p>
+      </div>
+      <div class="student-details">
+        <p class="detail-label">Soyisim</p>
+        <p class="detail view-detail"></p>
+      </div>
+      <div class="student-details">
+        <p class="detail-label">Öğrenci Numarası</p>
+        <p class="detail view-detail"></p>
+      </div>
+      <div class="student-details">
+        <p class="detail-label">Bölüm</p>
+        <p class="detail view-detail"></p>
+      </div>
+      <div class="student-details">
+        <p class="detail-label">Doğum Yeri</p>
+        <p class="detail view-detail"></p>
+      </div>
+      <div class="student-details">
+        <p class="detail-label">Doğum Tarihi</p>
+        <p class="detail view-detail"></p>
+      </div>
     </div>
     <div class="view-student-bottom">
-      <button>Close</button>
+      <button class="close-popup">Close</button>
     </div>
   </div>
 </body>

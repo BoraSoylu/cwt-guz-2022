@@ -84,11 +84,14 @@ export const handlePerPageChange = (itemsPerPage, items, currentPage) => {
         btn.classList.remove('bg-blue-700');
         btn.classList.remove('text-white');
         btn.classList.add('hover:bg-blue-300');
+        btn.classList.remove('current-page');
       });
       pageButton.classList.add('bg-blue-700');
+      pageButton.classList.add('current-page');
       pageButton.classList.add('text-white');
       pageButton.classList.remove('hover:bg-blue-300');
     });
+
     //Append the buttons to wrapper
     wrapper.appendChild(pageButton);
   }
@@ -104,6 +107,16 @@ export const handlePerPageChange = (itemsPerPage, items, currentPage) => {
     const parentElement = document.querySelector('.pages');
     parentElement.appendChild(wrapper);
   }
+  const pageBtns = document.querySelectorAll('.page-btn');
+  pageBtns.forEach((btn) => {
+    btn.classList.remove('bg-blue-700');
+    btn.classList.remove('text-white');
+    btn.classList.add('hover:bg-blue-300');
+  });
+  pageBtns[currentPage - 1].classList.add('bg-blue-700');
+  pageBtns[currentPage - 1].classList.add('text-white');
+  pageBtns[currentPage - 1].classList.add('current-page');
+  pageBtns[currentPage - 1].classList.remove('hover:bg-blue-300');
 };
 
 export const generatePerPages = (perPages, items) => {
@@ -136,7 +149,11 @@ export const generatePerPages = (perPages, items) => {
     });
     perPageButton.innerText = perPage;
     perPageButton.addEventListener('click', () => {
-      handlePerPageChange(perPage, items, 1);
+      let currentPage = Number(document.querySelector('.current-page').innerText);
+      if (Math.ceil(Object.keys(items).length / perPage) < currentPage)
+        currentPage = Math.ceil(Object.keys(items).length / perPage);
+      console.log(currentPage);
+      handlePerPageChange(perPage, items, currentPage);
       document.querySelectorAll('.per-page-btn').forEach((btn) => {
         btn.classList.remove('bg-blue-700');
         btn.classList.add('text-blue-600');
@@ -162,6 +179,5 @@ export const generatePerPages = (perPages, items) => {
     }
     wrapper.appendChild(perPageButton);
   });
-  console.log('added per page buttons');
   document.querySelector('.per-pages').appendChild(wrapper);
 };

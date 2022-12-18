@@ -1,13 +1,29 @@
+import { ViewStudentPopup } from '../Popups/ViewStudentPopup.js';
 
+export const ViewStudentButton = (student) => {
+  const btn = document.createElement('button');
+  btn.innerText = 'Detay';
+  const btnClassList = [
+    'flex',
+    'align-center',
+    'justify-center',
+    'bg-green-700',
+    'hover:bg-green-500',
+    'font-bold',
+    'text-white',
+    'py-1.5',
+    'px-5',
+    'border',
+    'border-green-700',
+    'rounded',
+  ];
+  btnClassList.forEach((c) => {
+    btn.classList.add(c);
+  });
 
-const student = {
-  id: 1,
-  fname: 'Isim1',
-  lname: 'Soyisim1',
-  num: '152120171101',
-  dept: '2',
-  pob: 'Eskişehir',
-  dob: '1999-03-23',
+  btn.addEventListener('click', () => {
+    ViewStudentPopup(student);
+  });
+
+  return btn;
 };
-
-export const ViewStudentButton = (student) => {};

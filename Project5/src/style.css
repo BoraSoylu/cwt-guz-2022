@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .student-details {
+    @apply flex flex-col p-2 w-[100%];
+  }
+  .detail-label {
+    @apply flex;
+  }
+  .detail {
+    @apply w-[100%] bg-[#e9ecef] rounded-[8px] py-2 pl-2;
+  }
+}
