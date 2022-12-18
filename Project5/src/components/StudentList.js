@@ -9,13 +9,13 @@ import { studentRow } from './StudentRow.js';
 export const studentList = (students) => {
   const wrapper = document.createElement('div');
   const uniqueClass = 'student-list';
-  const wrapperClasses = ['border', 'flex', 'flex-col', uniqueClass];
+  const wrapperClasses = ['flex', 'flex-col', uniqueClass];
   wrapperClasses.forEach((element) => {
     wrapper.classList.add(element);
   });
 
-  students.forEach((student) => {
-    wrapper.appendChild(studentRow(student));
+  students.forEach((student, index) => {
+    wrapper.appendChild(studentRow(student, index % 2 == 1 ? true : false));
   });
 
   return [wrapper, uniqueClass];

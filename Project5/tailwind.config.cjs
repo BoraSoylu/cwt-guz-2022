@@ -13,6 +13,11 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      sm: '0px',
+      md: '768px',
+      lg: '992px',
+    },
   },
   plugins: [],
 };

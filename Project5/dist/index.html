@@ -10,13 +10,69 @@
   <script src="./main.js" defer></script>
 </head>
 
-<body class="flex justify-center items-center flex-col">
-  <div class="app-container flex justify-center items-center flex-col h-screen">
+<body class="flex flex-col text-xl w-screen gap-10">
+  <div class="header-wrapper w-screen flex justify-between">
+    <div class="header-left flex items-center gap-4 ml-8 mt-8">
+      <div class="logo w-20">
+        <img src="./images/esogulogo.png" alt="">
+      </div>
+      <div class="title-wrapper">
+        <p class="title-name font-bold">Eskişehir Osmangazi Üniversitesi</p>
+        <p class="app-name">Öğrenci Yönetim Sistemi</p>
+      </div>
+    </div>
+    <div class="header-right mr-8 mt-2 flex flex-col items-end gap-3">
+      <p class="hello-message h-fit font-bold ">Merhaba, John Doe</p>
+      <button
+        class="logout-btn h-fit bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Çıkış
+        Yap</button>
+    </div>
+  </div>
+  <div class="app-container flex flex-col h-screen w-max">
+    <div class="middle-header flex justify-between px-5">
+      <p class="font-bold text-3xl">Öğrenci Listesi</p>
+      <button
+        class="mr-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">+</button>
+    </div>
     <div class="w-fit header-students"></div>
-    <div class="w-fit students-list h-[30vh]"></div>
-    <div class="w-fit pages"></div>
-    <div class="w-fit per-pages"></div>
+    <div class="w-fit students-list h-fit"></div>
+    <div id="pages" class="w-screen flex justify-between items-center bg-[#f2f3f8] py-2">
+      <div id="pages-message" class="flex gap-1 ml-5">
+        <p id="student-count" class="font-bold">x</p>
+        <p> öğrenciden</p>
+        <p id="students-shown" class="font-bold">x</p>
+        <p> arası gösteriliyor</p>
+      </div>
+      <div class="w-fit pages"></div>
+      <div class="w-fit per-pages mr-5"></div>
 
+    </div>
+  </div>
+  <!-- -------------------------------------------------------------   -->
+  <div id="page-mask" class="hidden bg-black/50 fixed z-[998] w-full h-full"></div>
+  <div class="hidden z-[999] bg-white border absolute top-10 sm:w-9/12 md:w-1/2 lg:w-1/4 sm: md: lg:" id="view-student">
+    <div class="view-student-title">
+      <div class="i-icon">i</div>
+      <p class="">Öğrenci Bilgileri</p>
+      <button>X</button>
+    </div>
+    <div class="view-student-content">
+      <p>İsim</p>
+      <p></p>
+      <p>Soyisim</p>
+      <p></p>
+      <p>Öğrenci Numarası</p>
+      <p></p>
+      <p>Bölüm</p>
+      <p></p>
+      <p>Doğum Yeri</p>
+      <p></p>
+      <p>Doğum Tarihi</p>
+      <p></p>
+    </div>
+    <div class="view-student-bottom">
+      <button>Close</button>
+    </div>
   </div>
 </body>
 
