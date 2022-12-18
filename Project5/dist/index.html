@@ -106,8 +106,52 @@
     <div class="view-student-bottom flex justify-end">
       <button
         class="m-5 close-popup  bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>
+      <button id=""
+        class="final-delete m-5 close-popup  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Sil</button>
+    </div>
+  </div>
+  <!-- -------------------------EdıtStudentPopup------------------------------------   -->
+  <div
+    class="popup hidden z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-max"
+    id="edit-student">
+    <div class="edit-student-title flex justify-between items-center border-b">
+      <div class="flex gap-1 p-2">
+        <div class="i-icon rounded-full bg-blue-800 w-fit h-fit text-white px-3">i</div>
+        <p class="font-bold">Öğrenciyi Düzenle</p>
+      </div>
+      <button class="p-2 close-popup">X</button>
+    </div>
+    <div class="edit-student-content sm:grid-cols-1 grid md:grid-cols-2 gap-4 border-b ">
+      <div class="student-details">
+        <label class="detail-label">İsim</label>
+        <input class="edit fname-update"></input>
+      </div>
+      <div class="student-details">
+        <label class="detail-label">Soyisim</label>
+        <input class="edit lname-update"></input>
+      </div>
+      <div class="student-details">
+        <label class="detail-label">Öğrenci Numarası</label>
+        <input class="edit num-update"></input>
+      </div>
+      <div class="student-details">
+        <label class="detail-label">Bölüm</label>
+        <input class="edit dept-update"></input>
+      </div>
+      <div class="student-details">
+        <label class="detail-label">Doğum Yeri</label>
+        <input class="edit pob-update"></input>
+      </div>
+      <div class="student-details">
+        <label class="detail-label">Doğum Tarihi</label>
+        <input class="edit dob-update"></input>
+      </div>
+    </div>
+    <div class="edit-student-bottom flex justify-end">
       <button
-        class="m-5 close-popup  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Sil</button>
+        class="m-5 close-popup  bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>
+      <button id=""
+        class="final-update m-5 close-popup  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Onayla</button>
     </div>
   </div>
 </body>

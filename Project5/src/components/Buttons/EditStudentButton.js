@@ -1,30 +1,30 @@
-import { ViewStudentPopup } from '../Popups/ViewStudentPopup.js';
+import { EditStudentPopup } from '../Popups/EditStudentPopup.js';
 
-export const ViewStudentButton = (student) => {
+export const EditStudentButton = (student) => {
   const btn = document.createElement('button');
-  btn.innerText = 'Detay';
+  btn.innerText = 'Düzenle';
   const btnClassList = [
     'flex',
     'align-center',
     'justify-center',
-    'bg-green-700',
-    'hover:bg-green-500',
+    'bg-blue-700',
+    'hover:bg-blue-500',
     'font-bold',
     'text-white',
     'py-1.5',
     'px-5',
     'border',
-    'border-green-700',
+    'border-blue-700',
     'rounded',
     'text-sm',
-    'my-1'
+    'my-1',
   ];
   btnClassList.forEach((c) => {
     btn.classList.add(c);
   });
 
   btn.addEventListener('click', () => {
-    ViewStudentPopup(student);
+    EditStudentPopup(student);
   });
 
   return btn;

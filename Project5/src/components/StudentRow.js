@@ -1,4 +1,5 @@
 import { DeleteStudentButton } from './Buttons/DeleteStudentButton.js';
+import { EditStudentButton } from './Buttons/EditStudentButton.js';
 import { ViewStudentButton } from './Buttons/ViewStudentButton.js';
 
 /**
@@ -53,6 +54,7 @@ const studentRow = (student, index) => {
 function generateAuthButtons(student) {
   const wrapper = document.createElement('div');
   wrapper.appendChild(DeleteStudentButton(student));
+  wrapper.appendChild(EditStudentButton(student));
   wrapper.appendChild(ViewStudentButton(student));
   wrapper.classList.add('auth-buttons-wrapper');
   return wrapper;

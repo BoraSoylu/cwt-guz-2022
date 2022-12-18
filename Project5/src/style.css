@@ -16,6 +16,9 @@
     @apply flex gap-2;
   }
   .auth-buttons {
-    @apply w-[100px] ;
+    @apply w-[100px];
+  }
+  .edit {
+    @apply w-[100%] border-2 rounded-[8px] py-2 pl-2 mt-1;
   }
 }
