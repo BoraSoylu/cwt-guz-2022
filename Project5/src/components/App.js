@@ -19,5 +19,20 @@ export const App = () => {
         });
       });
     });
+    document.querySelectorAll('.dept-selection').forEach((e) => {
+      e.addEventListener('click', () => {
+        document.querySelectorAll('.departments').forEach((a) => {
+          a.classList.toggle('hidden');
+        });
+      });
+    });
+    document.querySelectorAll('.radio-btn').forEach((b) => {
+      b.addEventListener('click', () => {
+        document.querySelectorAll('.dept-selection').forEach((z) => {
+          z.value = b.value;
+        });
+        
+      });
+    });
   });
 };

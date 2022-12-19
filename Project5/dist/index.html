@@ -136,7 +136,25 @@
       </div>
       <div class="student-details">
         <label class="detail-label">Bölüm</label>
-        <input class="edit dept-update"></input>
+        <input class="edit dept-update dept-selection hover:cursor-pointer" readonly></input>
+        <div class="departments hidden flex flex-col">
+          <label>
+            <input class="radio-btn" type="radio" id="ceng" name="dept-radio" value="Bilgisayar Müh.">
+            <i>Bilgisayar Müh.</i>
+          </label>
+          <label>
+            <input class="radio-btn" type="radio" id="eem" name="dept-radio" value="Elektrik-Elektronik Müh.">
+            <i>Elektrik-Elektronik Müh.</i>
+          </label>
+          <label>
+            <input class="radio-btn" type="radio" id="em" name="dept-radio" value="Endüstri Müh.">
+            <i>Endüstri Müh.</i>
+          </label>
+          <label>
+            <input class="radio-btn" type="radio" id="im" name="dept-radio" value="İnşaat Müh.">
+            <i>İnşaat Müh.</i>
+          </label>
+        </div>
       </div>
       <div class="student-details">
         <label class="detail-label">Doğum Yeri</label>
