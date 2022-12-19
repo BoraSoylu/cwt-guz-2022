@@ -1,15 +1,6 @@
 {
   "students": [
     {
-      "id": 1,
-      "fname": "Isim1",
-      "lname": "Soyisim1",
-      "num": "152120171101",
-      "dept": "2",
-      "pob": "Eskişehir",
-      "dob": "1999-03-23"
-    },
-    {
       "id": 2,
       "fname": "Isim2",
       "lname": "Soyisim2",
@@ -26,15 +17,6 @@
       "dept": 3,
       "pob": "Kütahya",
       "dob": "2001-07-12"
-    },
-    {
-      "id": 4,
-      "fname": "Isim4",
-      "lname": "Soyisim4",
-      "num": "152120171104",
-      "dept": 4,
-      "pob": "İzmir",
-      "dob": "1998-06-16"
     },
     {
       "id": 5,
