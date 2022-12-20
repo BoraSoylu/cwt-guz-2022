@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 
@@ -34,7 +36,14 @@
     <div class="middle-header flex justify-between px-5">
       <p class="font-bold text-3xl">Öğrenci Listesi</p>
       <button id="add-student-final"
-        class="mr-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">+</button>
+        class="mr-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-5 border border-blue-700 rounded text-xl"><svg
+          xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus"
+          viewBox="0 0 16 16">
+          <path
+            d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+          <path fill-rule="evenodd"
+            d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+        </svg></button>
     </div>
     <div class="w-fit header-students"></div>
     <div class="w-fit students-list h-fit"></div>
@@ -53,7 +62,7 @@
   <div id="page-mask" class="hidden bg-black/50 fixed z-[998] w-full h-full"></div>
   <!-- -------------------------ViewStudentPopup------------------------------------   -->
   <div
-    class="popup hidden z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-fit h-fit rounded min-w-maxflex flex-col"
+    class="popup hidden z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-fit h-fit rounded min-w-max flex flex-col"
     id="view-student">
     <div class="view-student-title flex justify-between items-center border-b">
       <div class="flex gap-1 p-2 m-2">
@@ -62,64 +71,64 @@
       </div>
       <button class="p-2 close-popup">X</button>
     </div>
-    <form class="grid grid-cols-2 gap-3 p-3" id="view-student">
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <form class="grid grid-cols-2 gap-3 p-3 sm:grid-cols-1 md:grid-cols-2" id="view-student">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             İsim
           </label>
           <input
-            class="appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
+            class="input-field appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
             type="text" readonly>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Soyisim
           </label>
           <input
-            class="appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
+            class="input-field appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
             type="text" readonly>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Öğrenci Numarası
           </label>
           <input
-            class="appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
+            class="input-field appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
             type="text" readonly>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Bölüm
           </label>
           <input
-            class="appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
+            class="input-field appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
             type="text" readonly>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Doğum Yeri
           </label>
           <input
-            class="appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
+            class="input-field appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
             type="text" readonly>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Doğum Tarihi
           </label>
           <input
-            class="appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
+            class="input-field appearance-none block w-fit bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight view-detail"
             type="text" readonly>
         </div>
       </div>
@@ -136,7 +145,14 @@
     id="delete-student">
     <div class="view-student-title flex justify-between items-center border-b">
       <div class="flex gap-1 p-2">
-        <div class="i-icon rounded-full bg-blue-800 w-fit h-fit text-white px-3">!</div>
+        <div class="flex justify-center items-center text-red-900">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-exclamation-triangle-fill flex justify-center items-center" viewBox="0 0 16 16">
+            <path
+              d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+          </svg>
+
+        </div>
         <p class="font-bold">Öğrenci Sil</p>
       </div>
       <button class="p-2 close-popup">X</button>
@@ -152,7 +168,7 @@
   <!-- -------------------------EdıtStudentPopup------------------------------------   -->
 
   <div
-    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-max"
+    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-fit h-fit rounded min-w-max flex flex-col"
     id="edit-student">
     <div class="edit-student-title flex justify-between items-center border-b">
       <div class="flex gap-1 p-2">
@@ -161,9 +177,9 @@
       </div>
       <button class="p-2 close-popup">X</button>
     </div>
-    <form action="/" class="grid grid-cols-2 gap-3 p-3">
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <form action="/" class="grid grid-cols-2 gap-3 p-3 sm:grid-cols-1 md:grid-cols-2">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             İsim
           </label>
@@ -173,8 +189,8 @@
             oninput="this.setCustomValidity('')">
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Soyisim
           </label>
@@ -184,8 +200,8 @@
             oninput="this.setCustomValidity('')">
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2 focus:border-black" for="grid-first-name">
             Öğrenci Numarası
           </label>
@@ -196,13 +212,13 @@
             oninput="this.setCustomValidity('')">
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Bölüm
           </label>
           <select
-            class="dept-update edit block appearance-none w-[215px] bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded  focus:outline-none focus:shadow-outline focus:ring-0 focus:border-black">
+            class="dept-update edit block appearance-none w-[215px] bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded focus:outline-none focus:shadow-outline focus:ring-0 focus:border-black">
             <option>Bilgisayar Müh.</option>
             <option>Elektrik-Elektronik Müh.</option>
             <option>Endüstri Müh.</option>
@@ -213,8 +229,8 @@
           </div>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Doğum Yeri
           </label>
@@ -223,8 +239,8 @@
             type="text" required>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Doğum Tarihi
           </label>
@@ -257,18 +273,18 @@
   <!-- -------------------------AddStudentPopup------------------------------------   -->
 
   <div
-    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-max"
+    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-fit"
     id="add-student">
-    <div class="add-student-title flex justify-between items-center border-b">
+    <div class="add-student-title flex justify-between items-center border-b p-5">
       <div class="flex gap-1 p-2">
         <div class="i-icon rounded-full bg-blue-800 w-fit h-fit text-white px-3">i</div>
         <p class="font-bold">Eklenecek Öğrenci Bilgileri</p>
       </div>
       <button class="p-2 close-popup">X</button>
     </div>
-    <form action="/" class="grid grid-cols-2 gap-3 p-3">
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+    <form action="/" class="grid grid-cols-2 gap-3 p-3 sm:grid-cols-1 md:grid-cols-2">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             İsim
           </label>
@@ -278,8 +294,8 @@
             oninput="this.setCustomValidity('')" required>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Soyisim
           </label>
@@ -289,8 +305,8 @@
             oninput="this.setCustomValidity('')" required>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2 focus:border-black" for="grid-first-name">
             Öğrenci Numarası
           </label>
@@ -301,8 +317,8 @@
             oninput="this.setCustomValidity('')" required>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Bölüm
           </label>
@@ -318,8 +334,8 @@
           </div>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Doğum Yeri
           </label>
@@ -328,8 +344,8 @@
             type="text" required>
         </div>
       </div>
-      <div class="flex whitespace-nowrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <div class="flex whitespace-nowrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 md:mb-0 flex justify-center flex-col">
           <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
             Doğum Tarihi
           </label>
@@ -351,6 +367,7 @@
           </div>
         </div>
       </div>
+      <div></div>
       <div class="fitdit-student-bottom flex justify-end w-100">
         <button type="button" onsubmit="return false"
           class="m-5 close-popup bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>

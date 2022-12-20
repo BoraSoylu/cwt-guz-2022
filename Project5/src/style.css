@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .student-details {
+  /* .student-details {
     @apply flex flex-col p-2 sm:w-[90vw] md:w-[30vw] lg:w-[17vw];
   }
   .detail-label {
@@ -11,17 +11,20 @@
   }
   .detail {
     @apply w-[100%] bg-[#e9ecef] rounded-[8px] py-2 pl-2 mt-1;
-  }
+  } */
   .auth-buttons-wrapper {
     @apply flex gap-2;
   }
   .auth-buttons {
     @apply w-[100px];
   }
-  .edit {
-    @apply w-[100%] border-2 rounded-[8px] py-2 pl-2 mt-1;
+  .input-field {
+    @apply w-fit;
   }
+  /* .edit {
+    @apply w-[100%] border-2 rounded-[8px] py-2 pl-2 mt-1;
+  } */
 }
-.datepicker  {
+.datepicker {
   z-index: 999;
 }

@@ -9,7 +9,14 @@ import { ViewStudentButton } from './Buttons/ViewStudentButton.js';
  */
 const studentRow = (student, index) => {
   const wrapper = document.createElement('div');
-  const wrapperClasses = ['px-5', 'student-row', 'flex', 'w-screen', 'justify-between'];
+  const wrapperClasses = [
+    'px-5',
+    'student-row',
+    'grid',
+    'grid-cols-4',
+    'whitespace-nowrap',
+    'w-screen',
+  ];
   const contentClasses = ['w-1/4'];
   const depts = {
     1: 'Bilgisayar Müh.',
@@ -30,7 +37,7 @@ const studentRow = (student, index) => {
     wrapper.classList.add(element);
   });
 
-  rowContents.forEach((content) => {
+  rowContents.forEach((content, index) => {
     const element = document.createElement('div');
     contentClasses.forEach((contentClass) => {
       element.classList.add(contentClass);
@@ -40,6 +47,21 @@ const studentRow = (student, index) => {
     if (student === 'header') {
       element.classList.add('font-bold');
     }
+    if (index == 1) {
+      console.log(element);
+      element.classList.add('sm:hidden');
+      element.classList.add('md:block');
+    }
+    if (index == 2) {
+      console.log(element);
+      element.classList.add('md:hidden');
+      element.classList.add('sm:hidden');
+      element.classList.add('lg:block');
+    }
+    // if (index == 3) {
+    //   console.log(element);
+    //   element.classList.add('text-end');
+    // }
     wrapper.appendChild(element);
   });
   if (student !== 'header') wrapper.appendChild(generateAuthButtons(student));
@@ -57,6 +79,7 @@ function generateAuthButtons(student) {
   wrapper.appendChild(EditStudentButton(student));
   wrapper.appendChild(ViewStudentButton(student));
   wrapper.classList.add('auth-buttons-wrapper');
+  wrapper.classList.add('sm:ml-5');
   return wrapper;
 }
 
