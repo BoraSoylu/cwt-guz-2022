@@ -34,7 +34,6 @@ export const EditStudentPopup = (student) => {
     student.pob = document.querySelector('.pob-update').value;
     student.dob = document.querySelector('.dob-update').value;
     updateStudent(student);
-    location.reload();
   });
   function validateEdit() {
     console.log('placeholder validate');

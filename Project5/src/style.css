@@ -22,3 +22,6 @@
     @apply w-[100%] border-2 rounded-[8px] py-2 pl-2 mt-1;
   }
 }
+.datepicker  {
+  z-index: 999;
+}
