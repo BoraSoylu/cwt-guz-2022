@@ -170,9 +170,28 @@
     </div>
   </div>
   <!-- ---------------------------------DeleteStudentPopUp---------------------------------- -->
-  <div
+  <form action="/"
     class="rounded popup hidden z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 sm:w-[90vw] md:w-[75vw] lg:w-[40vw]"
     id="delete-student">
+    <div class="view-student-title flex justify-between items-center border-b">
+      <div class="flex gap-1 p-2">
+        <div class="i-icon rounded-full bg-blue-800 w-fit h-fit text-white px-3">!</div>
+        <p class="font-bold">Öğrenci Sil</p>
+      </div>
+      <button class="p-2 close-popup">X</button>
+    </div>
+    <p class="delete-student-text p-5"></p>
+    <div class="view-student-bottom flex justify-end">
+      <button
+        class="m-5 close-popup  bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>
+      <input type="submit" value="Sil"
+        class="final-delete m-5 close-popup  bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded"></input>
+    </div>
+  </form>
+  <!-- ---------------------------------DeleteStudentPopUp---------------------------------- -->
+  <div
+    class="rounded popup hidden z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 sm:w-[90vw] md:w-[75vw] lg:w-[40vw]"
+    id="">
     <div class="view-student-title flex justify-between items-center border-b">
       <div class="flex gap-1 p-2">
         <div class="i-icon rounded-full bg-blue-800 w-fit h-fit text-white px-3">!</div>

@@ -15,6 +15,5 @@ export const DeleteStudentPopup = (student) => {
     deleteStudentById(Number(document.querySelector('.final-delete').id));
     document.querySelector('#page-mask').classList.toggle('hidden');
     document.querySelector('#delete-student').classList.toggle('hidden');
-    location.reload();
   });
 };
