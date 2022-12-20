@@ -32,7 +32,13 @@ export const AddStudentPopup = () => {
     sDetails.dob = changeDateFormatToOld(sDetails.dob);
     sDetails.dept = findNumberDept(sDetails.dept);
     const regex = new RegExp('(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}');
-    if (regex.test(document.querySelector('.dob-add').value)) {
+    let formFilled = true;
+    document.querySelectorAll('.add').forEach((e) => {
+      if (e.value.toString().length < 4) {
+        formFilled = false;
+      }
+    });
+    if (regex.test(document.querySelector('.dob-add').value) && formFilled) {
       addStudent(sDetails);
     }
   });

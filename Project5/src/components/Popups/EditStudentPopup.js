@@ -3,7 +3,6 @@ import { updateStudent } from '../FetchService.js';
 
 export const EditStudentPopup = (student) => {
   document.querySelector('#page-mask').classList.toggle('hidden');
-  console.log('asdasd');
   document.querySelector('#edit-student').classList.toggle('hidden');
   const depts = {
     1: 'Bilgisayar Müh.',
@@ -37,9 +36,17 @@ export const EditStudentPopup = (student) => {
     student.dob = changeDateFormatToOld(student.dob);
     student.dept = findNumberDept(student.dept);
     const regex = new RegExp('(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}');
-    if (regex.test(document.querySelector('.dob-update').value)) {
+    let formFilled = true;
+    document.querySelectorAll('.edit').forEach((e) => {
+      if (e.value.toString().length < 4) {
+        formFilled = false;
+      }
+    });
+    if (regex.test(document.querySelector('.dob-update').value) && formFilled) {
       updateStudent(student);
     }
+    console.clear();
+    console.log('AAAAAAAAAAAAAAAAAA');
   });
   function findNumberDept(data) {
     const depts = {
@@ -51,8 +58,4 @@ export const EditStudentPopup = (student) => {
 
     return Object.keys(depts).find((key) => depts[key] === data);
   }
-};
-
-export const testA = () => {
-  console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAA');
 };

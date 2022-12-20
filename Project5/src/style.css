@@ -19,7 +19,7 @@
     @apply w-[100px];
   }
   .input-field {
-    @apply w-fit;
+    @apply w-full;
   }
   /* .edit {
     @apply w-[100%] border-2 rounded-[8px] py-2 pl-2 mt-1;

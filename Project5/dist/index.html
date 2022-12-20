@@ -184,7 +184,7 @@
             İsim
           </label>
           <input
-            class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail fname-update"
+            class="edit input-field  focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail fname-update"
             type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('İsim 3 karakter veya üzeri olmalıdır.')"
             oninput="this.setCustomValidity('')">
         </div>
@@ -195,7 +195,7 @@
             Soyisim
           </label>
           <input
-            class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail lname-update"
+            class="edit input-field  focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail lname-update"
             type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Soyisim 3 karakter veya üzeri olmalıdır.')"
             oninput="this.setCustomValidity('')">
         </div>
@@ -206,7 +206,7 @@
             Öğrenci Numarası
           </label>
           <input
-            class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail num-update"
+            class="edit input-field  focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail num-update"
             type="text" pattern="[0-9]{12}"
             oninvalid="this.setCustomValidity('Öğrenci numarası 12 haneli olmalıdır ve sadece rakam içermelidir.')"
             oninput="this.setCustomValidity('')">
@@ -218,7 +218,7 @@
             Bölüm
           </label>
           <select
-            class="dept-update edit block appearance-none w-[215px] bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded focus:outline-none focus:shadow-outline focus:ring-0 focus:border-black">
+            class="edit input-field focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight text-base dept-update">
             <option>Bilgisayar Müh.</option>
             <option>Elektrik-Elektronik Müh.</option>
             <option>Endüstri Müh.</option>
@@ -235,7 +235,7 @@
             Doğum Yeri
           </label>
           <input
-            class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail pob-update"
+            class="edit input-field  focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail pob-update"
             type="text" required>
         </div>
       </div>
@@ -273,7 +273,7 @@
   <!-- -------------------------AddStudentPopup------------------------------------   -->
 
   <div
-    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-fit"
+    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-fit h-fit rounded min-w-max flex flex-col"
     id="add-student">
     <div class="add-student-title flex justify-between items-center border-b p-5">
       <div class="flex gap-1 p-2">
@@ -289,7 +289,7 @@
             İsim
           </label>
           <input
-            class="add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail fname-add"
+            class="add input-field  focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight fname-add"
             type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('İsim 3 karakter veya üzeri olmalıdır.')"
             oninput="this.setCustomValidity('')" required>
         </div>
@@ -361,9 +361,7 @@
             </div>
             <input datepicker type="text"
               class="datepicker text-gray-900 focus:ring-blue-500 pl-10 add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail dob-add"
-              placeholder="Select date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
-              oninvalid="this.setCustomValidity('Lütfen doğru bir tarih girin. gün/ay/yıl')"
-              oninput="this.setCustomValidity('')" required>
+              placeholder="Select date" required>
           </div>
         </div>
       </div>

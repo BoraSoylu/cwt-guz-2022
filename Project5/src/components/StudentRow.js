@@ -48,12 +48,10 @@ const studentRow = (student, index) => {
       element.classList.add('font-bold');
     }
     if (index == 1) {
-      console.log(element);
       element.classList.add('sm:hidden');
       element.classList.add('md:block');
     }
     if (index == 2) {
-      console.log(element);
       element.classList.add('md:hidden');
       element.classList.add('sm:hidden');
       element.classList.add('lg:block');

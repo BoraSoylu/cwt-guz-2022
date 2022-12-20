@@ -152,7 +152,6 @@ export const generatePerPages = (perPages, items) => {
       let currentPage = Number(document.querySelector('.current-page').innerText);
       if (Math.ceil(Object.keys(items).length / perPage) < currentPage)
         currentPage = Math.ceil(Object.keys(items).length / perPage);
-      console.log(currentPage);
       handlePerPageChange(perPage, items, currentPage);
       document.querySelectorAll('.per-page-btn').forEach((btn) => {
         btn.classList.remove('bg-blue-700');

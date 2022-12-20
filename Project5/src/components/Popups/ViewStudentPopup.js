@@ -19,7 +19,6 @@ export const ViewStudentPopup = (student) => {
   ];
 
   sDetails[5] = changeDateFormat(sDetails[5]);
-  console.log(sDetails[5]);
 
   document.querySelectorAll('.view-detail').forEach((viewDetailElement, index) => {
     viewDetailElement.value = sDetails[index];

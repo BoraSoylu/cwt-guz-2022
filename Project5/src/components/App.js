@@ -54,7 +54,6 @@ export const App = () => {
     document.querySelectorAll('[datepicker]').forEach((datepickerEl) => {
       const d = new Datepicker(datepickerEl);
       d.setOptions(datepickerOptions);
-      console.log(d);
     });
   }
   function initAddStudent() {
@@ -63,7 +62,7 @@ export const App = () => {
       document.querySelector('.fname-add').value = '';
       document.querySelector('.lname-add').value = '';
       document.querySelector('.num-add').value = '';
-      document.querySelector('.dept-add').value = '';
+      document.querySelector('.dept-add').value = 'Bilgisayar Müh.';
       document.querySelector('.pob-add').value = '';
       document.querySelector('.dob-add').value = '';
     });

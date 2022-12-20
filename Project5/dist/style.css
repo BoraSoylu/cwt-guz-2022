@@ -555,8 +555,7 @@ video {
 }
 
 .input-field {
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
 }
 
 /* .edit {
@@ -1501,16 +1500,16 @@ video {
   padding-bottom: 0px;
 }
 
-.pr-8 {
-  padding-right: 2rem;
-}
-
 .pl-3 {
   padding-left: 0.75rem;
 }
 
 .pl-10 {
   padding-left: 2.5rem;
+}
+
+.pr-8 {
+  padding-right: 2rem;
 }
 
 .pt-2 {
@@ -1523,6 +1522,14 @@ video {
 
 .pl-5 {
   padding-left: 1.25rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem;
 }
 
 .text-center {
@@ -1541,6 +1548,11 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .text-sm {
