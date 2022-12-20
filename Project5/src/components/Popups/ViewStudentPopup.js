@@ -16,6 +16,6 @@ export const ViewStudentPopup = (student) => {
     student.dob,
   ];
   document.querySelectorAll('.view-detail').forEach((viewDetailElement, index) => {
-    viewDetailElement.innerText = sDetails[index];
+    viewDetailElement.value = sDetails[index];
   });
 };
