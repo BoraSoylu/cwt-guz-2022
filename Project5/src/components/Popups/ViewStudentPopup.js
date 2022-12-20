@@ -1,3 +1,5 @@
+import { changeDateFormat } from '../ChangeDateFormat.js';
+
 export const ViewStudentPopup = (student) => {
   document.querySelector('#page-mask').classList.toggle('hidden');
   document.querySelector('#view-student').classList.toggle('hidden');
@@ -15,6 +17,7 @@ export const ViewStudentPopup = (student) => {
     student.pob,
     student.dob,
   ];
+  sDetails[5] = changeDateFormat(sDetails[5]);
   document.querySelectorAll('.view-detail').forEach((viewDetailElement, index) => {
     viewDetailElement.value = sDetails[index];
   });

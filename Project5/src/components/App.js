@@ -43,6 +43,7 @@ export const App = () => {
     const datepickerOptions = {
       language: 'tr',
       weekStart: 1,
+      format: 'dd/mm/yyyy',
     };
     document.querySelectorAll('[datepicker]').forEach((datepickerEl) => {
       const d = new Datepicker(datepickerEl);

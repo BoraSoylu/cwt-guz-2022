@@ -152,7 +152,7 @@
   <!-- -------------------------EdıtStudentPopup------------------------------------   -->
 
   <div
-    class="popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-max"
+    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-max"
     id="edit-student">
     <div class="edit-student-title flex justify-between items-center border-b">
       <div class="flex gap-1 p-2">
@@ -169,7 +169,7 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail fname-update"
-            type="text">
+            type="text" pattern=".{3,}">
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -179,7 +179,7 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail lname-update"
-            type="text">
+            type="text" pattern=".{3,}">
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -189,7 +189,7 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail num-update"
-            type="text">
+            type="text" pattern="[0-9]{12}">
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -198,11 +198,11 @@
             Bölüm
           </label>
           <select
-            class="dept-update edit block appearance-none w-[215px] bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded  leading-tight focus:outline-none focus:shadow-outline focus:ring-0 focus:border-black">
+            class="dept-update edit block appearance-none w-[215px] bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded  focus:outline-none focus:shadow-outline focus:ring-0 focus:border-black">
             <option>Bilgisayar Müh.</option>
             <option>Elektrik-Elektronik Müh.</option>
             <option>Endüstri Müh.</option>
-            <option>İnşaat Müh</option>
+            <option>İnşaat Müh.</option>
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 w-[215px]">
             </svg>
@@ -236,13 +236,14 @@
             </div>
             <input datepicker type="text"
               class="datepicker text-gray-900 focus:ring-blue-500 pl-10 edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail dob-update"
-              placeholder="Select date">
+              placeholder="Select date"
+              pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}">
           </div>
         </div>
       </div>
       <div class="fitdit-student-bottom flex justify-end w-100">
-        <button
-          class="m-5 close-popup  bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>
+        <button type="button" onsubmit="return false"
+          class="m-5 close-popup bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>
         <input type="submit" value="Onayla"
           class="hover:cursor-pointer final-update m-5 close-popup  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"></input>
       </div>

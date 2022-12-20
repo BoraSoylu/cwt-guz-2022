@@ -1,3 +1,4 @@
+import { changeDateFormat } from '../ChangeDateFormat.js';
 import { updateStudent } from '../FetchService.js';
 
 export const EditStudentPopup = (student) => {
@@ -18,6 +19,7 @@ export const EditStudentPopup = (student) => {
     student.pob,
     student.dob,
   ];
+  sDetails[5] = changeDateFormat(sDetails[5]);
   document.querySelectorAll('.edit').forEach((viewDetailElement, index) => {
     viewDetailElement.value = sDetails[index];
   });
