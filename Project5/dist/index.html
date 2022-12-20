@@ -33,7 +33,7 @@
   <div class="app-container flex flex-col h-screen w-max">
     <div class="middle-header flex justify-between px-5">
       <p class="font-bold text-3xl">Öğrenci Listesi</p>
-      <button
+      <button id="add-student-final"
         class="mr-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">+</button>
     </div>
     <div class="w-fit header-students"></div>
@@ -169,7 +169,8 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail fname-update"
-            type="text" pattern=".{3,}">
+            type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('İsim 3 karakter veya üzeri olmalıdır.')"
+            oninput="this.setCustomValidity('')">
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -179,7 +180,8 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail lname-update"
-            type="text" pattern=".{3,}">
+            type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Soyisim 3 karakter veya üzeri olmalıdır.')"
+            oninput="this.setCustomValidity('')">
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -189,7 +191,9 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail num-update"
-            type="text" pattern="[0-9]{12}">
+            type="text" pattern="[0-9]{12}"
+            oninvalid="this.setCustomValidity('Öğrenci numarası 12 haneli olmalıdır ve sadece rakam içermelidir.')"
+            oninput="this.setCustomValidity('')">
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -216,7 +220,7 @@
           </label>
           <input
             class="edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail pob-update"
-            type="text">
+            type="text" required>
         </div>
       </div>
       <div class="flex whitespace-nowrap -mx-3 mb-6">
@@ -236,8 +240,9 @@
             </div>
             <input datepicker type="text"
               class="datepicker text-gray-900 focus:ring-blue-500 pl-10 edit focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail dob-update"
-              placeholder="Select date"
-              pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}">
+              placeholder="Select date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
+              oninvalid="this.setCustomValidity('Lütfen doğru bir tarih girin. gün/ay/yıl')"
+              oninput="this.setCustomValidity('')" required>
           </div>
         </div>
       </div>
@@ -249,6 +254,130 @@
       </div>
     </form>
   </div>
+  <!-- -------------------------AddStudentPopup------------------------------------   -->
+
+  <div
+    class="hidden popup z-[999] bg-white border absolute top-10 left-1/2 transform -translate-x-1/2 w-max sm:w-[90vw] md:w-[40vw] lg:w-[30vw] h-fit rounded min-w-max"
+    id="add-student">
+    <div class="add-student-title flex justify-between items-center border-b">
+      <div class="flex gap-1 p-2">
+        <div class="i-icon rounded-full bg-blue-800 w-fit h-fit text-white px-3">i</div>
+        <p class="font-bold">Eklenecek Öğrenci Bilgileri</p>
+      </div>
+      <button class="p-2 close-popup">X</button>
+    </div>
+    <form action="/" class="grid grid-cols-2 gap-3 p-3">
+      <div class="flex whitespace-nowrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
+            İsim
+          </label>
+          <input
+            class="add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail fname-add"
+            type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('İsim 3 karakter veya üzeri olmalıdır.')"
+            oninput="this.setCustomValidity('')" required>
+        </div>
+      </div>
+      <div class="flex whitespace-nowrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
+            Soyisim
+          </label>
+          <input
+            class="add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail lname-add"
+            type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Soyisim 3 karakter veya üzeri olmalıdır.')"
+            oninput="this.setCustomValidity('')" required>
+        </div>
+      </div>
+      <div class="flex whitespace-nowrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block tracking-wide text-gray-700 mb-2 focus:border-black" for="grid-first-name">
+            Öğrenci Numarası
+          </label>
+          <input
+            class="add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail num-add"
+            type="text" pattern="[0-9]{12}"
+            oninvalid="this.setCustomValidity('Öğrenci numarası 12 haneli olmalıdır ve sadece rakam içermelidir.')"
+            oninput="this.setCustomValidity('')" required>
+        </div>
+      </div>
+      <div class="flex whitespace-nowrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
+            Bölüm
+          </label>
+          <select
+            class="dept-add add block appearance-none w-[215px] bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 pr-8 rounded  focus:outline-none focus:shadow-outline focus:ring-0 focus:border-black">
+            <option>Bilgisayar Müh.</option>
+            <option>Elektrik-Elektronik Müh.</option>
+            <option>Endüstri Müh.</option>
+            <option>İnşaat Müh.</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 w-[215px]">
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="flex whitespace-nowrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
+            Doğum Yeri
+          </label>
+          <input
+            class="add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail pob-add"
+            type="text" required>
+        </div>
+      </div>
+      <div class="flex whitespace-nowrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block tracking-wide text-gray-700 mb-2" for="grid-first-name">
+            Doğum Tarihi
+          </label>
+
+          <div class="relative">
+            <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <input datepicker type="text"
+              class="datepicker text-gray-900 focus:ring-blue-500 pl-10 add focus:ring-0  appearance-none block w-fit border border-gray-300 focus:border-black rounded py-2 px-4 mb-3 leading-tight view-detail dob-add"
+              placeholder="Select date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
+              oninvalid="this.setCustomValidity('Lütfen doğru bir tarih girin. gün/ay/yıl')"
+              oninput="this.setCustomValidity('')" required>
+          </div>
+        </div>
+      </div>
+      <div class="fitdit-student-bottom flex justify-end w-100">
+        <button type="button" onsubmit="return false"
+          class="m-5 close-popup bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Close</button>
+        <input type="submit" value="Ekle"
+          class="hover:cursor-pointer final-add m-5 close-popup  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"></input>
+      </div>
+    </form>
+  </div>
+  <script>
+    // function checkDate(input) {
+    //   let e = window.event;
+    //   if (input.value.toString().length >= 10) {
+    //     if (event.keyCode != 8 && event.keyCode != 37 && event.keyCode != 38 && event.keyCode != 39 && event.keyCode != 40) {
+    //       console.log('AAAAAAAAAAAAAA')
+    //       e.preventDefault()
+    //       return false
+    //     }
+    //   }
+    //   if (event.keyCode < 48 || event.keyCode > 57) {
+    //     if (event.keyCode != 8 && event.keyCode != 191 && event.keyCode != 37 && event.keyCode != 38 && event.keyCode != 39 && event.keyCode != 40) {
+    //       console.log('AAAAAAAAAAAAAA')
+    //       e.preventDefault()
+    //       return false
+    //     }
+    //   }
+    // }
+  </script>
   <!-- <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script> -->
   <!-- <script src="https://unpkg.com/flowbite@1.5.5/dist/datepicker.js"></script> -->
 </body>

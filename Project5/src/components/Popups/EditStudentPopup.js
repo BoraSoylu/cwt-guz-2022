@@ -27,7 +27,6 @@ export const EditStudentPopup = (student) => {
   const new_element = old_element.cloneNode(true);
   old_element.parentNode.replaceChild(new_element, old_element);
   document.querySelector('.final-update').addEventListener('click', () => {
-    validateEdit();
     student.fname = document.querySelector('.fname-update').value;
     student.lname = document.querySelector('.lname-update').value;
     student.num = document.querySelector('.num-update').value;
@@ -37,11 +36,11 @@ export const EditStudentPopup = (student) => {
     student.dob = document.querySelector('.dob-update').value;
     student.dob = changeDateFormatToOld(student.dob);
     student.dept = findNumberDept(student.dept);
-    updateStudent(student);
+    const regex = new RegExp('(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}');
+    if (regex.test(document.querySelector('.dob-update').value)) {
+      updateStudent(student);
+    }
   });
-  function validateEdit() {
-    console.log('placeholder validate');
-  }
   function findNumberDept(data) {
     const depts = {
       1: 'Bilgisayar Müh.',
@@ -52,4 +51,8 @@ export const EditStudentPopup = (student) => {
 
     return Object.keys(depts).find((key) => depts[key] === data);
   }
+};
+
+export const testA = () => {
+  console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAA');
 };
