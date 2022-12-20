@@ -1,4 +1,4 @@
-import { changeDateFormat } from '../ChangeDateFormat.js';
+import { changeDateFormat, changeDateFormatToOld } from '../ChangeDateFormat.js';
 import { updateStudent } from '../FetchService.js';
 
 export const EditStudentPopup = (student) => {
@@ -35,6 +35,8 @@ export const EditStudentPopup = (student) => {
     // student.dept = findNumberDept(document.querySelector('.dept-update').value);
     student.pob = document.querySelector('.pob-update').value;
     student.dob = document.querySelector('.dob-update').value;
+    student.dob = changeDateFormatToOld(student.dob);
+    student.dept = findNumberDept(student.dept);
     updateStudent(student);
   });
   function validateEdit() {
@@ -48,6 +50,6 @@ export const EditStudentPopup = (student) => {
       4: 'İnşaat Müh.',
     };
 
-    return Object.entries(depts).find(([key, val]) => data === val)[0];
+    return Object.keys(depts).find((key) => depts[key] === data);
   }
 };
