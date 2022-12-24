@@ -559,11 +559,27 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.t-border {
-  border-width: 1px;
+.t-flex {
+  display: flex;
 }
 
-.t-text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
+.t-grid {
+  display: grid;
+}
+
+.t-w-full {
+  width: 100%;
+}
+
+.t-grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.t-bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
+
+*, *::after, *::before{
+  box-sizing: border-box;
 }
