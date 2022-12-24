@@ -5,3 +5,36 @@
 *, *::after, *::before{
   box-sizing: border-box;
 }
+
+.pagination > .page-item > .page-link{
+  margin: 0px 2px !important;
+  border-radius: 4px !important;
+}
+.pagination > .active > .page-link{
+}
+
+.pagination-sm > .page-item > .page-link{
+  padding: 6px !important;
+  background-color: #f0f3fa !important;
+  color: rgb(13, 110, 253);
+  border-color: rgba(13, 109, 253, 0.363);
+  text-align: center !important;
+  margin: 0px !important;
+  border-radius: 0px !important;
+}
+.pagination-sm > .active > .page-link{
+  background-color: rgb(13, 110, 253) !important;
+  color: white;
+  border-radius: 0px !important;
+
+}
+.pagination-sm > *:first-child > *:first-child {
+  border-radius: 4px 0px  0px 4px !important;
+}
+.pagination-sm > *:last-child > *:last-child {
+  border-radius:  0px 4px 4px 0px !important;
+}
+.auth-buttons{
+  min-width: 71px !important;
+  font-size: 0.8rem !important;
+}

@@ -16,8 +16,17 @@ const StudentsPagination = ({
   const [activePerPage, setActivePerPage] = useState(8);
 
   return (
-    <div className="t-flex">
-      <Pagination className="pagination">
+    <div className="t-flex t-justify-between t-items-center t-bg-[#f0f2fa] py-2 px-3">
+      <div>
+        <b>{totalStudents}</b> öğrenciden{' '}
+        <b>{`${activePage * studentsPerPage - studentsPerPage + 1} - ${
+          activePage * studentsPerPage > totalStudents
+            ? totalStudents
+            : activePage * studentsPerPage
+        }`}</b>{' '}
+        arası gösteriliyor.
+      </div>
+      <Pagination className="pagination t-m-0">
         {pageNumbers.map((number) => (
           <Pagination.Item
             key={number}
@@ -31,13 +40,15 @@ const StudentsPagination = ({
           </Pagination.Item>
         ))}
       </Pagination>
-      <Pagination className="pagination">
+      <Pagination className="pagination t-m-0" size="sm">
         {perPageNumbers.map((number) => (
           <Pagination.Item
             key={number}
             active={number === activePerPage}
             onClick={() => {
-              perPaginate(number);
+              perPaginate(number, (lastPage) => {
+                setActivePage(lastPage);
+              });
               setActivePerPage(number);
             }}
           >
