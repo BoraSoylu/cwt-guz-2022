@@ -19,12 +19,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "concurrently \"npm:start\" \"npm:css:build\" \"json-server --watch ./data.json --port 8000\" ",
+    "dev": "concurrently \"npm:start\" \"npm:css:build\" \"npm:db-start\" ",
     "css:build": "tailwindcss -i ./src/style.css -o ./public/style.css --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "concurrently \"npm:db-reset\" \"npm:db-start\" \"npm:open-my-html\"",
+    "test-no-r": "concurrently \"npm:open-my-html\" \"npm:db-start\" ",
+    "db-reset": "node ResetDatabase.js",
+    "db-start": "json-server --watch ./data.json --port 8000",
+    "eject": "react-scripts eject",
+    "open-my-html": "open-cli path/to/your/index.html"
   },
   "eslintConfig": {
     "extends": [

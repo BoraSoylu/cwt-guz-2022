@@ -62,7 +62,13 @@ export const EditModal = (props) => {
     setValidated(true);
   };
   return (
-    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+    <Modal
+      {...props}
+      aria-labelledby="contained-modal-title-vcenter"
+      onShow={() => {
+        setValidated(false);
+      }}
+    >
       <Form onSubmit={handleSubmit} noValidate validated={validated}>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
