@@ -14,14 +14,14 @@ import tr from 'date-fns/locale/tr';
 import axios from 'axios';
 const url = 'http://localhost:8000/students';
 
-export const EditModal = (props) => {
+export const AddModal = (props) => {
   const depts = {
     1: 'Bilgisayar Müh.',
     2: 'Elektrik-Elektronik Müh.',
     3: 'Endüstri Müh.',
     4: 'İnşaat Müh.',
   };
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date('2000-01-01'));
   registerLocale('tr', tr);
 
   const [validated, setValidated] = useState(false);
@@ -30,11 +30,8 @@ export const EditModal = (props) => {
     const form = event.currentTarget;
     event.preventDefault();
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
     } else {
-      const updatedStudent = {
-        id: props.student.id,
+      const addStudent = {
         fname: event.target[1].value,
         lname: event.target[2].value,
         num: event.target[3].value,
@@ -47,27 +44,31 @@ export const EditModal = (props) => {
           '$3-$2-$1'
         ),
       };
-      axios.put(`${url}/${props.student.id}`, updatedStudent).then(() => {
-        setGlobalStudents(
-          globalStudents.map((obj) => {
-            if (obj.id === updatedStudent.id) {
-              return updatedStudent;
-            }
-            return obj;
-          })
-        );
+      axios.post(`${url}`, addStudent).then((response) => {
+        setGlobalStudents((globalStudents) => [
+          ...globalStudents,
+          response.data,
+        ]);
       });
       props.onHide();
     }
     setValidated(true);
   };
   return (
-    <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
+    <Modal
+      {...props}
+      aria-labelledby="contained-modal-title-vcenter"
+      onShow={() => {
+        setStartDate(new Date('2000-01-01'));
+        setValidated(false);
+      }}
+    >
       <Form onSubmit={handleSubmit} noValidate validated={validated}>
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             <div className="t-flex t-items-center t-gap-2">
-              <InfoCircleFill size={20} color="blue" /> Öğrenciyi Düzenle
+              <InfoCircleFill size={20} color="blue" /> Eklenecek Öğrenci
+              Bilgileri
             </div>
           </Modal.Title>
         </Modal.Header>
@@ -79,8 +80,8 @@ export const EditModal = (props) => {
                 <Form.Control
                   type="text"
                   pattern={/^[a-zA-ZÇĞİÖŞÜçğıöşü\d]{3,}$/.source}
-                  defaultValue={props.student.fname}
                   required
+                  placeholder="Bora"
                 />
                 <Form.Control.Feedback type="invalid">
                   İsim en az 3 harf içermelidir.
@@ -89,10 +90,10 @@ export const EditModal = (props) => {
               <Form.Group as={Col} xs={12} md={6} controlId="formLname">
                 <Form.Label>Soyisim</Form.Label>
                 <Form.Control
-                  defaultValue={props.student.lname}
                   type="text"
                   pattern={/^[a-zA-ZÇĞİÖŞÜçğıöşü\d]{3,}$/.source}
                   required
+                  placeholder="Soylu"
                 />
                 <Form.Control.Feedback type="invalid">
                   Soyisim en az 3 harf içermelidir.
@@ -101,10 +102,10 @@ export const EditModal = (props) => {
               <Form.Group as={Col} xs={12} md={6} controlId="formNum">
                 <Form.Label>Öğrenci Numarası</Form.Label>
                 <Form.Control
-                  defaultValue={props.student.num}
                   type="text"
                   pattern={/^\d{12}$/.source}
                   required
+                  placeholder="123456789123"
                 />
                 <Form.Control.Feedback type="invalid">
                   Öğrenci numarası 12 rakam içermelidir.
@@ -112,7 +113,7 @@ export const EditModal = (props) => {
               </Form.Group>
               <Form.Group as={Col} xs={12} md={6} controlId="formDept">
                 <Form.Label>Bölüm</Form.Label>
-                <Form.Select defaultValue={depts[props.student.dept]}>
+                <Form.Select>
                   <option>Bilgisayar Müh.</option>
                   <option>Elektrik-Elektronik Müh.</option>
                   <option>Endüstri Müh.</option>
@@ -122,10 +123,10 @@ export const EditModal = (props) => {
               <Form.Group as={Col} xs={12} md={6} controlId="formPob">
                 <Form.Label>Doğum Yeri</Form.Label>
                 <Form.Control
-                  defaultValue={props.student.pob}
                   type="text"
                   pattern={/^[a-zA-ZÇĞİÖŞÜçğıöşü\d]{3,}$/.source}
                   required
+                  placeholder="Edirne"
                 />
                 <Form.Control.Feedback type="invalid">
                   Doğum yeri en az 3 hard içermelidir.
@@ -136,7 +137,7 @@ export const EditModal = (props) => {
                 <DatePicker
                   dateFormat="dd/MM/yyyy"
                   className="form-control"
-                  selected={startDate ? startDate : new Date(props.student.dob)}
+                  selected={startDate}
                   showMonthDropdown
                   showYearDropdown
                   dropdownMode="select"

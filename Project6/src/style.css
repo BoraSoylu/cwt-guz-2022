@@ -45,3 +45,22 @@
   background-color: #eefefe !important;
   width: 100% !important;
 }
+
+.toggle-view-btn, .add-student-btn{
+  font-size: 1rem !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  height: fit-content;
+  padding: 0.2rem 0.35rem !important;
+}
+.add-student-btn{
+  height: 33px !important;
+  width: 35px !important;
+}
+
+.log-out-btn{
+  width: fit-content  !important;
+  padding: 5px 8px !important;
+}

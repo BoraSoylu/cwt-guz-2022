@@ -3,8 +3,16 @@ import Button from 'react-bootstrap/Button';
 import DeleteModal from './Modals/DeleteModal';
 import { EditModal } from './Modals/EditModal';
 import { ViewModal } from './Modals/ViewModal';
+import { AddModal } from './Modals/AddModal';
 import Card from 'react-bootstrap/Card';
-import { InfoCircle, Pen, Trash } from 'react-bootstrap-icons';
+import {
+  InfoCircle,
+  Pen,
+  PersonPlus,
+  ToggleOff,
+  ToggleOn,
+  Trash,
+} from 'react-bootstrap-icons';
 
 function StudentList({ students, setStudents }) {
   const depts = {
@@ -29,10 +37,9 @@ function StudentList({ students, setStudents }) {
   const [deleteModalShow, setDeleteModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [viewModalShow, setViewModalShow] = useState(false);
+  const [addModalShow, setAddModalShow] = useState(false);
 
-  // const returnElement = cardView ? 
-
-  if (cardView) {
+  const cardList = () => {
     return (
       <div className="row gx-5 gy-3 t-px-8 t-mb-4">
         {students.map((student) => (
@@ -83,24 +90,11 @@ function StudentList({ students, setStudents }) {
             </Card>
           </div>
         ))}
-        <DeleteModal
-          student={studentForBtn}
-          show={deleteModalShow}
-          onHide={() => setDeleteModalShow(false)}
-        />
-        <EditModal
-          student={studentForBtn}
-          show={editModalShow}
-          onHide={() => setEditModalShow(false)}
-        />
-        <ViewModal
-          student={studentForBtn}
-          show={viewModalShow}
-          onHide={() => setViewModalShow(false)}
-        />
       </div>
     );
-  } else {
+  };
+
+  const rowList = () => {
     return (
       <>
         <div>
@@ -173,24 +167,57 @@ function StudentList({ students, setStudents }) {
             </div>
           ))}
         </div>
-        <DeleteModal
-          student={studentForBtn}
-          show={deleteModalShow}
-          onHide={() => setDeleteModalShow(false)}
-        />
-        <EditModal
-          student={studentForBtn}
-          show={editModalShow}
-          onHide={() => setEditModalShow(false)}
-        />
-        <ViewModal
-          student={studentForBtn}
-          show={viewModalShow}
-          onHide={() => setViewModalShow(false)}
-        />
       </>
     );
-  }
+  };
+  return (
+    <>
+      <div className="t-flex justify-content-between align-items-center t-px-8 t-gap-2">
+        <p className="t-text-4xl t-font-bold  ">Öğrenci Listesi</p>
+        <div className="add-change-view-btns t-flex t-gap-2 t-items-center t-h-full">
+          <Button
+            variant="primary"
+            bsPrefix="toggle-view-btn btn btn-primary"
+            onClick={() => {
+              setCardView(!cardView);
+            }}
+          >
+            Table View{' '}
+            {cardView ? (
+              <ToggleOff size={22}></ToggleOff>
+            ) : (
+              <ToggleOn size={22}></ToggleOn>
+            )}
+          </Button>
+          <Button
+            className="add-student-btn"
+            onClick={() => {
+              setAddModalShow(true);
+            }}
+          >
+            <PersonPlus size={40}></PersonPlus>
+          </Button>
+        </div>
+      </div>
+      {cardView ? cardList() : rowList()}
+      <DeleteModal
+        student={studentForBtn}
+        show={deleteModalShow}
+        onHide={() => setDeleteModalShow(false)}
+      />
+      <EditModal
+        student={studentForBtn}
+        show={editModalShow}
+        onHide={() => setEditModalShow(false)}
+      />
+      <ViewModal
+        student={studentForBtn}
+        show={viewModalShow}
+        onHide={() => setViewModalShow(false)}
+      />
+      <AddModal show={addModalShow} onHide={() => setAddModalShow(false)} />
+    </>
+  );
 }
 
 export default StudentList;
