@@ -8,10 +8,10 @@
   },
   "scripts": {
     "test": "concurrently \"npm:db-reset\" \"npm:db-start\" \"npm:open-my-html\"",
-    "test-": "concurrently \"npm:open-my-html\" \"npm:db-start\" ",
+    "test-": "concurrently \"npm:open-html\" \"npm:db-start\" ",
     "db-reset": "node ResetDatabase.js",
     "db-start": "json-server --watch ./data.json --port 8000",
-    "open-my-html": "open-cli ../index.html"
+    "open-html": "open-cli ../index.html"
   },
   "eslintConfig": {
     "extends": [
