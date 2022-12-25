@@ -1,6 +1,15 @@
 {
   "students": [
     {
+      "id": 1,
+      "fname": "Isim1",
+      "lname": "Soyisim1",
+      "num": "152120171101",
+      "dept": "2",
+      "pob": "Eskişehir",
+      "dob": "1999-03-23"
+    },
+    {
       "id": 2,
       "fname": "Isim2",
       "lname": "Soyisim2",

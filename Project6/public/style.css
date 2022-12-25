@@ -571,6 +571,10 @@ video {
   display: grid;
 }
 
+.t-w-screen {
+  width: 100vw;
+}
+
 .t-w-full {
   width: 100%;
 }
@@ -614,6 +618,15 @@ video {
 .t-px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.t-text-center {
+  text-align: center;
+}
+
+.t-text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 *, *::after, *::before{
