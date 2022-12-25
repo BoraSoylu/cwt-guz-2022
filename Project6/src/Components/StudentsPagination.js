@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { StudentsContext } from '../StudentsContext';
+import React, { useContext, useEffect, useState } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 const StudentsPagination = ({
   studentsPerPage,
@@ -11,9 +12,16 @@ const StudentsPagination = ({
   for (let i = 1; i <= Math.ceil(totalStudents / studentsPerPage); i++) {
     pageNumbers.push(i);
   }
+  const { globalStudents, setGlobalStudents } = useContext(StudentsContext);
 
   const perPageNumbers = [5, 8, 10];
   const [activePerPage, setActivePerPage] = useState(8);
+  useEffect(() => {
+    if (totalStudents / studentsPerPage < activePage) {
+      setActivePage(activePage - 1);
+      paginate(activePage - 1);
+    }
+  }, [globalStudents]);
 
   return (
     <div className="t-flex t-justify-between t-items-center t-bg-[#f0f2fa] py-2 px-3">

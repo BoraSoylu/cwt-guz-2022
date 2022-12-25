@@ -16,9 +16,7 @@ function Content() {
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const perPaginate = (perPage, setActivePage) => {
-    console.log('1');
     setStudentsPerPage(perPage);
-    console.log('2');
 
     const lastPageNumber = Math.ceil(Object.keys(globalStudents).length / perPage);
     if (currentPage > lastPageNumber) {

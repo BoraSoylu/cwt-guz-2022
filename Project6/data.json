@@ -1,6 +1,33 @@
 {
   "students": [
     {
+      "id": 1,
+      "fname": "Isim1",
+      "lname": "Soyisim1",
+      "num": "152120171101",
+      "dept": "2",
+      "pob": "Eskişehir",
+      "dob": "1999-03-23"
+    },
+    {
+      "id": 2,
+      "fname": "Isim2",
+      "lname": "Soyisim2",
+      "num": "152120171102",
+      "dept": 1,
+      "pob": "Ankara",
+      "dob": "2000-04-30"
+    },
+    {
+      "id": 3,
+      "fname": "Isim3",
+      "lname": "Soyisim3",
+      "num": "152120171103",
+      "dept": 3,
+      "pob": "Kütahya",
+      "dob": "2001-07-12"
+    },
+    {
       "id": 4,
       "fname": "Isim4",
       "lname": "Soyisim4",
@@ -19,6 +46,24 @@
       "dob": "1999-09-19"
     },
     {
+      "id": 7,
+      "fname": "Isim7",
+      "lname": "Soyisim7",
+      "num": "152120171107",
+      "dept": 3,
+      "pob": "Mardin",
+      "dob": "2000-10-03"
+    },
+    {
+      "id": 8,
+      "fname": "Isim8",
+      "lname": "Soyisim8",
+      "num": "152120171108",
+      "dept": 4,
+      "pob": "Antalya",
+      "dob": "1995-12-25"
+    },
+    {
       "id": 9,
       "fname": "Isim9",
       "lname": "Soyisim9",
@@ -32,8 +77,8 @@
       "fname": "Isim10",
       "lname": "Soyisim10",
       "num": "152120171110",
-      "dept": "3",
-      "pob": "Soyisim10",
+      "dept": 3,
+      "pob": "Denizli",
       "dob": "1999-05-19"
     },
     {
@@ -134,15 +179,6 @@
       "dept": 4,
       "pob": "Mardin",
       "dob": "1997-01-31"
-    },
-    {
-      "id": 23,
-      "fname": "Isim23",
-      "lname": "Soyisim23",
-      "num": "152120171123",
-      "dept": 2,
-      "pob": "Van",
-      "dob": "2002-05-11"
     }
   ]
 }

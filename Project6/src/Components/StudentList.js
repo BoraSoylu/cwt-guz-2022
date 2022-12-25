@@ -26,7 +26,7 @@ function StudentList({ students, setStudents }) {
   const [deleteModalShow, setDeleteModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [viewModalShow, setViewModalShow] = useState(false);
-  if (cardView) {
+  if (!cardView) {
     
   } else {
     return (
