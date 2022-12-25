@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "./static/css/main.cf7cb9db.css",
+    "main.js": "./static/js/main.4154f479.js",
+    "static/media/esogu-logo.png": "./static/media/esogu-logo.bb278d6c7e2e05b7a038.png",
+    "index.html": "./index.html",
+    "main.cf7cb9db.css.map": "./static/css/main.cf7cb9db.css.map",
+    "main.4154f479.js.map": "./static/js/main.4154f479.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf7cb9db.css",
+    "static/js/main.4154f479.js"
+  ]
+}
