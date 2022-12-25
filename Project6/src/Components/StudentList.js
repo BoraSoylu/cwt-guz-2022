@@ -27,10 +27,27 @@ function StudentList({ students, setStudents }) {
   const [editModalShow, setEditModalShow] = useState(false);
   const [viewModalShow, setViewModalShow] = useState(false);
   if (!cardView) {
-    
   } else {
     return (
       <>
+        <div>
+          <div
+            className={`t-py-2 t-px-4 student t-grid t-grid-cols-4 t-w-full t-bg-[#f0f2fa]`}
+          >
+            <div className="t-flex t-items-center">
+              <b>İsim Soyisim</b>
+            </div>
+            <div className="t-items-center d-none d-md-flex">
+              <b>Öğrenci Numarası</b>
+            </div>
+            <div className="d-none t-items-center t-gap-2 d-lg-flex">
+              <b>Bölüm</b>
+            </div>
+            <div className="t-flex t-items-center t-gap-2">
+              <b>Yetkiler</b>
+            </div>
+          </div>
+        </div>
         <div className="">
           {students.map((student, index) => (
             <div
@@ -42,8 +59,12 @@ function StudentList({ students, setStudents }) {
               <div className="t-flex t-items-center">
                 {`${student.fname} ${student.lname}`}{' '}
               </div>
-              <div className="t-flex t-items-center">{student.num}</div>
-              <div className="t-flex t-items-center">{depts[student.dept]}</div>
+              <div className="t-items-center d-none d-md-flex">
+                {student.num}
+              </div>
+              <div className="d-none t-items-center t-gap-2 d-lg-flex">
+                {depts[student.dept]}
+              </div>
               <div className="t-flex t-items-center t-gap-2">
                 <Button
                   onClick={() => {

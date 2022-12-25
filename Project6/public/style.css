@@ -571,6 +571,10 @@ video {
   display: grid;
 }
 
+.t-hidden {
+  display: none;
+}
+
 .t-w-screen {
   width: 100vw;
 }
@@ -595,6 +599,11 @@ video {
   gap: 0.5rem;
 }
 
+.t-bg-\[\#f0f2fa\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 242 250 / var(--tw-bg-opacity));
+}
+
 .t-bg-\[\#e3eafd\] {
   --tw-bg-opacity: 1;
   background-color: rgb(227 234 253 / var(--tw-bg-opacity));
@@ -605,9 +614,9 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.t-bg-\[\#f0f2fa\] {
+.t-bg-red-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(240 242 250 / var(--tw-bg-opacity));
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
 }
 
 .t-py-2 {

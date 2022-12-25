@@ -21,7 +21,7 @@ export const ViewModal = (props) => {
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             <div className="t-flex t-items-center t-gap-2">
-              <InfoCircleFill size={20} color="blue" /> Öğrenciyi Düzenle
+              <InfoCircleFill size={20} color="blue" /> Öğrenci Bilgileri
             </div>
           </Modal.Title>
         </Modal.Header>
