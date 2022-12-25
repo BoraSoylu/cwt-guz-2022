@@ -18,7 +18,9 @@ function Content() {
   const perPaginate = (perPage, setActivePage) => {
     setStudentsPerPage(perPage);
 
-    const lastPageNumber = Math.ceil(Object.keys(globalStudents).length / perPage);
+    const lastPageNumber = Math.ceil(
+      Object.keys(globalStudents).length / perPage
+    );
     if (currentPage > lastPageNumber) {
       setCurrentPage(lastPageNumber);
       setActivePage(lastPageNumber);
@@ -26,7 +28,7 @@ function Content() {
   };
 
   return (
-    <div className="mt-5 ">
+    <div className="mt-5  t-flex t-justify-center t-flex-col">
       <StudentList students={currentStudents} setStudents={setGlobalStudents} />
       <StudentsPagination
         studentsPerPage={studentsPerPage}

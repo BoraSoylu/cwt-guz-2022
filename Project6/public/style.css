@@ -563,16 +563,20 @@ video {
   margin: 0px;
 }
 
+.t-mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.t-mb-4 {
+  margin-bottom: 1rem;
+}
+
 .t-flex {
   display: flex;
 }
 
 .t-grid {
   display: grid;
-}
-
-.t-hidden {
-  display: none;
 }
 
 .t-w-screen {
@@ -587,12 +591,24 @@ video {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.t-flex-col {
+  flex-direction: column;
+}
+
 .t-items-center {
   align-items: center;
 }
 
+.t-justify-center {
+  justify-content: center;
+}
+
 .t-justify-between {
   justify-content: space-between;
+}
+
+.t-gap-4 {
+  gap: 1rem;
 }
 
 .t-gap-2 {
@@ -614,9 +630,9 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.t-bg-red-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+.t-px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .t-py-2 {
@@ -624,9 +640,14 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.t-px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.t-px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.t-px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .t-text-center {
@@ -677,4 +698,13 @@ video {
 .auth-buttons{
   min-width: 71px !important;
   font-size: 0.8rem !important;
+}
+
+.auth-buttons-icon{
+  min-width: 0 !important;
+}
+
+.student-card{
+  background-color: #eefefe !important;
+  width: 100% !important;
 }

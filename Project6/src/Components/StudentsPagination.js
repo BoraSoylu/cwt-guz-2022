@@ -24,7 +24,7 @@ const StudentsPagination = ({
   }, [globalStudents]);
 
   return (
-    <div className="t-flex t-justify-between t-items-center t-bg-[#f0f2fa] py-2 px-3">
+    <div className="t-flex t-justify-between t-items-center t-bg-[#f0f2fa] py-2 t-px-8">
       <div>
         <b>{totalStudents}</b> öğrenciden{' '}
         <b>{`${activePage * studentsPerPage - studentsPerPage + 1} - ${

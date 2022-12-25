@@ -38,3 +38,10 @@
   min-width: 71px !important;
   font-size: 0.8rem !important;
 }
+.auth-buttons-icon{
+  min-width: 0 !important;
+}
+.student-card{
+  background-color: #eefefe !important;
+  width: 100% !important;
+}
