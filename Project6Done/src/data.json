@@ -19,6 +19,15 @@
       "dob": "2000-04-30"
     },
     {
+      "id": 3,
+      "fname": "Isim3",
+      "lname": "Soyisim3",
+      "num": "152120171103",
+      "dept": 3,
+      "pob": "Kütahya",
+      "dob": "2001-07-12"
+    },
+    {
       "id": 4,
       "fname": "Isim4",
       "lname": "Soyisim4",
