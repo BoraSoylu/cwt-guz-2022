@@ -64,15 +64,6 @@
       "dob": "1995-12-25"
     },
     {
-      "id": 9,
-      "fname": "Isim9",
-      "lname": "Soyisim9",
-      "num": "152120171109",
-      "dept": 1,
-      "pob": "Tokat",
-      "dob": "2001-07-16"
-    },
-    {
       "id": 10,
       "fname": "Isim10",
       "lname": "Soyisim10",
@@ -134,60 +125,6 @@
       "dept": 1,
       "pob": "Manisa",
       "dob": "2000-03-31"
-    },
-    {
-      "id": 18,
-      "fname": "Isim18",
-      "lname": "Soyisim18",
-      "num": "152120171118",
-      "dept": 1,
-      "pob": "Bolu",
-      "dob": "2000-06-25"
-    },
-    {
-      "id": 19,
-      "fname": "Isim19",
-      "lname": "Soyisim19",
-      "num": "152120171119",
-      "dept": 2,
-      "pob": "Hatay",
-      "dob": "1997-03-04"
-    },
-    {
-      "id": 20,
-      "fname": "Isim20",
-      "lname": "Soyisim20",
-      "num": "152120171120",
-      "dept": 3,
-      "pob": "Afyon",
-      "dob": "2000-07-18"
-    },
-    {
-      "id": 21,
-      "fname": "Isim21",
-      "lname": "Soyisim21",
-      "num": "152120171121",
-      "dept": 1,
-      "pob": "Kars",
-      "dob": "2001-08-08"
-    },
-    {
-      "id": 22,
-      "fname": "Isim22",
-      "lname": "Soyisim22",
-      "num": "152120171122",
-      "dept": 4,
-      "pob": "Mardin",
-      "dob": "1997-01-31"
-    },
-    {
-      "id": 23,
-      "fname": "Isim23",
-      "lname": "Soyisim23",
-      "num": "152120171123",
-      "dept": 2,
-      "pob": "Van",
-      "dob": "2002-05-11"
     }
   ]
 }

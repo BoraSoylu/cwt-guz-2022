@@ -1,0 +1,11 @@
+Önce bunları yap, npm bi şey yapmıyosa node.js yükle:
+git clone git@github.com:BoraSoylu/cwt-guz-2022.git
+cd .\cwt-guz-2022\Project6Done\src\
+npm install
+
+npm run test // reset server, start server, open index.html, asıl bunu kullanırsın
+
+npm run test- // start server, open index.html yani no reset
+npm run db-reset // reset-server only
+npm run db-start // start server only
+npm run open-html // open index.js, elle de açabilirsin ./ProjectDone/index.js
