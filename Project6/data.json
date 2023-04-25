@@ -10,15 +10,6 @@
       "dob": "1999-03-23"
     },
     {
-      "id": 2,
-      "fname": "Isim2",
-      "lname": "Soyisim2",
-      "num": "152120171102",
-      "dept": 1,
-      "pob": "Ankara",
-      "dob": "2000-04-30"
-    },
-    {
       "id": 3,
       "fname": "Isim3",
       "lname": "Soyisim3",
